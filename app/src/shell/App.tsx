@@ -84,7 +84,7 @@ export function App() {
 
   function scan(code: string) {
     if (!po) return;
-    const sku = po.lines.find((l) => ean13(l.sku) === code)?.sku ?? links[code];
+    const sku = po.lines.find((l) => ean13(l.sku) === code || links[code] === l.sku)?.sku;
     if (sku) receive(sku, false);
     else setOverlay({ kind: "unknown-code", code });
   }

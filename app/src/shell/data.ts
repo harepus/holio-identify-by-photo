@@ -57,7 +57,9 @@ const LINKS_KEY = "holio-demo-linked-barcodes";
 
 export function readLinks(): Record<string, string> {
   try {
-    return JSON.parse(localStorage.getItem(LINKS_KEY) ?? "{}") as Record<string, string>;
+    const raw: unknown = JSON.parse(localStorage.getItem(LINKS_KEY) ?? "{}");
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return {};
+    return Object.fromEntries(Object.entries(raw).filter((e): e is [string, string] => typeof e[1] === "string"));
   } catch {
     return {};
   }
