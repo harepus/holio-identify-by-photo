@@ -1,18 +1,20 @@
 {
  "in": {
   "n": 38,
-  "top1": 36,
-  "wrong_confident": 0,
-  "abstain": 2,
-  "top3": 38,
+  "match_right": 36,
+  "match_wrong": 0,
+  "choose": 2,
+  "none": 0,
+  "right_in_top3": 38,
   "crash": 0
  },
  "out": {
   "n": 47,
-  "correct_abstain": 45,
-  "wrong_confident": 2,
+  "none": 45,
+  "choose": 1,
+  "match": 1,
   "crash": 0
  },
- "latency_p50_s": 5.57,
- "latency_p90_s": 6.36
+ "latency_p50_s": 5.56,
+ "latency_p90_s": 6.35
 }

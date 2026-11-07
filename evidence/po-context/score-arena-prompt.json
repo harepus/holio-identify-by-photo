@@ -1,0 +1,20 @@
+{
+ "in": {
+  "n": 38,
+  "match_right": 36,
+  "match_wrong": 0,
+  "choose": 2,
+  "none": 0,
+  "right_in_top3": 38,
+  "crash": 0
+ },
+ "out": {
+  "n": 47,
+  "none": 43,
+  "choose": 2,
+  "match": 2,
+  "crash": 0
+ },
+ "latency_p50_s": 5.57,
+ "latency_p90_s": 6.36
+}

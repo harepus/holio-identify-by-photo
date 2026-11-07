@@ -17,9 +17,9 @@
     }
    ],
    "abstain": false,
-   "evidence": "Pale yellow Twinings of London Earl Grey Tea box, 'Since 1706', 'Refreshing & Fragrant', with a 25 tea bag count, matches the yellow 25-bag Earl Grey Tea box and not the purple 50/100 bag boxes, tins, green tea or Tassimo pods."
+   "evidence": "The pale yellow Twinings of London Earl Grey Tea box says 'Refreshing & Fragrant', 'Since 1706' and shows a 25 tea bag count, matching the small yellow 25-bag Earl Grey box rather than the purple 50/100 boxes or the tins."
   },
-  "secs": 6.05
+  "secs": 6.35
  },
  {
   "case": "h001-out",
@@ -39,9 +39,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Twinings Earl Grey Tea (black tea with bergamot, 25 bags), and no register row is Earl Grey; the Twinings rows are green tea, gunpowder green tea and Sleep blend."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Twinings Earl Grey Tea (black tea with bergamot, 25 bags), and no register row lists Earl Grey; the Twinings rows are green tea, gunpowder green tea and Sleep, which are different products."
   },
-  "secs": 6.14
+  "secs": 6.74
  },
  {
   "case": "h002-out",
@@ -52,7 +52,7 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-4969",
+     "sku": "SKU-2223",
      "score": 0.25
     },
     {
@@ -61,9 +61,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Mutti Passierte Italienische Tomaten (passata) bottle with red label, and no register row is a Mutti or tomato product."
+   "evidence": "Not sure, the checks disagree or see no exact match. The item is a Mutti Parma bottle of Passierte Italienische Tomaten (passata), and no register row lists a Mutti or tomato product."
   },
-  "secs": 5.05
+  "secs": 6.35
  },
  {
   "case": "h003-in",
@@ -83,9 +83,9 @@
     }
    ],
    "abstain": false,
-   "evidence": "Pack reads 'Honey Nut Cheerios', Gluten Free, whole grain oats first ingredient, net wt 10.8 oz (306 g), matching the 10.8 oz US-style Honey Nut Cheerios rather than the 436 g or 430 g versions."
+   "evidence": "The pack reads Honey Nut Cheerios, gluten free, with whole grain oats first ingredient and net wt 10.8 oz (306 g), which matches the 10.8 oz Honey Nut Cheerios row; the other Honey Nut rows are 436 g and 430 g sizes."
   },
-  "secs": 6.36
+  "secs": 7.02
  },
  {
   "case": "h003-out",
@@ -105,9 +105,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Honey Nut Cheerios (naturally flavored, made with real honey, 10.8 oz box), a different variant from the plain Cheerios listed in the register, none of which show Honey Nut."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Honey Nut Cheerios (naturally flavored, made with real honey, 10.8 oz) in a red-brown box, but the register only lists plain Cheerios in yellow boxes, which is a different variant."
   },
-  "secs": 5.41
+  "secs": 6.19
  },
  {
   "case": "h004-out",
@@ -127,9 +127,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Johnny's Klassiska Senap Sötstark, a 500 g yellow mustard squeeze bottle, and none of the Kavli products listed (cheese spreads and American dressings) is a Johnny's mustard."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Johnny's Klassiska Senap Sötstark, a 500 g yellow mustard squeeze bottle, and every register row is a Kavli product (spreads or American dressings), so none match."
   },
-  "secs": 6.18
+  "secs": 5.44
  },
  {
   "case": "h005-in",
@@ -137,43 +137,43 @@
    "candidates": [
     {
      "sku": "SKU-7089",
-     "score": 0.97
+     "score": 0.98
     },
     {
      "sku": "SKU-3084",
-     "score": 0.018
+     "score": 0.012
     },
     {
      "sku": "SKU-4741",
-     "score": 0.009
+     "score": 0.006
     }
    ],
    "abstain": false,
-   "evidence": "The red round tin reads 'Freia Bakepulver 250g' with the baker-boy illustration, and the ingredients list baking soda and disodium diphosphate, matching the Freia baking powder tin."
+   "evidence": "The red Freia tin is printed 'BAKE-PULVER 250g' with the baker-boy artwork, and the back lists baking powder ingredients (dinatriumdifosfat, maisstivelse, natriumhydrogenkarbonat), matching the Freia Bakepulver 250g tin."
   },
-  "secs": 5.59
+  "secs": 5.45
  },
  {
   "case": "h005-out",
   "out": {
    "candidates": [
     {
+     "sku": "SKU-7325",
+     "score": 0.0
+    },
+    {
      "sku": "SKU-1254",
-     "score": 0.375
+     "score": 0.0
     },
     {
-     "sku": "SKU-3223",
-     "score": 0.25
-    },
-    {
-     "sku": "SKU-8925",
-     "score": 0.125
+     "sku": "SKU-4741",
+     "score": 0.0
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a red Freia Bakepulver (baking powder) 250g tin, while every register row is a Freia milk chocolate bar or product, so none match."
+   "evidence": "Not sure, the checks disagree or see no exact match. The item is a 250g tin of Freia Bakepulver (baking powder, ingredients dinatriumdifosfat, maisstivelse, natriumhydrogenkarbonat), not a milk chocolate bar, so none of the Freia melkesjokolade products listed match."
   },
-  "secs": 5.87
+  "secs": 5.52
  },
  {
   "case": "h006-in",
@@ -188,14 +188,14 @@
      "score": 0.042
     },
     {
-     "sku": "SKU-2391",
+     "sku": "SKU-1238",
      "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The single sachet reads Maarud Holiday Dipmix with 'Gir 3dl dip' and 22g, with no '3 i pakken' multipack text, so it is the single 22 g Holiday Dipmix rather than the 3-pack or the Tortilla dipmix."
+   "evidence": "Single orange Maarud Holiday Dipmix sachet printed '22g' and 'Gir 3dl dip', with no '3 i pakken' multipack text, so it is the single 22 g sachet and not the 3-pack or the red Tortilla Dipmix."
   },
-  "secs": 5.29
+  "secs": 5.85
  },
  {
   "case": "h006-out",
@@ -206,18 +206,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-9947",
+     "sku": "SKU-7264",
      "score": 0.25
     },
     {
-     "sku": "SKU-7264",
+     "sku": "SKU-9947",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Maarud Holiday Dipmix sachet (22g, makes 3 dl dip) in orange foil, which is a dip seasoning mix and not a bag of chips, so none of the listed Maarud chip products match."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Maarud Holiday Dipmix (22g sachet for making dip, 'Gir 3dl dip'), not a bag of chips, and no register row lists a dip mix."
   },
-  "secs": 5.45
+  "secs": 5.42
  },
  {
   "case": "h007-out",
@@ -229,17 +229,17 @@
     },
     {
      "sku": "SKU-4597",
-     "score": 0.0
+     "score": 0.25
     },
     {
-     "sku": "SKU-7364",
-     "score": 0.0
+     "sku": "SKU-7631",
+     "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Ritter Sport Dark Whole Almond (Fondente con mandorle intere), while the only Ritter Sport row is White Whole Hazelnuts, a different variant."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Ritter Sport Dark Whole Almond (Fondente con mandorle intere, dark chocolate with almonds), while the only Ritter Sport in the register is White Whole Hazelnuts, a different variant."
   },
-  "secs": 5.72
+  "secs": 5.86
  },
  {
   "case": "h008-in",
@@ -254,14 +254,14 @@
      "score": 0.042
     },
     {
-     "sku": "SKU-6621",
+     "sku": "SKU-2621",
      "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The blue Greco Original Feta pack with the sheep and Greek flag matches the Greco Feta product in the register, and it is the only feta listed."
+   "evidence": "The pack is a blue Greco Original Feta package, which is the same product as the blue Greco Feta in the register photo; no other feta is listed, so the size does not need to be checked."
   },
-  "secs": 5.15
+  "secs": 5.26
  },
  {
   "case": "h008-out",
@@ -281,9 +281,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Greco Original Feta, a sheep and goat milk cheese in blue packaging, and none of the register rows are feta or from the Greco brand; they are all Tine margarine, sour cream, cottage cheese, milk or coffee products."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Greco Original Feta (sheep and goat milk cheese, German text), a different brand and product from every Tine item in the register."
   },
-  "secs": 5.17
+  "secs": 5.46
  },
  {
   "case": "h009-in",
@@ -298,14 +298,14 @@
      "score": 0.018
     },
     {
-     "sku": "SKU-8754",
+     "sku": "SKU-1203",
      "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The pack prints 'MAARUD POTET SKRUER SALT' with the comic-strip design, and the only Potetskruer Salt in the register is that product, so no other size is listed."
+   "evidence": "The pack prints Maarud 'Potet Skruer' with 'SALT' on a yellow label and comic-style artwork, and only one Potetskruer Salt product is listed."
   },
-  "secs": 5.92
+  "secs": 5.62
  },
  {
   "case": "h009-out",
@@ -316,18 +316,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-2391",
+     "sku": "SKU-1203",
      "score": 0.25
     },
     {
-     "sku": "SKU-9947",
+     "sku": "SKU-2391",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Maarud Potetskruer Salt (twisted potato-starch snack with salt), which is not any listed product: the register has only Holiday dipmix sachets, Nisseluer Paprika, and Superchips/potato chips variants."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Maarud Potetskruer Salt, a twisted potato-snack bag with a yellow label, and no register row lists Potetskruer; the Superchips, Holiday dipmix, Nisseluer and paprika chips rows are different products."
   },
-  "secs": 5.72
+  "secs": 5.71
  },
  {
   "case": "h010-in",
@@ -347,9 +347,9 @@
     }
    ],
    "abstain": false,
-   "evidence": "The REMA 1000 tub prints 'Jordbær Syltetøy 1 kg' with strawberries on the lid, matching the REMA 1000 strawberry jam (not the raspberry 'Bringebær' tub or any Lerum jar)."
+   "evidence": "The REMA 1000 tub is printed 'Jordbær Syltetøy 1 kg' with strawberries on the lid, which matches the REMA 1000 strawberry jam; the raspberry version says Bringebær and the Lerum products carry a different brand."
   },
-  "secs": 5.16
+  "secs": 5.46
  },
  {
   "case": "h010-out",
@@ -369,31 +369,31 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Rema 1000 Jordbær Syltetøy (strawberry jam) 1 kg tub; the only strawberry jam in the register is the Stabburet/Nora Hjemmelaget jar, a different brand and product line, and the Lerum jams are lingonberry."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a REMA 1000 house-brand 1 kg tub of Jordbær Syltetøy (strawberry jam); the only strawberry jam listed is Stabburet/Nora Hjemmelaget in a glass jar, which is a different brand and product, and no row is REMA 1000."
   },
-  "secs": 5.75
+  "secs": 5.37
  },
  {
   "case": "h011-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-1110",
-     "score": 0.0
-    },
-    {
-     "sku": "SKU-8430",
-     "score": 0.0
+     "sku": "SKU-4356",
+     "score": 0.375
     },
     {
      "sku": "SKU-4225",
-     "score": 0.0
+     "score": 0.25
+    },
+    {
+     "sku": "SKU-8430",
+     "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Tine IsKaffe Caffè Gusto Salty Caramel lactose-free iced coffee carton, and no register row is an iced coffee: the rows are cream, milk, butter, sour cream, cultured milk and Bremykt margarine."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Tine IsKaffe Caffè Gusto Salty Caramel iced coffee (lactose-free, no added sugar) in a blue geometric carton, and no listed product is an iced coffee; the register only has milk, cream, sour cream and butter products."
   },
-  "secs": 5.9
+  "secs": 5.5
  },
  {
   "case": "h012-in",
@@ -401,21 +401,21 @@
    "candidates": [
     {
      "sku": "SKU-5214",
-     "score": 0.85
+     "score": 0.8
     },
     {
      "sku": "SKU-9867",
-     "score": 0.09
+     "score": 0.12
     },
     {
      "sku": "SKU-2372",
-     "score": 0.045
+     "score": 0.06
     }
    ],
    "abstain": false,
-   "evidence": "Plain Cheerios (100% Whole Grain Oats, gluten free, not Honey Nut) whose front reads '2 - 1 LB 4.25 OZ (20.35 OZ) (576g) CARTONS', a two-carton multipack that matches the Cheerios Original 2 x 576 g row rather than the single 18 oz or 570 g boxes."
+   "evidence": "Plain Cheerios in a yellow box, 100% Whole Grain Oats, English ingredients, with a two-carton club-pack weight line that reads about 1 lb 4.35 oz (576 g) per carton, which fits the 2-pack of Cheerios Original and rules out the single 18 oz box and the French 570 g box."
   },
-  "secs": 7.56
+  "secs": 9.04
  },
  {
   "case": "h012-out",
@@ -435,31 +435,31 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The yellow box reads plain 'Cheerios 100% Whole Grain Oats' and its ingredients list no honey, so it is the original flavour, while the register only has Honey Nut Cheerios."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is plain Cheerios (100% Whole Grain Oats, ingredients with no honey or nut), not Honey Nut Cheerios, and no plain Cheerios row is in the register."
   },
-  "secs": 5.5
+  "secs": 4.97
  },
  {
   "case": "h013-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-9947",
-     "score": 0.0
-    },
-    {
-     "sku": "SKU-1728",
-     "score": 0.0
-    },
-    {
      "sku": "SKU-1203",
-     "score": 0.0
+     "score": 0.375
+    },
+    {
+     "sku": "SKU-7264",
+     "score": 0.25
+    },
+    {
+     "sku": "SKU-9947",
+     "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Mitsuba Thai Chilli Crispies, an 85 g rice cracker snack, and every register row is a Maarud potato chip or dip mix, so none of them is this product."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Mitsuba Thai Chilli Crispies (85 g rice crackers), a different brand and product from every Maarud chips or dipmix in the register."
   },
-  "secs": 6.04
+  "secs": 5.14
  },
  {
   "case": "h014-in",
@@ -467,43 +467,43 @@
    "candidates": [
     {
      "sku": "SKU-4889",
-     "score": 0.9
+     "score": 0.93
     },
     {
      "sku": "SKU-3927",
-     "score": 0.06
+     "score": 0.042
     },
     {
-     "sku": "SKU-4266",
-     "score": 0.03
+     "sku": "SKU-8736",
+     "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The pack reads Ritter Sport Pfefferminz (German for peppermint) in teal with mint leaves and a white minty filling, matching the Menta bar; no other size is listed."
+   "evidence": "The pack is the teal Ritter Sport bar printed 'Pfefferminz' with mint leaves and a chocolate piece showing white peppermint filling, which is the Menta (peppermint) bar; no other size of it is listed."
   },
-  "secs": 5.3
+  "secs": 6.02
  },
  {
   "case": "h014-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-8784",
+     "sku": "SKU-5364",
      "score": 0.375
     },
     {
-     "sku": "SKU-4266",
+     "sku": "SKU-3308",
      "score": 0.25
     },
     {
-     "sku": "SKU-2277",
+     "sku": "SKU-8784",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Ritter Sport Pfefferminz (peppermint, dark chocolate with mint filling, teal wrapper), and no register row lists a peppermint variant."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Ritter Sport Pfefferminz (peppermint, teal wrapper with mint leaves and a minty cream-filled dark chocolate), and no listed product is a peppermint bar."
   },
-  "secs": 4.83
+  "secs": 5.36
  },
  {
   "case": "h016-in",
@@ -511,21 +511,21 @@
    "candidates": [
     {
      "sku": "SKU-1254",
-     "score": 0.93
+     "score": 0.9
     },
     {
      "sku": "SKU-3223",
-     "score": 0.042
+     "score": 0.06
     },
     {
      "sku": "SKU-3596",
-     "score": 0.021
+     "score": 0.03
     }
    ],
    "abstain": false,
-   "evidence": "The yellow Freia Melkesjokolade bar with the 'Hint av Havsalt' flash and 'Et lite stykke Norge' matches the 200g sea salt bar, and the ingredients list havsalt (0,3 %), which rules out the plain King Size bar and the Cocos bar."
+   "evidence": "Pack reads Freia Melkesjokolade with 'Hint av Havsalt' (sea salt) and the 'Et lite stykke Norge' tagline in a standard single-bar format, matching the Freia Melkesjokolade 200g bar; the King Size 250g version is a different pack format and the Coco bar is a different variant."
   },
-  "secs": 7.11
+  "secs": 5.38
  },
  {
   "case": "h016-out",
@@ -545,9 +545,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Freia Melkesjokolade med havsalt (milk chocolate with sea salt, a long bar); the only plain Freia chocolate bar in the register is the Firkløver milk chocolate (a different variant), and the rest are baking powder, caramel sauce, spread and Nidar products."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Freia Melkesjokolade med havsalt (milk chocolate with sea salt), a large bar, and no register row lists this variant; the only Freia milk chocolate row is the Firkløver bar, which is a different product line."
   },
-  "secs": 6.09
+  "secs": 5.35
  },
  {
   "case": "h017-in",
@@ -567,31 +567,31 @@
     }
    ],
    "abstain": false,
-   "evidence": "The jar reads Nescafé Decaf, descafeinado, with a green mug on a blue label and 120 g printed, matching the 120 g Nescafe Decaf rather than the 100 g Decaf with the different label."
+   "evidence": "The jar reads 'Nescafé Decaf' with a green mug on a blue label and 'Cont. Net 120 g', matching the 120 g Nescafe Decaf rather than the 100 g Decaf jar with a different brown label design."
   },
-  "secs": 5.57
+  "secs": 5.4
  },
  {
   "case": "h017-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-5191",
+     "sku": "SKU-9493",
      "score": 0.375
     },
     {
-     "sku": "SKU-9493",
+     "sku": "SKU-5191",
      "score": 0.25
     },
     {
-     "sku": "SKU-3778",
+     "sku": "SKU-2849",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nescafé Decaf (descafeinado, 120 g, light roast) glass jar from Mexico, and no register row is a decaf product; the listed rows are Crema, Classic, Brasero, Gold, Special Filtre Bio, 3in1 and Salted Caramel Mocha."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nescafé Decaf (descafeinado, light roast, 120 g, Mexican label) glass jar, and no register row is a decaf product; the listed Classic, Brasero, Gold, Crema, Special Filtre and 3in1 rows are different variants."
   },
-  "secs": 6.04
+  "secs": 5.82
  },
  {
   "case": "h018-in",
@@ -599,21 +599,21 @@
    "candidates": [
     {
      "sku": "SKU-7040",
-     "score": 0.8
+     "score": 0.62
     },
     {
      "sku": "SKU-7325",
-     "score": 0.12
+     "score": 0.228
     },
     {
      "sku": "SKU-3223",
-     "score": 0.06
+     "score": 0.114
     }
    ],
-   "abstain": false,
-   "evidence": "The pack is a light-blue Freia Firkløver Melkesjokolade (milk chocolate with hazelnuts) marked KING SIZE 250g, which matches the Firkløver King Size 250 g bar, whose register name is just the Italian word for chocolate; the plain yellow Melkesjokolade and the 200g Firkløver bar with its coffee sticker are different products."
+   "abstain": true,
+   "evidence": "Not sure: The pack is a light-blue Freia Firkløver Melkesjokolade bar with hazelnuts, printed 'KING SIZE 250g', which matches the King Size 250 g Firkløver pack photo; the regular 200 g Firkløver bar has a different design and a coffee flash."
   },
-  "secs": 8.96
+  "secs": 10.81
  },
  {
   "case": "h018-out",
@@ -624,18 +624,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-4220",
+     "sku": "SKU-3525",
      "score": 0.25
     },
     {
-     "sku": "SKU-3596",
+     "sku": "SKU-4220",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Freia Firkløver King Size 250g milk chocolate with hazelnuts, a different product line from every listed row, which are plain or flavoured Melkesjokolade bars (Havsalt, Coco, Tutti Frutti, Riskrisp, Boble), Julekuler, caramel sauce and Sjokonøtt spread."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Freia Firkløver King Size 250g milk chocolate with hazelnuts, a different product line than any listed row, none of which is Firkløver or hazelnut (the plain Melkesjokolade row is a different line and size)."
   },
-  "secs": 6.46
+  "secs": 5.43
  },
  {
   "case": "h019-in",
@@ -643,21 +643,21 @@
    "candidates": [
     {
      "sku": "SKU-1365",
-     "score": 0.95
+     "score": 0.93
     },
     {
      "sku": "SKU-3346",
-     "score": 0.03
+     "score": 0.042
     },
     {
      "sku": "SKU-3778",
-     "score": 0.015
+     "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The jar reads NESCAFÉ SPECIAL FILTRE L'ORIGINAL with 100 TASSES and a gold lid, matching the non-organic Special Filtre jar; the Bio version has green leaves and 45 cups, and no other size of this product is listed."
+   "evidence": "The jar reads 'NESCAFÉ SPECIAL FILTRE L'ORIGINAL' with '100 TASSES' and intensity 6, matching the non-organic Special Filtre jar, not the Bio version with leaf artwork and '45' cups."
   },
-  "secs": 5.26
+  "secs": 5.31
  },
  {
   "case": "h019-out",
@@ -672,14 +672,14 @@
      "score": 0.25
     },
     {
-     "sku": "SKU-8967",
+     "sku": "SKU-2437",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nescafé Spécial Filtre L'Original glass jar (100 tasses, intensité 6) with a gold lid, and none of the register products show the Spécial Filtre line: the Crema, Classic, Brasero, Decaf and sachet rows are all different variants."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Nescafé Spécial Filtre L'Original (100 tasses, intensité 6) in a glass jar with a gold lid, and no listed product is the Spécial Filtre line; the listed Nescafé jars are Crema, Decaf, Brasero and Classic."
   },
-  "secs": 5.56
+  "secs": 5.37
  },
  {
   "case": "h020-in",
@@ -699,9 +699,9 @@
     }
    ],
    "abstain": false,
-   "evidence": "The tin reads 'Twinings of London Gunpowder Green Tea, Since 1706', loose tea, net wt 100 g, with Italian 'Tè verde' in the ingredients text, matching the Gunpowder Green Tea tin."
+   "evidence": "The green tin reads 'Twinings of London Gunpowder Green Tea, Since 1706, Loose Tea, Net Wt 3.5 oz. 100 g', matching the Gunpowder Green Tea tin and its 100 g size."
   },
-  "secs": 5.66
+  "secs": 5.93
  },
  {
   "case": "h020-out",
@@ -712,18 +712,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-2049",
+     "sku": "SKU-3832",
      "score": 0.25
     },
     {
-     "sku": "SKU-3832",
+     "sku": "SKU-2049",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Twinings Gunpowder Green Tea loose tea in a green 100 g tin, not any Earl Grey product listed in the register."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Twinings Gunpowder Green Tea loose-leaf tin (100 g), not any Earl Grey product listed in the register."
   },
-  "secs": 5.08
+  "secs": 5.18
  },
  {
   "case": "h021-in",
@@ -734,18 +734,18 @@
      "score": 0.97
     },
     {
-     "sku": "SKU-3308",
+     "sku": "SKU-5364",
      "score": 0.018
     },
     {
-     "sku": "SKU-5364",
+     "sku": "SKU-3308",
      "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "Pack says Ritter Sport Nut Selection 'Wit hele hazelnoot' / white chocolate with whole hazelnuts, 100 g, on a yellow wrapper, matching the White Whole Hazelnuts bar."
+   "evidence": "The yellow Ritter Sport Nut Selection bar says 'Wit hele hazelnoot' / 'Blanc noisettes entières' (white chocolate with whole hazelnuts), 100 g, which matches the White Whole Hazelnuts bar."
   },
-  "secs": 5.39
+  "secs": 5.44
  },
  {
   "case": "h021-out",
@@ -765,9 +765,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Ritter Sport Nut Selection white chocolate with whole hazelnuts (Wit Hele Hazelnoot / Weiße Schokolade mit ganzen Haselnüssen), a variant that none of the listed Knusperflakes, Dunkle Voll-Nuss, Marzipan, Menta, Edel-Vollmilch or Alpenmilch products match."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Ritter Sport Nut Selection white chocolate with whole hazelnuts (Wit Hele Hazelnoot / Weiße Schokolade mit ganzen Haselnüssen), and no listed product is a white hazelnut bar; the listed ones are cornflakes, dark whole-nut, marzipan, mint and milk varieties."
   },
-  "secs": 5.47
+  "secs": 5.42
  },
  {
   "case": "h022-in",
@@ -778,18 +778,18 @@
      "score": 0.97
     },
     {
-     "sku": "SKU-6856",
+     "sku": "SKU-1293",
      "score": 0.018
     },
     {
-     "sku": "SKU-1293",
+     "sku": "SKU-6856",
      "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The clear bottle with yellow liquid is labelled ZEROh! PINEAPPLE (ananas) and made by Lerum AS, and only one Zeroh product is listed."
+   "evidence": "The bottle's label reads 'ZEROh!' with 'PINEAPPLE' and a yellow drink, matching the Zeroh! Pineapple bottle, and the back text says concentrated pineapple-flavoured soft drink from Lerum AS; no other Zeroh! size or flavour is listed."
   },
-  "secs": 5.21
+  "secs": 5.9
  },
  {
   "case": "h022-out",
@@ -800,18 +800,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-1293",
+     "sku": "SKU-6856",
      "score": 0.25
     },
     {
-     "sku": "SKU-6856",
+     "sku": "SKU-1293",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a ZEROh Pineapple concentrated soft drink (0.8 L bottle, 'Ananas' flavour) from Lerum, and none of the listed rows is a ZEROh drink: they are all jams or the Fun Light raspberry drink."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a ZEROh Pineapple (ananas) concentrated soft drink by Lerum, and none of the register rows is a ZEROh drink or a pineapple flavour; they are all jams or a Fun Light raspberry drink."
   },
-  "secs": 5.46
+  "secs": 4.99
  },
  {
   "case": "h023-in",
@@ -819,21 +819,21 @@
    "candidates": [
     {
      "sku": "SKU-8879",
-     "score": 0.8
+     "score": 0.9
     },
     {
      "sku": "SKU-2849",
-     "score": 0.12
+     "score": 0.06
     },
     {
      "sku": "SKU-5191",
-     "score": 0.06
+     "score": 0.03
     }
    ],
    "abstain": false,
-   "evidence": "The pack is a single small Nescafé Brasero sachet stick (Romanian 'Dublă Filtrare, Deplină Savoare'), matching the Brasero stick, not the 200 g Brasero jar."
+   "evidence": "The item is a single small Nescafé Brasero sachet stick (\"Dublă Filtrare, deplină Savoare\"), matching the 1.8 g Brasero stick rather than the 200 g Brasero jar."
   },
-  "secs": 5.01
+  "secs": 5.28
  },
  {
   "case": "h023-out",
@@ -841,21 +841,21 @@
    "candidates": [
     {
      "sku": "SKU-8967",
-     "score": 0.5
-    },
-    {
-     "sku": "SKU-6082",
-     "score": 0.3
+     "score": 0.375
     },
     {
      "sku": "SKU-9493",
-     "score": 0.15
+     "score": 0.25
+    },
+    {
+     "sku": "SKU-6082",
+     "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure: The pack is a single Nescafé Brasero stick sachet (black with red cup), and no Brasero row exists; the closest is the single-stick Nescafé sachet, but the Brasero variant is not named in the register, so this is a weak match at best."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a single-serve Nescafé Brasero stick ('Dublă Filtrare, deplină Savoare'), a different product line from any listed row, none of which is a Brasero."
   },
-  "secs": 4.88
+  "secs": 5.64
  },
  {
   "case": "h024-in",
@@ -863,21 +863,21 @@
    "candidates": [
     {
      "sku": "SKU-3084",
-     "score": 0.98
+     "score": 0.97
     },
     {
-     "sku": "SKU-6092",
-     "score": 0.012
+     "sku": "SKU-7089",
+     "score": 0.018
     },
     {
-     "sku": "SKU-3525",
-     "score": 0.006
+     "sku": "SKU-3995",
+     "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The squeeze bottle is Freia Hjemmekonditori 'Karamellsaus til iskrem og desserter', with Netto 360 g printed on the back, matching the only caramel sauce listed."
+   "evidence": "The bottle reads Freia Hjemmekonditori Karamellsaus 'til iskrem og desserter' and the back says Netto 360 g, matching the Freia caramel sauce squeeze bottle."
   },
-  "secs": 5.46
+  "secs": 5.56
  },
  {
   "case": "h024-out",
@@ -892,14 +892,14 @@
      "score": 0.25
     },
     {
-     "sku": "SKU-3596",
+     "sku": "SKU-6092",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Freia Hjemmekonditori Karamellsaus (caramel sauce for ice cream and desserts, 360 g squeeze bottle), and none of the register rows are a caramel sauce; they are chocolate bars, cookies and baking powder."
+   "evidence": "Not sure, the checks disagree or see no exact match. The item is Freia Hjemmekonditori Karamellsaus, a caramel sauce squeeze bottle for ice cream and desserts, and the register lists only chocolate bars, cookies and baking powder, none of which is a caramel sauce."
   },
-  "secs": 6.07
+  "secs": 5.56
  },
  {
   "case": "h025-in",
@@ -907,21 +907,21 @@
    "candidates": [
     {
      "sku": "SKU-3023",
-     "score": 0.95
+     "score": 0.96
     },
     {
      "sku": "SKU-1608",
-     "score": 0.03
+     "score": 0.024
     },
     {
      "sku": "SKU-6709",
-     "score": 0.015
+     "score": 0.012
     }
    ],
    "abstain": false,
-   "evidence": "The jar reads Toro Krydderiet KANEL 'Skarp og søt' with cassia bark ingredients and 67 g net content, matching the cinnamon jar in the register."
+   "evidence": "The glass shaker reads Toro Krydderiet KANEL 'Skarp og søt' (cinnamon, ground cassia bark) with net content 67 g, matching the Krydderiet Kanel row; no other cinnamon size is listed."
   },
-  "secs": 5.29
+  "secs": 5.2
  },
  {
   "case": "h025-out",
@@ -932,18 +932,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-1256",
+     "sku": "SKU-9797",
      "score": 0.25
     },
     {
-     "sku": "SKU-6249",
+     "sku": "SKU-8223",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Toro Krydderiet Kanel (cinnamon, 67 g jar), and no register row is cinnamon; the only spice row is Allehånde Malt (allspice, 13 g bag), which is a different product."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Toro Krydderiet Kanel (cinnamon, 67 g) spice jar, and no register row lists cinnamon; the only spice row is Toro Allehånde Malt (ground allspice), which is a different spice."
   },
-  "secs": 5.22
+  "secs": 5.12
  },
  {
   "case": "h026-in",
@@ -951,21 +951,21 @@
    "candidates": [
     {
      "sku": "SKU-1592",
-     "score": 0.5
-    },
-    {
-     "sku": "SKU-3608",
-     "score": 0.3
+     "score": 0.9
     },
     {
      "sku": "SKU-9842",
-     "score": 0.15
+     "score": 0.06
+    },
+    {
+     "sku": "SKU-3608",
+     "score": 0.03
     }
    ],
-   "abstain": true,
-   "evidence": "Not sure: The yellow round Stabburet Leverpostei tin has a blue ring, a child's face, 'NATURLIG RIK PÅ JERN' and 'ORIGINALEN SIDEN 1949', with no glutenfri or grovere marking. That matches the plain original tin, but the photos show no weight or pack count, so it could instead be a single 22 g portion from the 6-pack of the same product."
+   "abstain": false,
+   "evidence": "Round yellow tin lid reading Stabburet LEVERPOSTEI with 'Originalen siden 1949' and 'Naturlig rik på jern' on a blue ring, matching the original leverpostei tin and not the gluten-free, 6-pack or grovere versions."
   },
-  "secs": 7.82
+  "secs": 6.3
  },
  {
   "case": "h026-out",
@@ -985,9 +985,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a yellow Stabburet Leverpostei (liver pâté) tin with 'Naturlig rik på jern' and 'Originalen siden 1949'; no liver pâté is in the register, only Nugatti spreads, dressing, drink and jam."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a yellow Stabburet Leverpostei (liver pâté) tin lid with 'Naturlig rik på jern' and 'Originalen siden 1949', and no liver pâté product appears among the listed Nugatti, dressing, drink or jam items."
   },
-  "secs": 5.34
+  "secs": 6.02
  },
  {
   "case": "h027-in",
@@ -995,21 +995,21 @@
    "candidates": [
     {
      "sku": "SKU-9699",
-     "score": 0.96
+     "score": 0.95
     },
     {
      "sku": "SKU-6933",
-     "score": 0.024
+     "score": 0.03
     },
     {
      "sku": "SKU-6422",
-     "score": 0.012
+     "score": 0.015
     }
    ],
    "abstain": false,
-   "evidence": "The Lerum tub reads 'Tyttebær Syltetøy' (lingonberry jam) with red lingonberries on green artwork, and it is the only tub-format lingonberry product listed; the label confirms red lingonberries (arándanos rojos), 600 g."
+   "evidence": "The tub reads Lerum TYTTEBÆR Syltetøy with lingonberries on the lid and the label says red lingonberry jam (confitura de arándanos rojos), matching the lingonberry jam tub and no other flavour or jar."
   },
-  "secs": 5.59
+  "secs": 5.72
  },
  {
   "case": "h027-out",
@@ -1029,9 +1029,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Lerum Tyttebær (lingonberry/cranberry) Syltetøy in a 600 g tub, and no register row is a lingonberry jam: the nearest are strawberry (jordbær) and raspberry (bringebær) jars, which are different flavours."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Lerum Tyttebær (lingonberry/cranberry) Syltetøy, 600 g tub; no register row lists a lingonberry jam, only strawberry, raspberry, pineapple drink and Ritter Sport chocolate."
   },
-  "secs": 5.91
+  "secs": 5.98
  },
  {
   "case": "h028-in",
@@ -1039,21 +1039,21 @@
    "candidates": [
     {
      "sku": "SKU-3070",
-     "score": 0.97
+     "score": 0.96
     },
     {
      "sku": "SKU-2214",
-     "score": 0.018
+     "score": 0.024
     },
     {
      "sku": "SKU-8852",
-     "score": 0.009
+     "score": 0.012
     }
    ],
    "abstain": false,
-   "evidence": "The tube reads 'Skinke Ost' (ham cheese spread) with a ham-slice picture, ingredients listing skinke 14%, and net contents 175 g, matching the Kavli Skinkeost 175 g tube."
+   "evidence": "Front reads 'Skinke Ost' (ham cheese spread) with ham slices on a blue tube, back says 'Nettoinnhold: 175 g' and ham 14% in the ingredients, matching the Kavli ham cheese tube rather than the bacon cheese."
   },
-  "secs": 5.75
+  "secs": 5.74
  },
  {
   "case": "h028-out",
@@ -1073,9 +1073,9 @@
     }
    ],
    "abstain": false,
-   "evidence": "The tube is printed 'Skinke Ost' (ham cheese spread, 'Myk og deilig smøreost', skinke 14%, 175 g) in the Kavli tube format, matching the SkinkOst product and not the bacon cheese or dressings."
+   "evidence": "The tube is printed 'Skinke Ost' with 'Myk og deilig smøreost', ham slices on the artwork, and 175 g net, which matches the Kavli SkinkOst tube and not the Baconost or dressing tubes."
   },
-  "secs": 5.45
+  "secs": 6.19
  },
  {
   "case": "h029-in",
@@ -1083,21 +1083,21 @@
    "candidates": [
     {
      "sku": "SKU-2126",
-     "score": 0.97
+     "score": 0.96
     },
     {
      "sku": "SKU-8852",
-     "score": 0.018
+     "score": 0.024
     },
     {
-     "sku": "SKU-2214",
-     "score": 0.009
+     "sku": "SKU-2133",
+     "score": 0.012
     }
    ],
    "abstain": false,
-   "evidence": "The blue Kavli tube is printed 'SkinkOst' with 'Originalet sedan 1924', a ham and cheese picture, and 275 g, matching the only ham cheese spread listed."
+   "evidence": "The tube is printed 'SkinkOst' with 'Originalet sedan 1924' and Kavli logo, with ham and cheese on the front and a smoked ham processed cheese ingredient list; only one SkinkOst row is listed."
   },
-  "secs": 5.18
+  "secs": 5.67
  },
  {
   "case": "h029-out",
@@ -1117,9 +1117,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Kavli Skinkost (ham cheese spread, 275 g tube, printed 'SkinkOst' with smoked ham), but the register only lists Baconost, Amerikansk dressing and Korni Sibas, so no row is the ham variant."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Kavli Skinkost (ham cheese spread, 275 g tube, 'Originalet sedan 1924'), but the register only lists Baconost, American dressing and Korni Sibas, so no row is the ham variant."
   },
-  "secs": 5.65
+  "secs": 5.2
  },
  {
   "case": "h030-in",
@@ -1127,21 +1127,21 @@
    "candidates": [
     {
      "sku": "SKU-9134",
-     "score": 0.98
+     "score": 0.97
     },
     {
      "sku": "SKU-3771",
-     "score": 0.012
+     "score": 0.018
     },
     {
      "sku": "SKU-5535",
-     "score": 0.006
+     "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The tub is printed 'DRØMMELETT – Konsentrert syrnet lettmelk 5% fett' with the Q logo, the 'nytt beger 30% mindre plast' badge and the same green-and-white tub shape as the Drømmelett product, and only one size of it is listed."
+   "evidence": "The tub is printed 'Drømmelett – Konsentrert syrnet lettmelk 5% fett' with the Q logo and 'Frisk rømmesmak!' badge, matching the only Drømmelett product listed."
   },
-  "secs": 5.6
+  "secs": 5.24
  },
  {
   "case": "h030-out",
@@ -1161,9 +1161,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack reads 'Drømmelett – konsentrert syrnet lettmelk 5% fett' (a light sour cream product), which is not Lettrømme 17% fat, Crème Fraîche 35%, or any other listed row."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Q Drømmelett, concentrated soured light milk 5% fat (a sour cream style product), which is not any listed item: the Lettrømme is a different product at 17% fat, and the Crème Fraîche is 35% fat."
   },
-  "secs": 5.29
+  "secs": 6.04
  },
  {
   "case": "h031-in",
@@ -1171,21 +1171,21 @@
    "candidates": [
     {
      "sku": "SKU-4742",
-     "score": 0.97
+     "score": 0.96
     },
     {
      "sku": "SKU-2133",
-     "score": 0.018
+     "score": 0.024
     },
     {
      "sku": "SKU-4479",
-     "score": 0.009
+     "score": 0.012
     }
    ],
    "abstain": false,
-   "evidence": "The tube prints 'Kavli Amerikansk Dressing Sriracha' with a burger and red and green chili artwork, which matches the Sriracha dressing and not the bacon, French hot dog or jalapeno variants."
+   "evidence": "The tube prints 'Kavli Amerikansk Dressing Sriracha Hampurilaiskastike' with a burger and red and green chili illustration, matching the Sriracha dressing and not the bacon, jalapeno or French hot dog versions."
   },
-  "secs": 5.22
+  "secs": 5.85
  },
  {
   "case": "h031-out",
@@ -1196,18 +1196,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-2214",
+     "sku": "SKU-5591",
      "score": 0.25
     },
     {
-     "sku": "SKU-5591",
+     "sku": "SKU-2214",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Kavli Amerikansk Dressing Sriracha (230 g tube, hamburger dressing), a different product line from every register row, which are bacon cheese, ham cheese, oat biscuit and salmon pâté spreads."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Kavli Amerikansk Dressing Sriracha (hamburger sauce, 230 g tube), which is not a bacon cheese, ham cheese, oat biscuit or salmon pâté product, so no listed row matches."
   },
-  "secs": 5.27
+  "secs": 5.28
  },
  {
   "case": "h032-in",
@@ -1215,43 +1215,43 @@
    "candidates": [
     {
      "sku": "SKU-2183",
-     "score": 0.96
+     "score": 0.93
     },
     {
      "sku": "SKU-6409",
-     "score": 0.024
+     "score": 0.042
     },
     {
      "sku": "SKU-7364",
-     "score": 0.012
+     "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The pack is a Nature Valley/Val Nature oats 'n honey crunchy granola bar wrapper (per 2 bars, 46 g, ingredients with rolled oats and honey), not a Cheerios cereal box."
+   "evidence": "The pack is a Nature Valley/Val Nature oats and honey crunchy granola bar with 'Per 2 bars (46 g)', ingredients listing rolled oats and honey, and a General Mills Canada label, which matches the 46 g granola bar and not any Cheerios box."
   },
-  "secs": 5.55
+  "secs": 5.53
  },
  {
   "case": "h032-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-7819",
+     "sku": "SKU-6409",
      "score": 0.375
     },
     {
-     "sku": "SKU-6409",
+     "sku": "SKU-7364",
      "score": 0.25
     },
     {
-     "sku": "SKU-7364",
+     "sku": "SKU-7819",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a General Mills Canada granola-style bar wrapper (per 2 bars 46 g, whole grain rolled oats, honey), not a boxed Cheerios cereal, so none of the cereal boxes match."
+   "evidence": "Not sure, the checks disagree or see no exact match. The nutrition panel says 'Per 2 bars (46 g)' with oats, honey and canola oil, so this is a General Mills granola bar, not a boxed Cheerios cereal, and every listed row is a cereal box."
   },
-  "secs": 5.34
+  "secs": 6.52
  },
  {
   "case": "h033-in",
@@ -1259,21 +1259,21 @@
    "candidates": [
     {
      "sku": "SKU-4771",
-     "score": 0.98
-    },
-    {
-     "sku": "SKU-8879",
-     "score": 0.012
+     "score": 0.97
     },
     {
      "sku": "SKU-5191",
-     "score": 0.006
+     "score": 0.018
+    },
+    {
+     "sku": "SKU-3778",
+     "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The box reads 'Nescafé Gold Salted Caramel Mocha' with 'Special Edition' and '8 mugs', matching the Salted caramel mocha 8-sachet box; it is the only row with this flavour."
+   "evidence": "The box reads Nescafé Gold Salted Caramel Mocha, Special Edition, with 8 mugs, matching the Salted Caramel Mocha sachet box and no other listed product."
   },
-  "secs": 5.28
+  "secs": 5.0
  },
  {
   "case": "h033-out",
@@ -1284,7 +1284,7 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-9493",
+     "sku": "SKU-9146",
      "score": 0.25
     },
     {
@@ -1293,9 +1293,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nescafé Gold Salted Caramel Mocha special edition box of 8 mugs of sachet drink, while the only Gold row is a 190g Russian-labelled jar and no row shows a salted caramel mocha flavour."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Nescafé Gold Salted Caramel Mocha (8 mugs, sachet box), a flavoured instant-mix; no listed product is this flavour, since the Gold row is a plain jar of Russian-labelled coffee and the cappuccino row is decaf."
   },
-  "secs": 5.26
+  "secs": 5.15
  },
  {
   "case": "h034-in",
@@ -1303,21 +1303,21 @@
    "candidates": [
     {
      "sku": "SKU-9762",
-     "score": 0.96
+     "score": 0.93
     },
     {
      "sku": "SKU-3934",
-     "score": 0.024
+     "score": 0.042
     },
     {
      "sku": "SKU-9198",
-     "score": 0.012
+     "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The red tub reads 'Nugatti' with 'Den originale' and a bread slice with spread, with no 'Max' or 'Air' wording and no blue colouring, so it is the plain original Nugatti."
+   "evidence": "Red Nugatti tub reading 'Den originale' with 'Helt uten palmeolje' and a bread slice with spread, with no 'Max' or 'Air' wording and no blue or light-blue pack colour, so it is the plain Nugatti."
   },
-  "secs": 5.7
+  "secs": 5.73
  },
  {
   "case": "h034-out",
@@ -1325,21 +1325,21 @@
    "candidates": [
     {
      "sku": "SKU-2428",
-     "score": 0.375
-    },
-    {
-     "sku": "SKU-5462",
-     "score": 0.25
+     "score": 0.0
     },
     {
      "sku": "SKU-4710",
-     "score": 0.125
+     "score": 0.0
+    },
+    {
+     "sku": "SKU-9842",
+     "score": 0.0
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nugatti hazelnut chocolate spread tub (red, 'Den originale', 'Helt uten palmeolje'), which is not any of the listed Stabburet jam, liver pâté, dressing or soft drink products."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nugatti chocolate hazelnut spread tub (red, 'Den originale', 'Helt uten palmeolje'), and none of the listed Stabburet products (jam, liver pâté, hamburger dressing, soft drink) are a chocolate spread."
   },
-  "secs": 6.1
+  "secs": 5.1
  },
  {
   "case": "h035-out",
@@ -1359,9 +1359,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Tine IsKaffe Cappuccino 330 ml iced-coffee milk drink in a black-and-white cube carton, and none of the register products (cream, sour cream, kefir, cultured milk, cottage cheese, Litago, brie) is an iced coffee."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Tine IsKaffe Cappuccino 330 ml iced coffee milk drink carton, and none of the register rows is a coffee drink (they are cream, sour cream, kefir, cultured milk, cottage cheese, a flavoured milk drink and brie)."
   },
-  "secs": 6.02
+  "secs": 5.06
  },
  {
   "case": "h036-in",
@@ -1369,21 +1369,21 @@
    "candidates": [
     {
      "sku": "SKU-2314",
-     "score": 0.95
+     "score": 0.93
     },
     {
      "sku": "SKU-9430",
-     "score": 0.03
+     "score": 0.042
     },
     {
      "sku": "SKU-9498",
-     "score": 0.015
+     "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The Nature Valley box shows chocolate and almond text, and its back panel lists peanuts, almonds, oats and dark chocolate pieces in a 5 x 30 g = 150 g pack, which matches the Sweet & Salty Nut dark chocolate and mixed nuts 5-bar box of 150 g."
+   "evidence": "The Nature Valley box is a 5 x 30 g = 150 g chocolate, peanut and almond bar pack, with a chocolate and almond flavour panel and a General Mills barcode, which matches the Sweet & Salty Nut dark chocolate and mixed nuts 5-bar pack and not the Crunchy oats and honey bars."
   },
-  "secs": 5.62
+  "secs": 6.06
  },
  {
   "case": "h036-out",
@@ -1403,16 +1403,16 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nature Valley peanut, almond and oat bar with dark chocolate chips and chocolate coating (5 x 30 g = 150 g), which is not the Crunchy oats and honey bar or any Cheerios or tortilla product in the register."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nature Valley peanut, almond and oat bar with dark chocolate chips and chocolate coating (5 x 30 g = 150 g), which is not the Crunchy oats and honey bar listed, and no other row is a Nature Valley chocolate-peanut-almond bar."
   },
-  "secs": 5.95
+  "secs": 6.05
  },
  {
   "case": "h037-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-7725",
+     "sku": "SKU-9235",
      "score": 0.375
     },
     {
@@ -1420,14 +1420,14 @@
      "score": 0.25
     },
     {
-     "sku": "SKU-9235",
+     "sku": "SKU-4225",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Le Rustique Camembert by Jean Verrier, made in Normandy, a French cheese from a different brand, and none of the Tine products listed (cream, cottage cheese, butter, milk, feta) is a camembert."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Le Rustique Camembert by Jean Verrier, a French cheese made in Normandy, and none of the register rows is a camembert or a Le Rustique product (they are all Tine dairy items such as cottage cheese, butter, sour cream, milk and feta)."
   },
-  "secs": 6.75
+  "secs": 5.06
  },
  {
   "case": "h039-in",
@@ -1447,9 +1447,9 @@
     }
    ],
    "abstain": false,
-   "evidence": "The orange tube reads 'Kavli Originalet sedan 1924' with 'BaconOst' and 'Bredbar smältost med svenskt bacon' (275 g), matching the Baconost cheese spread and not the SkinkOst or the Amerikansk dressing tubes."
+   "evidence": "The orange and blue Kavli tube reads 'Originalet sedan 1924' with 'BaconOst' and a bacon-roll picture, and the ingredients say 'bredbar smältost med svenskt bacon', so it is the Kavli Baconost cheese spread and not an American dressing or the SkinkOst."
   },
-  "secs": 6.14
+  "secs": 5.26
  },
  {
   "case": "h039-out",
@@ -1469,9 +1469,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Kavli BaconOst (bacon processed cheese spread, 275 g, Swedish text) and the register has no bacon cheese spread; the SkinkOst and Skinkeost rows are ham cheese and the bacon row is an American dressing."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Kavli BaconOst (bacon cheese spread, 275 g) in a squeezable tube, which is not listed; the closest rows are the Kavli SkinkOst/Skinkeost ham cheese spreads and the Amerikansk dressing bacon, all different products."
   },
-  "secs": 5.74
+  "secs": 5.06
  },
  {
   "case": "h040-in",
@@ -1479,21 +1479,21 @@
    "candidates": [
     {
      "sku": "SKU-6167",
-     "score": 0.96
+     "score": 0.93
     },
     {
-     "sku": "SKU-3226",
-     "score": 0.024
+     "sku": "SKU-8413",
+     "score": 0.042
     },
     {
      "sku": "SKU-8451",
-     "score": 0.012
+     "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The blue Gatorade bottle with orange cap and 'COOL BLUE' label (0.5 L, Champions League branding) matches the Gatorade Cool Blue sports drink; no other Gatorade row is listed."
+   "evidence": "Blue Gatorade sports drink bottle with orange cap, 'Cool Blue' label and UEFA Champions League branding; back label in French is a sports drink (boisson pour le sport) and 0.5 L, with only one Gatorade row listed."
   },
-  "secs": 5.18
+  "secs": 5.98
  },
  {
   "case": "h040-out",
@@ -1513,9 +1513,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The item is a Gatorade Cool Blue sports drink (raspberry flavour, PepsiCo France, 0.5 L), and none of the register rows are Gatorade; they are Ringnes Pepsi Max, Julebrus, 7up, Mozell and Battery products."
+   "evidence": "Not sure, the checks disagree or see no exact match. The item is a Gatorade Cool Blue sports drink (0.5 l, French pack, Champions League edition), a PepsiCo product, and none of the listed Ringnes products are Gatorade."
   },
-  "secs": 4.92
+  "secs": 5.88
  },
  {
   "case": "h041-in",
@@ -1530,14 +1530,14 @@
      "score": 0.018
     },
     {
-     "sku": "SKU-9551",
+     "sku": "SKU-6422",
      "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The red REMA 1000 tub is printed 'Bringebær Syltetøy 1 kg' with 'Fra solmodne bringebær' and raspberries pictured, matching the REMA 1000 raspberry jam and not the strawberry or blueberry tubs."
+   "evidence": "The white tub reads REMA 1000 'Bringebær Syltetøy' 1 kg with raspberries pictured and a 'Fra solmodne bringebær' badge, and no other REMA 1000 raspberry jam size is listed."
   },
-  "secs": 5.49
+  "secs": 5.63
  },
  {
   "case": "h041-out",
@@ -1548,18 +1548,18 @@
      "score": 0.375
     },
     {
-     "sku": "SKU-3267",
+     "sku": "SKU-6933",
      "score": 0.25
     },
     {
-     "sku": "SKU-6933",
+     "sku": "SKU-3267",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a REMA 1000 Bringebær (raspberry) Syltetøy 1 kg tub, while every register row is a Lerum, Kavli, Freia or Tine product and none is a raspberry jam from REMA 1000."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a REMA 1000 Bringebær (raspberry) syltetøy 1 kg tub, and no register row is a REMA 1000 product or a raspberry jam; the rows are Lerum cranberry and strawberry jams and unrelated items."
   },
-  "secs": 5.13
+  "secs": 4.84
  },
  {
   "case": "h042-in",
@@ -1567,43 +1567,43 @@
    "candidates": [
     {
      "sku": "SKU-3934",
-     "score": 0.98
+     "score": 0.97
     },
     {
      "sku": "SKU-9526",
-     "score": 0.012
+     "score": 0.018
     },
     {
-     "sku": "SKU-2428",
-     "score": 0.006
+     "sku": "SKU-1592",
+     "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The red tub with white lid reads 'Nugatti MAX' with '40% mindre sukker' and 'Helt uten palmeolje', matching the Nugatti Max tub rather than the yellow-lidded salt caramel variant."
+   "evidence": "The tub reads 'Nugatti MAX' with '40% mindre sukker' and 'Helt uten palmeolje' on a red tub with white lid, matching the Nugatti Max pack, not the salt caramel one."
   },
-  "secs": 5.34
+  "secs": 5.32
  },
  {
   "case": "h042-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-9842",
-     "score": 0.0
-    },
-    {
-     "sku": "SKU-4710",
-     "score": 0.0
-    },
-    {
      "sku": "SKU-2428",
-     "score": 0.0
+     "score": 0.375
+    },
+    {
+     "sku": "SKU-7447",
+     "score": 0.25
+    },
+    {
+     "sku": "SKU-9842",
+     "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Nugatti Max chocolate hazelnut spread (40% mindre sukker, helt uten palmeolje), but every register row is a Stabburet liver pâté, jam or dressing product, so none match."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Nugatti Max chocolate hazelnut spread tub (40% less sugar, no palm oil), and none of the register rows are chocolate spread; they are Stabburet liver pâté, strawberry jam and hamburger dressing."
   },
-  "secs": 5.32
+  "secs": 5.41
  },
  {
   "case": "h043-in",
@@ -1623,31 +1623,31 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure: The pack is a Q Helmelk (whole milk) carton, printed 'HEL-MELK', 'Helmelk (3,7 % fett)' and a red winter-edition design, and its slim tall shape looks like the 1-litre carton, but no volume is readable so the 1,75 L Helmelk can't be fully ruled out."
+   "evidence": "Not sure: The red Q carton reads 'HEL-MELK' with a glass of milk and '4% fett' (ingredients say Helmelk 3,7 % fett), and its tall slim shape looks like the 1 litre carton rather than the wider 1,75 L one, but no volume is legible in the photos so the size is not confirmed."
   },
-  "secs": 9.48
+  "secs": 9.46
  },
  {
   "case": "h043-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-2050",
+     "sku": "SKU-1664",
      "score": 0.375
     },
     {
-     "sku": "SKU-1664",
+     "sku": "SKU-2050",
      "score": 0.25
     },
     {
-     "sku": "SKU-9134",
+     "sku": "SKU-5535",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Q Helmelk (whole milk, 4% fat, 1 litre carton), but the register only lists Q Lettmelk (light milk 1% and 0,5%) and other dairy products, so no row is whole milk."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Q Helmelk (whole milk, 4% fett on front, 3,7 % fett in ingredients text), and no listed product is whole milk; the listed milks are Lettmelk 1% and 0,5%."
   },
-  "secs": 5.45
+  "secs": 5.16
  },
  {
   "case": "h044-in",
@@ -1658,18 +1658,18 @@
      "score": 0.93
     },
     {
-     "sku": "SKU-6764",
+     "sku": "SKU-7834",
      "score": 0.042
     },
     {
-     "sku": "SKU-7264",
+     "sku": "SKU-6764",
      "score": 0.021
     }
    ],
    "abstain": false,
-   "evidence": "The pack is the red Xtra (Coop) 'Potetchips Paprika' 300 g bag made by Maarud AS, matching the red Xtra paprika potato chips and not the yellow salt Xtra or the Maarud-branded Superchips/Potetgull paprika."
+   "evidence": "The pack reads Xtra Potetchips Paprika 300 g, made for Coop by Maarud AS, matching the red Xtra paprika chips pack and not the salt version or the Maarud-branded paprika bags."
   },
-  "secs": 5.91
+  "secs": 5.64
  },
  {
   "case": "h044-out",
@@ -1689,9 +1689,9 @@
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Coop's Xtra brand Potetchips Paprika 300 g (made for Coop by Maarud), which is a different brand and flavour from every Maarud row listed (salt, sourcream & onion, Holiday, dipmix)."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Coop's Xtra Potetchips Paprika 300 g (made for Coop by Maarud), a store-brand paprika chip, and none of the listed Maarud Superchips, Supermix or Dipmix products is a paprika chip under the Xtra name."
   },
-  "secs": 5.6
+  "secs": 5.66
  },
  {
   "case": "h045-in",
@@ -1699,43 +1699,43 @@
    "candidates": [
     {
      "sku": "SKU-8425",
-     "score": 0.96
+     "score": 0.97
     },
     {
      "sku": "SKU-6092",
-     "score": 0.024
+     "score": 0.018
     },
     {
-     "sku": "SKU-3525",
-     "score": 0.012
+     "sku": "SKU-8925",
+     "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The yellow-capped jar reads 'Freia Sjokonøtt' and the label describes a hazelnut and cocoa spread, matching the only Freia Sjokonøtt spread listed."
+   "evidence": "The jar is a Freia Sjokonøtt hazelnut and cocoa spread with a yellow lid and a red Freia logo, and only one Sjokonøtt row is listed, so no other size competes."
   },
-  "secs": 5.32
+  "secs": 5.61
  },
  {
   "case": "h045-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-3223",
+     "sku": "SKU-3995",
      "score": 0.375
     },
     {
-     "sku": "SKU-4109",
+     "sku": "SKU-3084",
      "score": 0.25
     },
     {
-     "sku": "SKU-4220",
+     "sku": "SKU-3223",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a Freia Sjokonøtt chocolate-hazelnut spread in a jar, and no listed product is a spread; the register only has bakepulver, caramel sauce and chocolate bars."
+   "evidence": "Not sure, the checks disagree or see no exact match. The jar is Freia Sjokonøtt, a hazelnut and cocoa spread, and none of the register rows is a spread: they are baking powder, caramel sauce and chocolate bars or candy."
   },
-  "secs": 5.34
+  "secs": 6.12
  },
  {
   "case": "h046-out",
@@ -1750,14 +1750,14 @@
      "score": 0.25
     },
     {
-     "sku": "SKU-8722",
+     "sku": "SKU-4889",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a 250g foil-wrapped Solo margarine/spread block (Belgian, 'Natuurlijk lekker, spat minder'), not the Solo Super orange soft drink can, and no other register row is a spread."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is a 250g gold-foil block of Solo margarine/spread (Belgian, 'Sinds - Depuis 1929'), not the Solo Super soft drink can, and no other register row is a spread."
   },
-  "secs": 6.13
+  "secs": 5.72
  },
  {
   "case": "h047-in",
@@ -1765,21 +1765,21 @@
    "candidates": [
     {
      "sku": "SKU-6082",
-     "score": 0.96
+     "score": 0.97
     },
     {
      "sku": "SKU-8967",
-     "score": 0.024
+     "score": 0.018
     },
     {
      "sku": "SKU-5191",
-     "score": 0.012
+     "score": 0.009
     }
    ],
    "abstain": false,
-   "evidence": "The single sachet is printed 'NESCAFÉ 3in1 CLASSIC' with a red cup on a black and red pack, matching the Classic 3in1 stick; no other 3in1 size is listed."
+   "evidence": "The single sachet printed 'NESCAFÉ 3in1 CLASSIC' with a red cup on a black and red pack matches the Classic 3in1 stick; it is the only 3in1 row listed."
   },
-  "secs": 5.3
+  "secs": 5.2
  },
  {
   "case": "h047-out",
@@ -1787,21 +1787,21 @@
    "candidates": [
     {
      "sku": "SKU-8967",
-     "score": 0.55
+     "score": 0.6
     },
     {
      "sku": "SKU-8879",
-     "score": 0.27
+     "score": 0.24
     },
     {
-     "sku": "SKU-5191",
-     "score": 0.135
+     "sku": "SKU-2849",
+     "score": 0.12
     }
    ],
    "abstain": true,
-   "evidence": "Not sure: The pack is a red and black Nescafé Classic single-serve stick, the same format and Classic wording as the Nescafé Classic stick in the register, but this pack also says 3in1, which the register photo does not show, so it could be a different product."
+   "evidence": "Not sure: The single-serve stick printed 'NESCAFÉ CLASSIC 3in1' matches the Nescafé Classic stick in black and red; the Brasero stick and the jars are different products, though the register photo shows a black-coffee cup rather than the creamy 3in1 cup, so this is not certain."
   },
-  "secs": 8.78
+  "secs": 7.7
  },
  {
   "case": "h048-in",
@@ -1821,31 +1821,31 @@
     }
    ],
    "abstain": false,
-   "evidence": "The pack reads Old El Paso '8 Tortillas' wheat (Trigo) flour, extra soft and flexible, 326 g, matching the Old El Paso 8 flour tortilla wraps; the other products are all Cheerios cereal boxes."
+   "evidence": "The pack reads Old El Paso '8 Tortillas' in wheat (Trigo) flour, 326 g, matching the Old El Paso 8 flour tortilla wraps; every other row is a Cheerios cereal box."
   },
-  "secs": 6.06
+  "secs": 6.27
  },
  {
   "case": "h048-out",
   "out": {
    "candidates": [
     {
-     "sku": "SKU-2372",
+     "sku": "SKU-9498",
      "score": 0.375
     },
     {
-     "sku": "SKU-9867",
+     "sku": "SKU-2372",
      "score": 0.25
     },
     {
-     "sku": "SKU-9498",
+     "sku": "SKU-9867",
      "score": 0.125
     }
    ],
    "abstain": true,
-   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Old El Paso 8 soft wheat flour tortillas (326 g), a different brand and product from every cereal and granola bar in the register, which are all Cheerios or Nature Valley."
+   "evidence": "Not sure, the checks disagree or see no exact match. The pack is Old El Paso 8 soft wheat flour tortillas (326 g), a different brand and product than every Cheerios or Nature Valley cereal row."
   },
-  "secs": 5.92
+  "secs": 5.41
  },
  {
   "case": "h050-out",
@@ -1853,20 +1853,20 @@
    "candidates": [
     {
      "sku": "SKU-9699",
-     "score": 0.8
+     "score": 0.375
     },
     {
      "sku": "SKU-3267",
-     "score": 0.12
+     "score": 0.25
     },
     {
      "sku": "SKU-6933",
-     "score": 0.06
+     "score": 0.125
     }
    ],
-   "abstain": false,
-   "evidence": "The pack is a 1 kg tub of Tyttebær Syltetøy (lingonberry jam) made by Lerum AS for REMA 1000, matching the only tub-format lingonberry jam listed; the 80% jar is a different product with a different size and berry content (40% here)."
+   "abstain": true,
+   "evidence": "Not sure, the checks disagree or see no exact match. The tub is REMA 1000's own-brand Tyttebær Syltetøy, 1 kg, 40% lingonberries, only made by Lerum AS for REMA 1000. The register's lingonberry jam tub carries the Lerum brand on its front, so it is a different brand's product, not this REMA 1000 tub."
   },
-  "secs": 5.96
+  "secs": 8.41
  }
 ]

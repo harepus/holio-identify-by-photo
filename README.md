@@ -31,7 +31,7 @@ The server needs macOS (Vision OCR) and a logged-in `claude` CLI. The demo order
 | Test | Result |
 |---|---|
 | Arena holdout, 47 real photos of unseen Norwegian brands against a 247-product register | Right on the first try in 82 and 84% of in-register cases over two runs. 1 and 0 of 47 confidently wrong. 9 of 9 items outside the register abstained |
-| Same photos against a simulated 8-product purchase order (`evidence/po-context/`) | 36 of 38 right on the first suggestion and 0 confidently wrong. The other 2 went to a choice of three that held the right product. When the item was not on the order, 45 of 47 gave no match |
+| Same photos against a simulated 8-product purchase order (`evidence/po-context/`) | 36 of 38 matched the right product and 0 matched a wrong one. The other 2 went to a choice of three that held the right product. When the item was not on the order, 45 of 47 said so and 1 went to a choice of three. The last one matched "SkinkOst", most likely a second crowd row for the same Kavli spread |
 | Live run through the app, `app/e2e/live.py` | Maarud Potetskruer Salt matched in 3.8 s. After "Link barcode", the next scan of that code received it directly. Freia Melkesjokolade was flagged as not on the order, with the right product as best guess from the register |
 
 Warm server calls took 3.7 to 4.9 s each on one Mac, one at a time.
@@ -40,11 +40,14 @@ Warm server calls took 3.7 to 4.9 s each on one Mac, one at a time.
 
 - Tested on groceries with printed text. Apparel and parts with little text are not measured.
 - The camera input has not been tried on a Zebra TC27 or an iPhone yet.
+- Only the model call enforces the 22 s limit. Fetching remote candidate images that are not indexed yet can run past it, so index the register at startup, as the server does for the demo.
 - The judge is Claude Sonnet through the `claude` CLI. The Anthropic API path in `server/engine.py` is written but has not run, because no API key was available.
 
-## AI
+## AI and security
 
-Suggestions come from Claude Sonnet. The worker confirms every product before anything is counted.
+- Suggestions come from Claude Sonnet. The worker confirms every product before anything is counted.
+- Catalog fields and text in the photo go to the model as data, never as instructions. Two live tests try an instruction in a product name and a note in the photo, and the right product still wins.
+- No key sits in the browser or the repo. The model runs on the server, which can require a service token, caps the body at 32 MB and runs at most 2 calls at once.
 
 ## Layout
 

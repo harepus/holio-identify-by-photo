@@ -2,7 +2,10 @@
 
 Each holdout case becomes up to two cases with an 8-item register built like a PO from one supplier:
   in  : the true product plus 7 products of the same brand (then same category, then any)
-  out : 8 such products without the true product, so "not on this order" (abstain) is right
+  out : 8 such products without the true product, so "not on this order" is right
+
+Each answer is scored as the product shows it: match, a choice of three, or not on the order.
+`python3 -I ctx_eval.py --score results.json` rescores saved results without the holdout.
 """
 import json
 import random
@@ -20,9 +23,6 @@ CASES = ROOT / "cases"
 N = 8
 
 reg_path = HOLD / "holdout" / "register" / "register.json"
-register = json.loads(reg_path.read_text())["items"]
-by_sku = {it["sku"]: it for it in register}
-labels = json.loads((HOLD / "labels.json").read_text())
 
 STOP = {"as", "sa", "asa", "a/s", "o.", "industri", "industrier", "norge", "foods", "hovedlager", "dagligvare"}
 
@@ -122,9 +122,21 @@ def run_one(name: str) -> dict:
         return {"case": name, "error": repr(e)[:300], "secs": round(time.time() - t0, 2)}
 
 
+def status(out: dict) -> str:
+    """The product's status for one answer of the one-vote entry.
+
+    The entry starts its evidence with "Not sure: " when the judge picked a row under 0.7 or failed a
+    self-check, which the product shows as a choice of three. Any other abstention means the judge
+    picked none, which the product shows as not on the order.
+    """
+    if not out.get("abstain"):
+        return "match"
+    return "choose" if out.get("evidence", "").startswith("Not sure: ") else "none"
+
+
 def score(truth: dict, results: list[dict]) -> dict:
-    s = {"in": {"n": 0, "top1": 0, "wrong_confident": 0, "abstain": 0, "top3": 0, "crash": 0},
-         "out": {"n": 0, "correct_abstain": 0, "wrong_confident": 0, "crash": 0}}
+    s = {"in": {"n": 0, "match_right": 0, "match_wrong": 0, "choose": 0, "none": 0, "right_in_top3": 0, "crash": 0},
+         "out": {"n": 0, "none": 0, "choose": 0, "match": 0, "crash": 0}}
     for r in results:
         t = truth[r["case"]]
         b = s[t["variant"]]
@@ -132,18 +144,13 @@ def score(truth: dict, results: list[dict]) -> dict:
         if "error" in r:
             b["crash"] += 1
             continue
-        o = r["out"]
-        skus = [c["sku"] for c in o.get("candidates", [])]
+        st = status(r["out"])
+        skus = [c["sku"] for c in r["out"].get("candidates", [])]
         if t["variant"] == "in":
-            if o.get("abstain"):
-                b["abstain"] += 1
-            elif skus and skus[0] in t["accept"]:
-                b["top1"] += 1
-            else:
-                b["wrong_confident"] += 1
-            b["top3"] += int(any(k in t["accept"] for k in skus))
-        else:
-            b["correct_abstain" if o.get("abstain") else "wrong_confident"] += 1
+            b["right_in_top3"] += int(any(k in t["accept"] for k in skus))
+            if st == "match":
+                st = "match_right" if skus[0] in t["accept"] else "match_wrong"
+        b[st] += 1
     secs = sorted(r["secs"] for r in results)
     s["latency_p50_s"] = secs[len(secs) // 2]
     s["latency_p90_s"] = secs[int(len(secs) * 0.9)]
@@ -151,6 +158,13 @@ def score(truth: dict, results: list[dict]) -> dict:
 
 
 if __name__ == "__main__":
+    if sys.argv[1:2] == ["--score"]:
+        truth = json.loads((ROOT / "truth.json").read_text())
+        print(json.dumps(score(truth, json.loads(Path(sys.argv[2]).read_text())), indent=1))
+        sys.exit(0)
+    register = json.loads(reg_path.read_text())["items"]
+    by_sku = {it["sku"]: it for it in register}
+    labels = json.loads((HOLD / "labels.json").read_text())
     truth = build()
     names = sorted(truth)
     if len(sys.argv) > 1:

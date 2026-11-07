@@ -948,7 +948,7 @@ Authorization: Bearer &lt;IDENTIFY_SERVICE_TOKEN&gt;      // Holio's server to o
 <tr><td>Correct abstains</td><td>9 of 9</td><td>Items not in the register got "none"</td></tr>
 <tr><td>Latency, p50</td><td>about 5 s</td><td>Shared Mac, four arenas running. About 5 s of that is the model round trip</td></tr>
 <tr><td>Photos</td><td>Open Food Facts, unseen brands</td><td>Freia, Tine, Kavli, Maarud, Lerum, Stabburet, Q, Solo, Toro, Ringnes and others</td></tr>
-<tr><td>With PO context (8 candidates)</td><td id="ctx-number">36 of 38 right on the first suggestion, 0 confidently wrong, and the other 2 went to a top 3 that held the right product. When the item was not on the order, 45 of 47 gave no match. p50 5.6 s</td><td>The same holdout photos, each against a simulated 8-product order of one brand. Script and results: evidence/po-context in the repo</td></tr>
+<tr><td>With PO context (8 candidates)</td><td id="ctx-number">36 of 38 matched the right product, 0 matched a wrong one, and the other 2 went to a choice of three that held the right product. When the item was not on the order, 45 of 47 said so, 1 went to a choice of three and 1 matched what is most likely a second crowd row of the same product. p50 5.6 s</td><td>The same holdout photos, each against a simulated 8-product order of one brand. Script and results: evidence/po-context in the repo</td></tr>
 </tbody>
 </table>
 <h3>Limits</h3>
