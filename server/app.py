@@ -22,13 +22,14 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Annotated, Literal
-from urllib.parse import urlsplit
+from http.cookies import SimpleCookie
+from urllib.parse import parse_qs, urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from PIL import Image
 from pydantic import BaseModel, Field
@@ -45,7 +46,7 @@ MAX_PHOTO_CHARS = MAX_PHOTO_BYTES * 4 // 3 + 64
 MAX_IMAGE_CHARS = eng.MAX_IMAGE_BYTES * 4 // 3 + 64
 MAX_BODY_BYTES = 32 * 1024 * 1024
 TOKEN = os.environ.get("HPI_TOKEN", "")
-BASIC = os.environ.get("HPI_BASIC_AUTH", "")
+DEMO_KEY = os.environ.get("HPI_DEMO_KEY", "")
 BUSY = threading.BoundedSemaphore(int(os.environ.get("HPI_MAX_CONCURRENT", "2")))
 IMAGE_SCHEMES = ("http://", "https://", "/", "data:")
 IMAGE_HOSTS = frozenset(h.strip().lower() for h in os.environ.get("HPI_IMAGE_HOSTS", "").split(",") if h.strip())
@@ -175,10 +176,13 @@ class Gate:
 
     async def __call__(self, scope, receive, send):
         headers = dict(scope.get("headers") or [])
-        if scope["type"] == "http" and BASIC and not hmac.compare_digest(
-                headers.get(b"authorization", b""), b"Basic " + base64.b64encode(BASIC.encode())):
-            return await JSONResponse({"error": "unauthorized"}, status_code=401,
-                                      headers={"WWW-Authenticate": 'Basic realm="Holio demo"'})(scope, receive, send)
+        if scope["type"] == "http" and DEMO_KEY and not has_demo_key(headers):
+            key = parse_qs(scope.get("query_string", b"").decode()).get("key", [""])[0]
+            if not hmac.compare_digest(key, DEMO_KEY):
+                return await JSONResponse({"error": "unauthorized"}, status_code=401)(scope, receive, send)
+            resp = RedirectResponse(scope["path"], status_code=303)
+            resp.set_cookie("hpi_key", DEMO_KEY, max_age=7 * 24 * 3600, httponly=True, secure=True, samesite="lax")
+            return await resp(scope, receive, send)
         if scope["type"] == "http" and scope["method"] == "POST":
             if TOKEN and not hmac.compare_digest(headers.get(b"authorization", b""), f"Bearer {TOKEN}".encode()):
                 return await JSONResponse({"error": "unauthorized"}, status_code=401)(scope, receive, send)
@@ -188,6 +192,11 @@ class Gate:
                                            "detail": f"body: send Content-Length, at most {MAX_BODY_BYTES} bytes"},
                                           status_code=413)(scope, receive, send)
         await self.inner(scope, receive, send)
+
+
+def has_demo_key(headers: dict[bytes, bytes]) -> bool:
+    cookies = SimpleCookie(headers.get(b"cookie", b"").decode())
+    return "hpi_key" in cookies and hmac.compare_digest(cookies["hpi_key"].value, DEMO_KEY)
 
 
 app.add_middleware(Gate)

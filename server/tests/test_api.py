@@ -153,13 +153,15 @@ def test_token_is_required_when_configured(client, monkeypatch):
     assert ok.status_code == 200
 
 
-def test_basic_auth_guards_every_route_when_configured(client, monkeypatch):
-    monkeypatch.setattr(server, "BASIC", "demo:pw")
-    denied = client.get("/demo/purchase-order.json")
-    assert denied.status_code == 401
-    assert denied.headers["www-authenticate"].startswith("Basic")
-    assert client.get("/demo/purchase-order.json", auth=("demo", "pw")).status_code == 200
-    assert client.post("/v1/identify", json=body(), auth=("demo", "pw")).status_code == 200
+def test_demo_key_link_sets_a_cookie_that_opens_every_route(client, monkeypatch):
+    monkeypatch.setattr(server, "DEMO_KEY", "k3y")
+    assert client.get("/demo/purchase-order.json").status_code == 401
+    assert client.get("/demo/purchase-order.json?key=wrong").status_code == 401
+    first = client.get("/demo/purchase-order.json?key=k3y", follow_redirects=False)
+    assert first.status_code == 303 and "hpi_key=k3y" in first.headers["set-cookie"]
+    client.cookies.set("hpi_key", "k3y")
+    assert client.get("/demo/purchase-order.json").status_code == 200
+    assert client.post("/v1/identify", json=body()).status_code == 200
 
 
 def test_busy_server_answers_429(client):
