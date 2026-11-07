@@ -21,6 +21,7 @@ import threading
 import time
 import unicodedata
 import urllib.request
+import warnings
 from collections.abc import Sequence
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -430,7 +431,9 @@ class Engine:
                 if self._clip is None:
                     import torch
                     torch.set_num_threads(4)
-                    self._clip = torch.jit.load(str(ensure_jit())).eval()
+                    with warnings.catch_warnings():
+                        warnings.simplefilter("ignore", FutureWarning)
+                        self._clip = torch.jit.load(str(ensure_jit())).eval()
         return self._clip
 
     def fetch(self, c: Candidate) -> tuple[Path, str]:

@@ -1,0 +1,60 @@
+{
+ "candidates": [
+  {
+   "sku": "SKU-8423",
+   "name": "Holiday DipMix",
+   "brand": "Maarud",
+   "size": "22 g",
+   "image": "/demo/register/img/SKU-8423.jpg"
+  },
+  {
+   "sku": "SKU-1238",
+   "name": "Tortilla Dipmix",
+   "brand": "Maarud",
+   "size": "22g",
+   "image": "/demo/register/img/SKU-1238.jpg"
+  },
+  {
+   "sku": "SKU-6597",
+   "name": "Holiday Dipmix 3 i pakken",
+   "brand": "Maarud",
+   "size": "3 x 22g",
+   "image": "/demo/register/img/SKU-6597.jpg"
+  },
+  {
+   "sku": "SKU-1203",
+   "name": "Superchips sourcream & onion",
+   "brand": "Maarud",
+   "size": "140g",
+   "image": "/demo/register/img/SKU-1203.jpg"
+  },
+  {
+   "sku": "SKU-2391",
+   "name": "Superchips Holiday",
+   "brand": "Maarud as",
+   "size": "",
+   "image": "/demo/register/img/SKU-2391.jpg"
+  },
+  {
+   "sku": "SKU-6764",
+   "name": "Superchips Paprika",
+   "brand": "Maarud",
+   "size": "140g",
+   "image": "/demo/register/img/SKU-6764.jpg"
+  },
+  {
+   "sku": "SKU-7025",
+   "name": "Potetskruer Salt",
+   "brand": "Maarud",
+   "size": "90 g",
+   "image": "/demo/register/img/SKU-7025.jpg"
+  },
+  {
+   "sku": "SKU-9190",
+   "name": "Superchips Hot Cheddar",
+   "brand": "Maarud",
+   "size": "140g",
+   "image": "/demo/register/img/SKU-9190.jpg"
+  }
+ ]
+}

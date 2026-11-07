@@ -1,0 +1,60 @@
+{
+ "candidates": [
+  {
+   "sku": "SKU-3084",
+   "name": "Karamellsaus",
+   "brand": "Freia",
+   "size": "360g",
+   "image": "/demo/register/img/SKU-3084.jpg"
+  },
+  {
+   "sku": "SKU-7089",
+   "name": "Bakepulver",
+   "brand": "Freia",
+   "size": "250g",
+   "image": "/demo/register/img/SKU-7089.jpg"
+  },
+  {
+   "sku": "SKU-1254",
+   "name": "Melkesjokolade",
+   "brand": "Freia",
+   "size": "200g",
+   "image": "/demo/register/img/SKU-1254.jpg"
+  },
+  {
+   "sku": "SKU-3525",
+   "name": "Boble melkesjokolade",
+   "brand": "Freia",
+   "size": "150g",
+   "image": "/demo/register/img/SKU-3525.jpg"
+  },
+  {
+   "sku": "SKU-4109",
+   "name": "Riskrisp Melkesjokolade",
+   "brand": "Freia",
+   "size": "60g",
+   "image": "/demo/register/img/SKU-4109.jpg"
+  },
+  {
+   "sku": "SKU-7325",
+   "name": "Firkløver melkesjokolade",
+   "brand": "Freia",
+   "size": "200g",
+   "image": "/demo/register/img/SKU-7325.jpg"
+  },
+  {
+   "sku": "SKU-8425",
+   "name": "Freia Sjokonøtt",
+   "brand": "Freia",
+   "size": "350g",
+   "image": "/demo/register/img/SKU-8425.jpg"
+  },
+  {
+   "sku": "SKU-6092",
+   "name": "Cookies med melkesjokolade",
+   "brand": "Freia",
+   "size": "156g",
+   "image": "/demo/register/img/SKU-6092.jpg"
+  }
+ ]
+}
