@@ -1,0 +1,431 @@
+{
+ "h001-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-6604"
+  ]
+ },
+ "h001-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h002-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "absent_family"
+ },
+ "h003-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-2485"
+  ]
+ },
+ "h003-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h004-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ },
+ "h005-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3995",
+   "SKU-7089"
+  ]
+ },
+ "h005-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h006-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3122",
+   "SKU-8423"
+  ]
+ },
+ "h006-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h007-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ },
+ "h008-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-7725"
+  ]
+ },
+ "h008-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h009-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-7025"
+  ]
+ },
+ "h009-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h010-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-7042"
+  ]
+ },
+ "h010-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h011-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ },
+ "h012-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-5214"
+  ]
+ },
+ "h012-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h013-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ },
+ "h014-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-4889"
+  ]
+ },
+ "h014-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h016-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-1254"
+  ]
+ },
+ "h016-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h017-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-2437"
+  ]
+ },
+ "h017-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h018-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-7040"
+  ]
+ },
+ "h018-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h019-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-1365"
+  ]
+ },
+ "h019-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h020-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-7904"
+  ]
+ },
+ "h020-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h021-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-1405"
+  ]
+ },
+ "h021-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h022-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3155"
+  ]
+ },
+ "h022-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h023-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-8879"
+  ]
+ },
+ "h023-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h024-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3084"
+  ]
+ },
+ "h024-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h025-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3023"
+  ]
+ },
+ "h025-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h026-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-1592",
+   "SKU-4710",
+   "SKU-5462"
+  ]
+ },
+ "h026-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h027-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-9699"
+  ]
+ },
+ "h027-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h028-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3070"
+  ]
+ },
+ "h028-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h029-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-2126"
+  ]
+ },
+ "h029-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h030-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-9134"
+  ]
+ },
+ "h030-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h031-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-4742"
+  ]
+ },
+ "h031-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h032-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-2183"
+  ]
+ },
+ "h032-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h033-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-4771"
+  ]
+ },
+ "h033-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h034-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-9762"
+  ]
+ },
+ "h034-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h035-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ },
+ "h036-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-2314"
+  ]
+ },
+ "h036-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h037-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ },
+ "h039-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-8852"
+  ]
+ },
+ "h039-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h040-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-6167"
+  ]
+ },
+ "h040-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h041-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-5619"
+  ]
+ },
+ "h041-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h042-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3934"
+  ]
+ },
+ "h042-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h043-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-3204"
+  ]
+ },
+ "h043-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h044-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-9947"
+  ]
+ },
+ "h044-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h045-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-8425"
+  ]
+ },
+ "h045-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h046-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "absent_family"
+ },
+ "h047-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-6082"
+  ]
+ },
+ "h047-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h048-in": {
+  "variant": "in",
+  "accept": [
+   "SKU-2893"
+  ]
+ },
+ "h048-out": {
+  "variant": "out",
+  "accept": []
+ },
+ "h050-out": {
+  "variant": "out",
+  "accept": [],
+  "kind": "withheld_sibling"
+ }
+}

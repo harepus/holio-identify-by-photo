@@ -1,0 +1,18 @@
+{
+ "in": {
+  "n": 38,
+  "top1": 36,
+  "wrong_confident": 0,
+  "abstain": 2,
+  "top3": 38,
+  "crash": 0
+ },
+ "out": {
+  "n": 47,
+  "correct_abstain": 45,
+  "wrong_confident": 2,
+  "crash": 0
+ },
+ "latency_p50_s": 5.57,
+ "latency_p90_s": 6.36
+}

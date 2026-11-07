@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.audit/
+.venv/
+__pycache__/
+*.pyc
+.env*
+server/cache/
+server/runs/
+.DS_Store
+design/reference/

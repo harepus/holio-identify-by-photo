@@ -1,0 +1,106 @@
+{
+  "id": "500004701",
+  "supplier": "Orkla Confectionery & Snacks Norge AS",
+  "warehouse": "Hovedlager",
+  "company": "FJORDKIOSKEN AS (demo)",
+  "date": "2026-11-07",
+  "lines": [
+    {
+      "lineId": "L1",
+      "sku": "SKU-6764",
+      "name": "Superchips Paprika",
+      "brand": "Maarud",
+      "size": "140g",
+      "category": "flavoured-potato-crisps",
+      "expected": 24,
+      "received": 0,
+      "image": "img/SKU-6764.jpg"
+    },
+    {
+      "lineId": "L2",
+      "sku": "SKU-1203",
+      "name": "Superchips sourcream & onion",
+      "brand": "Maarud",
+      "size": "140g",
+      "category": "flavoured-potato-crisps",
+      "expected": 24,
+      "received": 0,
+      "image": "img/SKU-1203.jpg"
+    },
+    {
+      "lineId": "L3",
+      "sku": "SKU-9190",
+      "name": "Superchips Hot Cheddar",
+      "brand": "Maarud",
+      "size": "140g",
+      "category": "flavoured-potato-crisps",
+      "expected": 12,
+      "received": 0,
+      "image": "img/SKU-9190.jpg"
+    },
+    {
+      "lineId": "L4",
+      "sku": "SKU-7631",
+      "name": "Smash",
+      "brand": "Nidar",
+      "size": "160g",
+      "category": "chocolates",
+      "expected": 18,
+      "received": 0,
+      "image": "img/SKU-7631.jpg"
+    },
+    {
+      "lineId": "L5",
+      "sku": "SKU-4597",
+      "name": "Smash !",
+      "brand": "Nidar",
+      "size": "100g",
+      "category": "",
+      "expected": 18,
+      "received": 0,
+      "image": "img/SKU-4597.jpg"
+    },
+    {
+      "lineId": "L6",
+      "sku": "SKU-4252",
+      "name": "Crispo",
+      "brand": "Nidar",
+      "size": "155g",
+      "category": "chocolates",
+      "expected": 12,
+      "received": 0,
+      "image": "img/SKU-4252.jpg"
+    },
+    {
+      "lineId": "L7",
+      "sku": "SKU-5105",
+      "name": "Crispo",
+      "brand": "Nidar",
+      "size": "65g",
+      "category": "bars-covered-with-chocolate",
+      "expected": 12,
+      "received": 0,
+      "image": "img/SKU-5105.jpg"
+    },
+    {
+      "lineId": "L8",
+      "sku": "SKU-7298",
+      "name": "Bamsemums",
+      "brand": "Nidar",
+      "size": "400 g",
+      "category": "marshmallows-coated-with-chocolate",
+      "expected": 6,
+      "received": 0,
+      "image": "img/SKU-7298.jpg"
+    }
+  ],
+  "notOnOrder": [
+    {
+      "sku": "SKU-1254",
+      "name": "Melkesjokolade",
+      "brand": "Freia",
+      "size": "200g",
+      "image": "img/SKU-1254.jpg"
+    }
+  ]
+}

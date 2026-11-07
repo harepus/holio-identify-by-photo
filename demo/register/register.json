@@ -1,0 +1,1981 @@
+{
+ "source": "Open Food Facts (CC BY-SA), via the Holio arena pain 3 holdout register",
+ "items": [
+  {
+   "sku": "SKU-3070",
+   "name": "Skinkeost",
+   "brand": "Kavli o. as hovedlager",
+   "category": "cheese-spreads",
+   "size": "175 g",
+   "image": "img/SKU-3070.jpg"
+  },
+  {
+   "sku": "SKU-5509",
+   "name": "Sleep",
+   "brand": "Twinings",
+   "category": "passion-flower",
+   "size": "20 bags, 30 g",
+   "image": "img/SKU-5509.jpg"
+  },
+  {
+   "sku": "SKU-6224",
+   "name": "Litago boller",
+   "brand": "Bakehuset",
+   "category": "buns",
+   "size": "315g",
+   "image": "img/SKU-6224.jpg"
+  },
+  {
+   "sku": "SKU-8579",
+   "name": "Honey Nut Cheerios",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "29.4 oz",
+   "image": "img/SKU-8579.jpg"
+  },
+  {
+   "sku": "SKU-9190",
+   "name": "Superchips Hot Cheddar",
+   "brand": "Maarud",
+   "category": "flavoured-potato-crisps",
+   "size": "140g",
+   "image": "img/SKU-9190.jpg"
+  },
+  {
+   "sku": "SKU-4220",
+   "name": "Melkesjokolade Tutti Frutti",
+   "brand": "Freia",
+   "category": "chocolates",
+   "size": "",
+   "image": "img/SKU-4220.jpg"
+  },
+  {
+   "sku": "SKU-1488",
+   "name": "Cheerios Grandkids imp",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "12 OZ (340 G)",
+   "image": "img/SKU-1488.jpg"
+  },
+  {
+   "sku": "SKU-7905",
+   "name": "Sjokoladetrekk",
+   "brand": "IDUN INDUSTRIER AS",
+   "category": "chocolate-sauce",
+   "size": "",
+   "image": "img/SKU-7905.jpg"
+  },
+  {
+   "sku": "SKU-1549",
+   "name": "Zeroh! Tropical Citrus",
+   "brand": "Zeroh!",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "0,8L",
+   "image": "img/SKU-1549.jpg"
+  },
+  {
+   "sku": "SKU-8383",
+   "name": "Q Lettmelk  0,5% Fett 1,75l",
+   "brand": "Q-MEIERIENE AS",
+   "category": "semi-skimmed-milks",
+   "size": "",
+   "image": "img/SKU-8383.jpg"
+  },
+  {
+   "sku": "SKU-1664",
+   "name": "Lettmelk 0,5% 1l Q",
+   "brand": "Q-meieriene as",
+   "category": "",
+   "size": "1000 ml",
+   "image": "img/SKU-1664.jpg"
+  },
+  {
+   "sku": "SKU-2428",
+   "name": "Hjemmelaget Jordbærsyltetøy",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "strawberry-jams",
+   "size": "",
+   "image": "img/SKU-2428.jpg"
+  },
+  {
+   "sku": "SKU-4771",
+   "name": "Salted caramel mocha",
+   "brand": "nescafe",
+   "category": "aromatised-instant-coffees",
+   "size": "8 x 19 gram",
+   "image": "img/SKU-4771.jpg"
+  },
+  {
+   "sku": "SKU-2233",
+   "name": "Dobbel Sjokolade",
+   "brand": "Litago",
+   "category": "cow-milks",
+   "size": "1/2 L",
+   "image": "img/SKU-2233.jpg"
+  },
+  {
+   "sku": "SKU-2314",
+   "name": "Sweet & Salty Nut chocolat noir et mélange de noix, 5 barres de 30 g",
+   "brand": "Nature valley",
+   "category": "cereal-bar-with-almonds",
+   "size": "150 g ℮",
+   "image": "img/SKU-2314.jpg"
+  },
+  {
+   "sku": "SKU-3267",
+   "name": "Tyttebærsyltetøy 80%",
+   "brand": "lerum",
+   "category": "jams",
+   "size": "330 g",
+   "image": "img/SKU-3267.jpg"
+  },
+  {
+   "sku": "SKU-2439",
+   "name": "Sursild",
+   "brand": "Toro",
+   "category": "pickled-herring",
+   "size": "1200g",
+   "image": "img/SKU-2439.jpg"
+  },
+  {
+   "sku": "SKU-7904",
+   "name": "Tè verde - Gunpowder Green Tea",
+   "brand": "Twinings",
+   "category": "gunpowder-teas",
+   "size": "100 g",
+   "image": "img/SKU-7904.jpg"
+  },
+  {
+   "sku": "SKU-5080",
+   "name": "Johnny's Hamburgerdressing Original",
+   "brand": "Johnny's",
+   "category": "burger-sauces",
+   "size": "435 g",
+   "image": "img/SKU-5080.jpg"
+  },
+  {
+   "sku": "SKU-6803",
+   "name": "Julebrus",
+   "brand": "Ringnes",
+   "category": "sodas",
+   "size": "0.33 l",
+   "image": "img/SKU-6803.jpg"
+  },
+  {
+   "sku": "SKU-2223",
+   "name": "Solo Super",
+   "brand": "Solo",
+   "category": "diet-sodas",
+   "size": "0.33 L",
+   "image": "img/SKU-2223.jpg"
+  },
+  {
+   "sku": "SKU-9091",
+   "name": "Frokost Yoghurt Skogsbær",
+   "brand": "Q-meieriene as",
+   "category": "strawberry-yogurts",
+   "size": "800 g",
+   "image": "img/SKU-9091.jpg"
+  },
+  {
+   "sku": "SKU-8852",
+   "name": "Baconost",
+   "brand": "Kavli",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-8852.jpg"
+  },
+  {
+   "sku": "SKU-6249",
+   "name": "Bearnaisesaus",
+   "brand": "Toro",
+   "category": "dehydrated-sauces",
+   "size": "4 poser à 28 g",
+   "image": "img/SKU-6249.jpg"
+  },
+  {
+   "sku": "SKU-1185",
+   "name": "Nescafé",
+   "brand": "Nestlé",
+   "category": "coffees",
+   "size": "50g",
+   "image": "img/SKU-1185.jpg"
+  },
+  {
+   "sku": "SKU-8784",
+   "name": "Fondente",
+   "brand": "Ritter Sport",
+   "category": "dark-chocolates",
+   "size": "100 g",
+   "image": "img/SKU-8784.jpg"
+  },
+  {
+   "sku": "SKU-6764",
+   "name": "Superchips Paprika",
+   "brand": "Maarud",
+   "category": "flavoured-potato-crisps",
+   "size": "140g",
+   "image": "img/SKU-6764.jpg"
+  },
+  {
+   "sku": "SKU-5210",
+   "name": "Essens Mandel",
+   "brand": "Idun",
+   "category": "almond-oils",
+   "size": "10ml",
+   "image": "img/SKU-5210.jpg"
+  },
+  {
+   "sku": "SKU-3995",
+   "name": "Freia bakepulver",
+   "brand": "Freia",
+   "category": "baking-powder-or-raising-agent",
+   "size": "250g",
+   "image": "img/SKU-3995.jpg"
+  },
+  {
+   "sku": "SKU-2186",
+   "name": "Litago Dobbel Sjokolade",
+   "brand": "Litago",
+   "category": "cow-milks",
+   "size": "1L",
+   "image": "img/SKU-2186.jpg"
+  },
+  {
+   "sku": "SKU-2849",
+   "name": "Nescafe Brasero",
+   "brand": "nescafe",
+   "category": "instant-coffees",
+   "size": "200 g",
+   "image": "img/SKU-2849.jpg"
+  },
+  {
+   "sku": "SKU-2701",
+   "name": "Mors hjemmebakte Pizzagjær",
+   "brand": "Idun",
+   "category": "yeast",
+   "size": "60g",
+   "image": "img/SKU-2701.jpg"
+  },
+  {
+   "sku": "SKU-4341",
+   "name": "Amerikansk Dressing Original",
+   "brand": "Kavli",
+   "category": "groceries",
+   "size": "425g",
+   "image": "img/SKU-4341.jpg"
+  },
+  {
+   "sku": "SKU-1176",
+   "name": "Schokolade Dunkle Voll-Nuss",
+   "brand": "Ritter Sport",
+   "category": "dark-chocolates-with-hazelnuts",
+   "size": "100g",
+   "image": "img/SKU-1176.jpg"
+  },
+  {
+   "sku": "SKU-4710",
+   "name": "Stabburet leverpostei",
+   "brand": "Stabburet",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-4710.jpg"
+  },
+  {
+   "sku": "SKU-7267",
+   "name": "Skyr Bringebær Panna Cotta 160g Q",
+   "brand": "Q-meieriene as",
+   "category": "raspberry-yogurts",
+   "size": "160 g",
+   "image": "img/SKU-7267.jpg"
+  },
+  {
+   "sku": "SKU-4597",
+   "name": "Smash !",
+   "brand": "Nidar",
+   "category": "",
+   "size": "100g",
+   "image": "img/SKU-4597.jpg"
+  },
+  {
+   "sku": "SKU-6248",
+   "name": "Imsdal 0,65l",
+   "brand": "RINGNES AS",
+   "category": "non-carbonated-natural-mineral-waters",
+   "size": "",
+   "image": "img/SKU-6248.jpg"
+  },
+  {
+   "sku": "SKU-3223",
+   "name": "Melkesjokolade",
+   "brand": "Freia",
+   "category": "milk-chocolates",
+   "size": "250 gram",
+   "image": "img/SKU-3223.jpg"
+  },
+  {
+   "sku": "SKU-6092",
+   "name": "Cookies med melkesjokolade",
+   "brand": "Freia",
+   "category": "filled-drop-cookies",
+   "size": "156g",
+   "image": "img/SKU-6092.jpg"
+  },
+  {
+   "sku": "SKU-3155",
+   "name": "Zeroh! Pineapple",
+   "brand": "Lerum as",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "",
+   "image": "img/SKU-3155.jpg"
+  },
+  {
+   "sku": "SKU-1990",
+   "name": "Johnny's BBQ Sås Black Garlic & Chili",
+   "brand": "Johnny's",
+   "category": "",
+   "size": "470 g",
+   "image": "img/SKU-1990.jpg"
+  },
+  {
+   "sku": "SKU-6348",
+   "name": "Meierismør",
+   "brand": "Tine sa",
+   "category": "butters",
+   "size": "250 g",
+   "image": "img/SKU-6348.jpg"
+  },
+  {
+   "sku": "SKU-5535",
+   "name": "Creme Fraiche 35% 300g Q",
+   "brand": "Q-meieriene as",
+   "category": "sour-creams",
+   "size": "300 g",
+   "image": "img/SKU-5535.jpg"
+  },
+  {
+   "sku": "SKU-6082",
+   "name": "Classic 3in1",
+   "brand": "Nescafe",
+   "category": "instant-coffees",
+   "size": "17.5 g",
+   "image": "img/SKU-6082.jpg"
+  },
+  {
+   "sku": "SKU-9551",
+   "name": "Blåbær syltetøy",
+   "brand": "REMA 1000",
+   "category": "berry-jams",
+   "size": "1kg",
+   "image": "img/SKU-9551.jpg"
+  },
+  {
+   "sku": "SKU-4244",
+   "name": "alpenmilch",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolates",
+   "size": "1pcs",
+   "image": "img/SKU-4244.jpg"
+  },
+  {
+   "sku": "SKU-9146",
+   "name": "Nescafe cappuccino decaf",
+   "brand": "Nescafe",
+   "category": "instant-powder-for-cappuccino-with-chocolate",
+   "size": "10 pack",
+   "image": "img/SKU-9146.jpg"
+  },
+  {
+   "sku": "SKU-9771",
+   "name": "Ritter sport fondente con nocciole intere",
+   "brand": "Ritter Sport",
+   "category": "dark-chocolates-with-hazelnuts",
+   "size": "100 g",
+   "image": "img/SKU-9771.jpg"
+  },
+  {
+   "sku": "SKU-9430",
+   "name": "Crunchy avoine et miel",
+   "brand": "Nature ValleyGeneral Mills",
+   "category": "snacks-sucres",
+   "size": "210 g, 5 barres doubles de 42 g",
+   "image": "img/SKU-9430.jpg"
+  },
+  {
+   "sku": "SKU-5410",
+   "name": "Kavli Amerikansk dressing Original",
+   "brand": "Kavli",
+   "category": "groceries",
+   "size": "230 g",
+   "image": "img/SKU-5410.jpg"
+  },
+  {
+   "sku": "SKU-4438",
+   "name": "Julemarsipan",
+   "brand": "Nidar",
+   "category": "marzipan",
+   "size": "60g",
+   "image": "img/SKU-4438.jpg"
+  },
+  {
+   "sku": "SKU-1254",
+   "name": "Melkesjokolade",
+   "brand": "Freia",
+   "category": "chocolates",
+   "size": "200g",
+   "image": "img/SKU-1254.jpg"
+  },
+  {
+   "sku": "SKU-1608",
+   "name": "Allehånde Malt",
+   "brand": "Toro",
+   "category": "groceries",
+   "size": "13g",
+   "image": "img/SKU-1608.jpg"
+  },
+  {
+   "sku": "SKU-2214",
+   "name": "Baconost",
+   "brand": "Kavli o. as hovedlager",
+   "category": "cheese-spreads",
+   "size": "175 g",
+   "image": "img/SKU-2214.jpg"
+  },
+  {
+   "sku": "SKU-2391",
+   "name": "Superchips Holiday",
+   "brand": "Maarud as",
+   "category": "flavoured-potato-crisps",
+   "size": "",
+   "image": "img/SKU-2391.jpg"
+  },
+  {
+   "sku": "SKU-4969",
+   "name": "Mortadella luncheon",
+   "brand": "Toro",
+   "category": "canned-meats",
+   "size": "",
+   "image": "img/SKU-4969.jpg"
+  },
+  {
+   "sku": "SKU-2102",
+   "name": "Litago med smak av cookie dough",
+   "brand": "Tine",
+   "category": "chocolate-milks",
+   "size": "1/2 liter",
+   "image": "img/SKU-2102.jpg"
+  },
+  {
+   "sku": "SKU-1769",
+   "name": "Whole Hazelnuts",
+   "brand": "Ritter Sport",
+   "category": "chocolates-with-hazelnuts",
+   "size": "1",
+   "image": "img/SKU-1769.jpg"
+  },
+  {
+   "sku": "SKU-2889",
+   "name": "Ritter Sport Knusperflakes",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolates",
+   "size": "16,67 g",
+   "image": "img/SKU-2889.jpg"
+  },
+  {
+   "sku": "SKU-7356",
+   "name": "Iskaffe Mocha",
+   "brand": "Tine",
+   "category": "",
+   "size": "330ml",
+   "image": "img/SKU-7356.jpg"
+  },
+  {
+   "sku": "SKU-1592",
+   "name": "Stabburet Leverpostei",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "pork-liver-pates",
+   "size": "",
+   "image": "img/SKU-1592.jpg"
+  },
+  {
+   "sku": "SKU-7264",
+   "name": "Potetgull Paprika",
+   "brand": "Maarud",
+   "category": "flavoured-potato-crisps",
+   "size": "250g",
+   "image": "img/SKU-7264.jpg"
+  },
+  {
+   "sku": "SKU-2277",
+   "name": "Marzipan",
+   "brand": "Ritter Sport",
+   "category": "filled-chocolates",
+   "size": "100 g",
+   "image": "img/SKU-2277.jpg"
+  },
+  {
+   "sku": "SKU-8736",
+   "name": "Edel-Vollmilch",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolates",
+   "size": "100g",
+   "image": "img/SKU-8736.jpg"
+  },
+  {
+   "sku": "SKU-9842",
+   "name": "Leverpostei (glutenfri)",
+   "brand": "Stabburet",
+   "category": "pork-pates",
+   "size": "100 g",
+   "image": "img/SKU-9842.jpg"
+  },
+  {
+   "sku": "SKU-5364",
+   "name": "Knusperflakes",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolates",
+   "size": "100g",
+   "image": "img/SKU-5364.jpg"
+  },
+  {
+   "sku": "SKU-6063",
+   "name": "Mozell Light Uten Sukker - Pære & Rips",
+   "brand": "Ringnes AS",
+   "category": "carbonated-fruit-soft-drink-with-less-than-10-of-fruit-juice-without-sugar-and-artificial-sweeteners",
+   "size": "",
+   "image": "img/SKU-6063.jpg"
+  },
+  {
+   "sku": "SKU-6409",
+   "name": "Honey Nut Cheerios",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "436 g",
+   "image": "img/SKU-6409.jpg"
+  },
+  {
+   "sku": "SKU-2356",
+   "name": "Panini z szynką i serem",
+   "brand": "El Toro Rojo",
+   "category": "sandwiches",
+   "size": "2 X 120g",
+   "image": "img/SKU-2356.jpg"
+  },
+  {
+   "sku": "SKU-1776",
+   "name": "Idun mango chili",
+   "brand": "Idun",
+   "category": "",
+   "size": "270g",
+   "image": "img/SKU-1776.jpg"
+  },
+  {
+   "sku": "SKU-1465",
+   "name": "TWININGS Earl Grey Tea",
+   "brand": "TASSIMO",
+   "category": "",
+   "size": "40g",
+   "image": "img/SKU-1465.jpg"
+  },
+  {
+   "sku": "SKU-4507",
+   "name": "Skyr tropisk drikkeyoghurt",
+   "brand": "Skyr",
+   "category": "fruit-skyrs",
+   "size": "1000 ml",
+   "image": "img/SKU-4507.jpg"
+  },
+  {
+   "sku": "SKU-2183",
+   "name": "Barres granola avoine et miel",
+   "brand": "Val Nature",
+   "category": "cereal-bars",
+   "size": "46 g",
+   "image": "img/SKU-2183.jpg"
+  },
+  {
+   "sku": "SKU-9762",
+   "name": "Nugatti",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "chocolate-spreads",
+   "size": "",
+   "image": "img/SKU-9762.jpg"
+  },
+  {
+   "sku": "SKU-9797",
+   "name": "Brownies",
+   "brand": "Toro",
+   "category": "cake-mixes",
+   "size": "",
+   "image": "img/SKU-9797.jpg"
+  },
+  {
+   "sku": "SKU-2286",
+   "name": "Bløt Figurmarcipan",
+   "brand": "Idun industri as dagligvare",
+   "category": "marzipan",
+   "size": "400",
+   "image": "img/SKU-2286.jpg"
+  },
+  {
+   "sku": "SKU-8754",
+   "name": "Potetgull Paprika",
+   "brand": "Maarud",
+   "category": "flavoured-potato-crisps",
+   "size": "",
+   "image": "img/SKU-8754.jpg"
+  },
+  {
+   "sku": "SKU-5214",
+   "name": "Cheerios Original",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "2 x 1 lb 4.35 oz (20.35 oz) (576 g)",
+   "image": "img/SKU-5214.jpg"
+  },
+  {
+   "sku": "SKU-7393",
+   "name": "Oliwki zielone nadziewane pastą paprykową",
+   "brand": "El Toro Rojo",
+   "category": "stuffed-olives",
+   "size": "200g",
+   "image": "img/SKU-7393.jpg"
+  },
+  {
+   "sku": "SKU-9947",
+   "name": "Paprika Potetchips",
+   "brand": "MAARUD AS",
+   "category": "flavoured-potato-crisps",
+   "size": "",
+   "image": "img/SKU-9947.jpg"
+  },
+  {
+   "sku": "SKU-8900",
+   "name": "Limited edition med smak av banansplitt",
+   "brand": "Litago",
+   "category": "milkshakes",
+   "size": "1,5L",
+   "image": "img/SKU-8900.jpg"
+  },
+  {
+   "sku": "SKU-3084",
+   "name": "Karamellsaus",
+   "brand": "Freia",
+   "category": "caramel-spreads",
+   "size": "360g",
+   "image": "img/SKU-3084.jpg"
+  },
+  {
+   "sku": "SKU-8413",
+   "name": "Pepsi Max 0,5l",
+   "brand": "RINGNES AS",
+   "category": "diet-cola-soft-drink",
+   "size": "",
+   "image": "img/SKU-8413.jpg"
+  },
+  {
+   "sku": "SKU-4109",
+   "name": "Riskrisp Melkesjokolade",
+   "brand": "Freia",
+   "category": "chocolates",
+   "size": "60g",
+   "image": "img/SKU-4109.jpg"
+  },
+  {
+   "sku": "SKU-3299",
+   "name": "Zeroh! Pepperkake",
+   "brand": "Zeroh!",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "0,8L",
+   "image": "img/SKU-3299.jpg"
+  },
+  {
+   "sku": "SKU-1575",
+   "name": "Thé Earl Grey coffret",
+   "brand": "Twinings",
+   "category": "bergamot-flavored-black-teas",
+   "size": "200g",
+   "image": "img/SKU-1575.jpg"
+  },
+  {
+   "sku": "SKU-9493",
+   "name": "Nescafe Classic",
+   "brand": "Nescafe",
+   "category": "instant-coffees",
+   "size": "250g",
+   "image": "img/SKU-9493.jpg"
+  },
+  {
+   "sku": "SKU-3023",
+   "name": "Kanel (Zimt)",
+   "brand": "Krydderiet",
+   "category": "cinnamon-powder",
+   "size": "67unknown",
+   "image": "img/SKU-3023.jpg"
+  },
+  {
+   "sku": "SKU-7212",
+   "name": "Tortilla Dipmix",
+   "brand": "Maarud",
+   "category": "spice-mix",
+   "size": "3 x 22 g",
+   "image": "img/SKU-7212.jpg"
+  },
+  {
+   "sku": "SKU-2133",
+   "name": "Amerikansk dressing bacon",
+   "brand": "Kavli",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-2133.jpg"
+  },
+  {
+   "sku": "SKU-4111",
+   "name": "Julebrus",
+   "brand": "Ringnes AS",
+   "category": "sodas",
+   "size": "1",
+   "image": "img/SKU-4111.jpg"
+  },
+  {
+   "sku": "SKU-2049",
+   "name": "Earl Grey",
+   "brand": "Twinings",
+   "category": "non-alcoholic-beverages",
+   "size": "100 g",
+   "image": "img/SKU-2049.jpg"
+  },
+  {
+   "sku": "SKU-3226",
+   "name": "Seven-up free",
+   "brand": "Ringnes AS",
+   "category": "light-lemon-soft-drinks",
+   "size": "l",
+   "image": "img/SKU-3226.jpg"
+  },
+  {
+   "sku": "SKU-3596",
+   "name": "MELKESJOKOLADE Coco",
+   "brand": "Freia",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-3596.jpg"
+  },
+  {
+   "sku": "SKU-8722",
+   "name": "Skyr Salt Karamell 160 g",
+   "brand": "Q-Meieriene AS",
+   "category": "skyrs",
+   "size": "160 g",
+   "image": "img/SKU-8722.jpg"
+  },
+  {
+   "sku": "SKU-7740",
+   "name": "Kavli Baconost 200g",
+   "brand": "KAVLI O. AS",
+   "category": "bacon",
+   "size": "",
+   "image": "img/SKU-7740.jpg"
+  },
+  {
+   "sku": "SKU-8986",
+   "name": "Earl Grey Tea",
+   "brand": "Twinings",
+   "category": "teas",
+   "size": "100 tea bags",
+   "image": "img/SKU-8986.jpg"
+  },
+  {
+   "sku": "SKU-1313",
+   "name": "Pepsi",
+   "brand": "Pepsi",
+   "category": "colas",
+   "size": "0,3L",
+   "image": "img/SKU-1313.jpg"
+  },
+  {
+   "sku": "SKU-3204",
+   "name": "Helmelk 1l Q",
+   "brand": "Q-meieriene as",
+   "category": "whole-milks",
+   "size": "1000 ml",
+   "image": "img/SKU-3204.jpg"
+  },
+  {
+   "sku": "SKU-7028",
+   "name": "Decaf",
+   "brand": "nescafe",
+   "category": "decaffeinated-instant-coffees",
+   "size": "100 g",
+   "image": "img/SKU-7028.jpg"
+  },
+  {
+   "sku": "SKU-7089",
+   "name": "Bakepulver",
+   "brand": "Freia",
+   "category": "baking-powder-or-raising-agent",
+   "size": "250g",
+   "image": "img/SKU-7089.jpg"
+  },
+  {
+   "sku": "SKU-7834",
+   "name": "Potetchips salt",
+   "brand": "MAARUD AS",
+   "category": "potato-crisps-in-sunflower-oil",
+   "size": "",
+   "image": "img/SKU-7834.jpg"
+  },
+  {
+   "sku": "SKU-7725",
+   "name": "FETA",
+   "brand": "Tine SA",
+   "category": "feta",
+   "size": "150 g",
+   "image": "img/SKU-7725.jpg"
+  },
+  {
+   "sku": "SKU-8430",
+   "name": "TINE Helmelk",
+   "brand": "Tine sa",
+   "category": "whole-milks",
+   "size": "1750 ml",
+   "image": "img/SKU-8430.jpg"
+  },
+  {
+   "sku": "SKU-5180",
+   "name": "Red Hot Chili",
+   "brand": "Idun",
+   "category": "groceries",
+   "size": "530 g",
+   "image": "img/SKU-5180.jpg"
+  },
+  {
+   "sku": "SKU-5191",
+   "name": "Nescafè",
+   "brand": "Nescafe",
+   "category": "coffees",
+   "size": "",
+   "image": "img/SKU-5191.jpg"
+  },
+  {
+   "sku": "SKU-6076",
+   "name": "Glutenfri Vafler",
+   "brand": "TORO",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-6076.jpg"
+  },
+  {
+   "sku": "SKU-7364",
+   "name": "Honey nut cheerios",
+   "brand": "Général Mills",
+   "category": "petit-dejeuners",
+   "size": "430 g",
+   "image": "img/SKU-7364.jpg"
+  },
+  {
+   "sku": "SKU-7173",
+   "name": "Cottage cheese",
+   "brand": "Tine sa",
+   "category": "cottage-cheeses",
+   "size": "400 g",
+   "image": "img/SKU-7173.jpg"
+  },
+  {
+   "sku": "SKU-4356",
+   "name": "Kulturmelk",
+   "brand": "Tine",
+   "category": "milks",
+   "size": "1L",
+   "image": "img/SKU-4356.jpg"
+  },
+  {
+   "sku": "SKU-2372",
+   "name": "Cheerios",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "570 g",
+   "image": "img/SKU-2372.jpg"
+  },
+  {
+   "sku": "SKU-6488",
+   "name": "Thé original earl grey",
+   "brand": "Twinings",
+   "category": "unsweetened-beverages",
+   "size": "200g",
+   "image": "img/SKU-6488.jpg"
+  },
+  {
+   "sku": "SKU-3346",
+   "name": "Nescafe spécial Filtre Bio",
+   "brand": "Nestlé",
+   "category": "instant-coffees",
+   "size": "90 g",
+   "image": "img/SKU-3346.jpg"
+  },
+  {
+   "sku": "SKU-5508",
+   "name": "Skyr Mini jordbær",
+   "brand": "Q-meieriene as",
+   "category": "fruit-skyrs",
+   "size": "90 g",
+   "image": "img/SKU-5508.jpg"
+  },
+  {
+   "sku": "SKU-5605",
+   "name": "Farris Frus Tropiske Frukter",
+   "brand": "Farris",
+   "category": "carbonated-fruit-soft-drink-with-less-than-10-of-fruit-juice-without-sugar-and-with-artificial-sweeteners",
+   "size": "0,5L",
+   "image": "img/SKU-5605.jpg"
+  },
+  {
+   "sku": "SKU-9526",
+   "name": "Nugatti salt karamel",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "chocolate-spreads",
+   "size": "",
+   "image": "img/SKU-9526.jpg"
+  },
+  {
+   "sku": "SKU-1203",
+   "name": "Superchips sourcream & onion",
+   "brand": "Maarud",
+   "category": "flavoured-potato-crisps",
+   "size": "140g",
+   "image": "img/SKU-1203.jpg"
+  },
+  {
+   "sku": "SKU-9269",
+   "name": "Rett i koppen Sjokoladedrikk",
+   "brand": "Toro",
+   "category": "chocolate-powders",
+   "size": "10 x 32g",
+   "image": "img/SKU-9269.jpg"
+  },
+  {
+   "sku": "SKU-9044",
+   "name": "Idun Thousand Island",
+   "brand": "Idun",
+   "category": "groceries",
+   "size": "465 g",
+   "image": "img/SKU-9044.jpg"
+  },
+  {
+   "sku": "SKU-4318",
+   "name": "NESCAFE SPECIAL FILTRE Origins Colombia",
+   "brand": "Nescafé spécial filtre origins",
+   "category": "instant-coffees",
+   "size": "95g",
+   "image": "img/SKU-4318.jpg"
+  },
+  {
+   "sku": "SKU-8905",
+   "name": "Mors hjemmebakte gjær original",
+   "brand": "Idun",
+   "category": "baker-s-yeast",
+   "size": "5 poser",
+   "image": "img/SKU-8905.jpg"
+  },
+  {
+   "sku": "SKU-5087",
+   "name": "Nissekompiser Melkesjokolade",
+   "brand": "Freia",
+   "category": "christmas-sweets",
+   "size": "120g",
+   "image": "img/SKU-5087.jpg"
+  },
+  {
+   "sku": "SKU-1365",
+   "name": "NESCAFÉ SPECIAL FILTRE L'Original Flacon de 200g",
+   "brand": "Nestlé",
+   "category": "instant-coffees",
+   "size": "200 g",
+   "image": "img/SKU-1365.jpg"
+  },
+  {
+   "sku": "SKU-9394",
+   "name": "Essens Vanilje",
+   "brand": "Idun",
+   "category": "groceries",
+   "size": "10ml",
+   "image": "img/SKU-9394.jpg"
+  },
+  {
+   "sku": "SKU-7819",
+   "name": "Honey Nut Cheerios",
+   "brand": "General Mills",
+   "category": "puffed-cereals",
+   "size": "2 - 1 lb 11.5 oz (779g) cartons",
+   "image": "img/SKU-7819.jpg"
+  },
+  {
+   "sku": "SKU-4494",
+   "name": "Concha Y Toro Casillero Del Diablo",
+   "brand": "Casillero del Diablo",
+   "category": "",
+   "size": "750 ml",
+   "image": "img/SKU-4494.jpg"
+  },
+  {
+   "sku": "SKU-1515",
+   "name": "Frus Eple & Kiwi",
+   "brand": "Farris",
+   "category": "sweetened-beverages",
+   "size": "0,5L",
+   "image": "img/SKU-1515.jpg"
+  },
+  {
+   "sku": "SKU-4956",
+   "name": "Appelsinmarsipan",
+   "brand": "Nidar",
+   "category": "marzipan",
+   "size": "136g",
+   "image": "img/SKU-4956.jpg"
+  },
+  {
+   "sku": "SKU-1728",
+   "name": "Superchips",
+   "brand": "Maarud",
+   "category": "potato-crisps",
+   "size": "",
+   "image": "img/SKU-1728.jpg"
+  },
+  {
+   "sku": "SKU-8302",
+   "name": "Västerviks senap",
+   "brand": "Västerviks senap",
+   "category": "groceries",
+   "size": "300 g",
+   "image": "img/SKU-8302.jpg"
+  },
+  {
+   "sku": "SKU-1495",
+   "name": "Nisseluer Paprika",
+   "brand": "Maarud",
+   "category": "snacks",
+   "size": "125 g",
+   "image": "img/SKU-1495.jpg"
+  },
+  {
+   "sku": "SKU-6422",
+   "name": "Syltetøy 80% bringebær uten tilsatt sukker",
+   "brand": "LERUM AS",
+   "category": "raspberry-jams",
+   "size": "",
+   "image": "img/SKU-6422.jpg"
+  },
+  {
+   "sku": "SKU-2126",
+   "name": "SkinkOst",
+   "brand": "Kavli",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-2126.jpg"
+  },
+  {
+   "sku": "SKU-5462",
+   "name": "Leverpostei",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "pork-liver-pates",
+   "size": "",
+   "image": "img/SKU-5462.jpg"
+  },
+  {
+   "sku": "SKU-3231",
+   "name": "Smørbukk sjokolade",
+   "brand": "Nidar",
+   "category": "caramel-chocolates",
+   "size": "155g",
+   "image": "img/SKU-3231.jpg"
+  },
+  {
+   "sku": "SKU-2510",
+   "name": "Pineapple",
+   "brand": "ZERoh!",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "0.8 L",
+   "image": "img/SKU-2510.jpg"
+  },
+  {
+   "sku": "SKU-4509",
+   "name": "Smørbukk",
+   "brand": "Nidar",
+   "category": "caramel-chocolates",
+   "size": "12g",
+   "image": "img/SKU-4509.jpg"
+  },
+  {
+   "sku": "SKU-7042",
+   "name": "Jordbær syltetøy",
+   "brand": "REMA 1000",
+   "category": "strawberry-jams",
+   "size": "1kg",
+   "image": "img/SKU-7042.jpg"
+  },
+  {
+   "sku": "SKU-3435",
+   "name": "Pure Green tea",
+   "brand": "Twinings",
+   "category": "herbal-teas",
+   "size": "2 g",
+   "image": "img/SKU-3435.jpg"
+  },
+  {
+   "sku": "SKU-4479",
+   "name": "amerikansk dressing",
+   "brand": "kavli",
+   "category": "",
+   "size": "230g",
+   "image": "img/SKU-4479.jpg"
+  },
+  {
+   "sku": "SKU-1110",
+   "name": "Matfløte 18% fett",
+   "brand": "Tine",
+   "category": "creams",
+   "size": "300 ml",
+   "image": "img/SKU-1110.jpg"
+  },
+  {
+   "sku": "SKU-4266",
+   "name": "Nugat",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolate-bar-with-nougat",
+   "size": "100 g",
+   "image": "img/SKU-4266.jpg"
+  },
+  {
+   "sku": "SKU-7447",
+   "name": "Hamburgerdressing",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "groceries",
+   "size": "",
+   "image": "img/SKU-7447.jpg"
+  },
+  {
+   "sku": "SKU-1679",
+   "name": "Julebrus",
+   "brand": "Ringnes",
+   "category": "sweetened-beverages",
+   "size": "1,5L",
+   "image": "img/SKU-1679.jpg"
+  },
+  {
+   "sku": "SKU-4889",
+   "name": "Menta",
+   "brand": "Ritter Sport",
+   "category": "filled-dark-chocolates",
+   "size": "100 g",
+   "image": "img/SKU-4889.jpg"
+  },
+  {
+   "sku": "SKU-4281",
+   "name": "Nidar Marsipanegg",
+   "brand": "Nidar",
+   "category": "milk-chocolate-candies",
+   "size": "57 g",
+   "image": "img/SKU-4281.jpg"
+  },
+  {
+   "sku": "SKU-3887",
+   "name": "Korni Sibas",
+   "brand": "Kavli o. as hovedlager",
+   "category": "oat-cookies",
+   "size": "290 g",
+   "image": "img/SKU-3887.jpg"
+  },
+  {
+   "sku": "SKU-8779",
+   "name": "Zeroh! Blueberry Lemonade",
+   "brand": "Zeroh!",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "0,8L",
+   "image": "img/SKU-8779.jpg"
+  },
+  {
+   "sku": "SKU-6356",
+   "name": "Crunchos",
+   "brand": "Kims",
+   "category": "chocolate-candies",
+   "size": "130g",
+   "image": "img/SKU-6356.jpg"
+  },
+  {
+   "sku": "SKU-3934",
+   "name": "Nugatti Max",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "cocoa-and-hazelnuts-spreads",
+   "size": "",
+   "image": "img/SKU-3934.jpg"
+  },
+  {
+   "sku": "SKU-2848",
+   "name": "Luftig bringebær",
+   "brand": "Q-meieriene as",
+   "category": "yogurts-high-in-protein-on-a-fruit-layer",
+   "size": "130 g",
+   "image": "img/SKU-2848.jpg"
+  },
+  {
+   "sku": "SKU-4668",
+   "name": "Forfriskende Bringebær",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "",
+   "image": "img/SKU-4668.jpg"
+  },
+  {
+   "sku": "SKU-4906",
+   "name": "Sjokoladesaus",
+   "brand": "IDUN INDUSTRIER AS",
+   "category": "chocolate-sauce",
+   "size": "",
+   "image": "img/SKU-4906.jpg"
+  },
+  {
+   "sku": "SKU-4225",
+   "name": "Helmelk",
+   "brand": "Tine sa",
+   "category": "cow-milks",
+   "size": "1000 ml",
+   "image": "img/SKU-4225.jpg"
+  },
+  {
+   "sku": "SKU-1574",
+   "name": "Zeroh! Skumnisse",
+   "brand": "Zeroh!",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "0,8L",
+   "image": "img/SKU-1574.jpg"
+  },
+  {
+   "sku": "SKU-1238",
+   "name": "Tortilla Dipmix",
+   "brand": "Maarud",
+   "category": "groceries",
+   "size": "22g",
+   "image": "img/SKU-1238.jpg"
+  },
+  {
+   "sku": "SKU-6597",
+   "name": "Holiday Dipmix 3 i pakken",
+   "brand": "Maarud",
+   "category": "groceries",
+   "size": "3 x 22g",
+   "image": "img/SKU-6597.jpg"
+  },
+  {
+   "sku": "SKU-6096",
+   "name": "Litago Med smak av brownie of salt karamell Uten tilsatt sukker",
+   "brand": "Litago",
+   "category": "chocolate-milks",
+   "size": "1/2L",
+   "image": "img/SKU-6096.jpg"
+  },
+  {
+   "sku": "SKU-8425",
+   "name": "Freia Sjokonøtt",
+   "brand": "Freia",
+   "category": "chocolate-spreads",
+   "size": "350g",
+   "image": "img/SKU-8425.jpg"
+  },
+  {
+   "sku": "SKU-8378",
+   "name": "Syltetøy 80% jordbær utan tilsatt sukker",
+   "brand": "Lerum",
+   "category": "strawberry-jams",
+   "size": "330 gram",
+   "image": "img/SKU-8378.jpg"
+  },
+  {
+   "sku": "SKU-5591",
+   "name": "BaconOst",
+   "brand": "Kavli",
+   "category": "melted-cheese",
+   "size": "330 g",
+   "image": "img/SKU-5591.jpg"
+  },
+  {
+   "sku": "SKU-7638",
+   "name": "Battery Juiced",
+   "brand": "Battery",
+   "category": "lemonade-with-sugar",
+   "size": "500ml",
+   "image": "img/SKU-7638.jpg"
+  },
+  {
+   "sku": "SKU-3525",
+   "name": "Boble melkesjokolade",
+   "brand": "Freia",
+   "category": "milk-chocolates",
+   "size": "150g",
+   "image": "img/SKU-3525.jpg"
+  },
+  {
+   "sku": "SKU-8925",
+   "name": "Melkesjokolade",
+   "brand": "Freia",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-8925.jpg"
+  },
+  {
+   "sku": "SKU-3874",
+   "name": "Original Pizzasaus",
+   "brand": "Idun",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-3874.jpg"
+  },
+  {
+   "sku": "SKU-6108",
+   "name": "Zeroh! Sitron & Lime",
+   "brand": "Zeroh!",
+   "category": "lemonade-without-sugar-with-artificial-sweeteners",
+   "size": "0,8L",
+   "image": "img/SKU-6108.jpg"
+  },
+  {
+   "sku": "SKU-3608",
+   "name": "Leverpostei Porsjon 6X22G",
+   "brand": "stabburet",
+   "category": "",
+   "size": "6 x 22g",
+   "image": "img/SKU-3608.jpg"
+  },
+  {
+   "sku": "SKU-6167",
+   "name": "Boisson sport Saveur Cool Blue",
+   "brand": "RINGNES AS",
+   "category": "sweetened-beverages",
+   "size": "",
+   "image": "img/SKU-6167.jpg"
+  },
+  {
+   "sku": "SKU-9498",
+   "name": "Cheerios",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "350g",
+   "image": "img/SKU-9498.jpg"
+  },
+  {
+   "sku": "SKU-1763",
+   "name": "Smoked salmon pate",
+   "brand": "Kavli",
+   "category": "pate",
+   "size": "100 g",
+   "image": "img/SKU-1763.jpg"
+  },
+  {
+   "sku": "SKU-7416",
+   "name": "Idun pizzadressing",
+   "brand": "Idun",
+   "category": "",
+   "size": "435g",
+   "image": "img/SKU-7416.jpg"
+  },
+  {
+   "sku": "SKU-3122",
+   "name": "Holiday Dipmix",
+   "brand": "Maarud",
+   "category": "groceries",
+   "size": "22g",
+   "image": "img/SKU-3122.jpg"
+  },
+  {
+   "sku": "SKU-9235",
+   "name": "cottage cheese",
+   "brand": "TINE SA",
+   "category": "fresh-cheeses",
+   "size": "",
+   "image": "img/SKU-9235.jpg"
+  },
+  {
+   "sku": "SKU-8315",
+   "name": "Ritter Sport Knusperflakes",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolates",
+   "size": "250 g",
+   "image": "img/SKU-8315.jpg"
+  },
+  {
+   "sku": "SKU-2437",
+   "name": "Nescafe Decaf",
+   "brand": "nescafe",
+   "category": "instant-coffees",
+   "size": "120 g",
+   "image": "img/SKU-2437.jpg"
+  },
+  {
+   "sku": "SKU-2272",
+   "name": "Supermix salt",
+   "brand": "MAARUD AS",
+   "category": "light-potato-crisps",
+   "size": "130 g",
+   "image": "img/SKU-2272.jpg"
+  },
+  {
+   "sku": "SKU-9520",
+   "name": "Mors hjemmebakte Natron",
+   "brand": "Idun",
+   "category": "baking",
+   "size": "50g",
+   "image": "img/SKU-9520.jpg"
+  },
+  {
+   "sku": "SKU-8027",
+   "name": "Earl Grey",
+   "brand": "Twinings",
+   "category": "earl-grey-tea",
+   "size": "",
+   "image": "img/SKU-8027.jpg"
+  },
+  {
+   "sku": "SKU-5932",
+   "name": "Decaf",
+   "brand": "Nescafe",
+   "category": "decaffeinated-instant-coffees",
+   "size": "",
+   "image": "img/SKU-5932.jpg"
+  },
+  {
+   "sku": "SKU-1293",
+   "name": "Klem Jordbær",
+   "brand": "Lerum",
+   "category": "",
+   "size": "1pcs",
+   "image": "img/SKU-1293.jpg"
+  },
+  {
+   "sku": "SKU-1348",
+   "name": "Litago original sjokolademelk",
+   "brand": "Litago",
+   "category": "cow-milks",
+   "size": "1/2 L",
+   "image": "img/SKU-1348.jpg"
+  },
+  {
+   "sku": "SKU-8217",
+   "name": "Honey nut cheerios",
+   "brand": "Cheerios",
+   "category": "extruded-cereals",
+   "size": "1.51 kg",
+   "image": "img/SKU-8217.jpg"
+  },
+  {
+   "sku": "SKU-8381",
+   "name": "Original",
+   "brand": "TINE SA",
+   "category": "butters",
+   "size": "",
+   "image": "img/SKU-8381.jpg"
+  },
+  {
+   "sku": "SKU-8967",
+   "name": "Nescafé",
+   "brand": "Nescafe",
+   "category": "",
+   "size": "95 g",
+   "image": "img/SKU-8967.jpg"
+  },
+  {
+   "sku": "SKU-9198",
+   "name": "Nugatti Air, Nuss-nougatcreme",
+   "brand": "ORKLA FOODS NORGE AS (STABBURET)",
+   "category": "chocolate-spreads",
+   "size": "",
+   "image": "img/SKU-9198.jpg"
+  },
+  {
+   "sku": "SKU-7360",
+   "name": "Melkesjokolade nyhet SMIL",
+   "brand": "Freia",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-7360.jpg"
+  },
+  {
+   "sku": "SKU-5290",
+   "name": "Rett i koppen Sjokoladedrikk",
+   "brand": "Toro",
+   "category": "chocolate-powders",
+   "size": "32g",
+   "image": "img/SKU-5290.jpg"
+  },
+  {
+   "sku": "SKU-4576",
+   "name": "Thé earl grey",
+   "brand": "Twinings",
+   "category": "bergamot-flavored-black-teas",
+   "size": "50 g",
+   "image": "img/SKU-4576.jpg"
+  },
+  {
+   "sku": "SKU-1634",
+   "name": "Hamburger dressing",
+   "brand": "Idun",
+   "category": "hamburger-dressings",
+   "size": "795 g",
+   "image": "img/SKU-1634.jpg"
+  },
+  {
+   "sku": "SKU-3778",
+   "name": "Nescafe Gold",
+   "brand": "Nescafe",
+   "category": "instant-coffees",
+   "size": "190g",
+   "image": "img/SKU-3778.jpg"
+  },
+  {
+   "sku": "SKU-5807",
+   "name": "Mors hjemmebakte Tørrgjær Orginal",
+   "brand": "Idun",
+   "category": "baking-powder-or-raising-agent",
+   "size": "60g",
+   "image": "img/SKU-5807.jpg"
+  },
+  {
+   "sku": "SKU-6746",
+   "name": "Helmelk",
+   "brand": "Q",
+   "category": "cow-milks",
+   "size": "1,75L",
+   "image": "img/SKU-6746.jpg"
+  },
+  {
+   "sku": "SKU-6621",
+   "name": "Lettrømme 18% fett",
+   "brand": "Tine sa",
+   "category": "sour-creams",
+   "size": "300 g",
+   "image": "img/SKU-6621.jpg"
+  },
+  {
+   "sku": "SKU-8499",
+   "name": "Honey Nut Cheerios",
+   "brand": "Cheerios",
+   "category": "extruded-cereals",
+   "size": "18.8 oz",
+   "image": "img/SKU-8499.jpg"
+  },
+  {
+   "sku": "SKU-8709",
+   "name": "Pure Green Tea",
+   "brand": "Twinings",
+   "category": "green-teas",
+   "size": "50g",
+   "image": "img/SKU-8709.jpg"
+  },
+  {
+   "sku": "SKU-4741",
+   "name": "Julekuler melkesjokolade",
+   "brand": "Freia",
+   "category": "milk-chocolate-candies",
+   "size": "150g",
+   "image": "img/SKU-4741.jpg"
+  },
+  {
+   "sku": "SKU-3128",
+   "name": "Le Rustique Bon Brie 200g",
+   "brand": "TINE SA",
+   "category": "bries",
+   "size": "",
+   "image": "img/SKU-3128.jpg"
+  },
+  {
+   "sku": "SKU-7325",
+   "name": "Firkløver melkesjokolade",
+   "brand": "Freia",
+   "category": "chocolates-with-hazelnuts",
+   "size": "200g",
+   "image": "img/SKU-7325.jpg"
+  },
+  {
+   "sku": "SKU-2485",
+   "name": "Honey Nut Cheerios imp",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "10.8oz",
+   "image": "img/SKU-2485.jpg"
+  },
+  {
+   "sku": "SKU-7782",
+   "name": "Kremfløte",
+   "brand": "Q-meieriene as",
+   "category": "creams",
+   "size": "300 ml",
+   "image": "img/SKU-7782.jpg"
+  },
+  {
+   "sku": "SKU-7040",
+   "name": "Cioccolato",
+   "brand": "Freia",
+   "category": "milk-chocolates",
+   "size": "250 g",
+   "image": "img/SKU-7040.jpg"
+  },
+  {
+   "sku": "SKU-9164",
+   "name": "Stratos Salty Caramel",
+   "brand": "Nidar",
+   "category": "caramel-chocolates",
+   "size": "185g",
+   "image": "img/SKU-9164.jpg"
+  },
+  {
+   "sku": "SKU-7894",
+   "name": "Mors hjemmebakte Luftigere Bakst",
+   "brand": "Idun",
+   "category": "baking-powder-or-raising-agent",
+   "size": "100g",
+   "image": "img/SKU-7894.jpg"
+  },
+  {
+   "sku": "SKU-7298",
+   "name": "Bamsemums",
+   "brand": "Nidar",
+   "category": "marshmallows-coated-with-chocolate",
+   "size": "400 g",
+   "image": "img/SKU-7298.jpg"
+  },
+  {
+   "sku": "SKU-9867",
+   "name": "Cheerios",
+   "brand": "General Mills",
+   "category": "extruded-cereals",
+   "size": "18oz (510g)",
+   "image": "img/SKU-9867.jpg"
+  },
+  {
+   "sku": "SKU-5619",
+   "name": "Bringebær syltetøy",
+   "brand": "REMA 1000",
+   "category": "raspberry-jams",
+   "size": "1kg",
+   "image": "img/SKU-5619.jpg"
+  },
+  {
+   "sku": "SKU-8240",
+   "name": "Nidar Favoritter",
+   "brand": "Nidar (Orkla)",
+   "category": "som-en-av-første-sjokolada",
+   "size": "300",
+   "image": "img/SKU-8240.jpg"
+  },
+  {
+   "sku": "SKU-2050",
+   "name": "Lettmelk 1% 1,75l Q",
+   "brand": "Q-meieriene as",
+   "category": "milks",
+   "size": "1750 ml",
+   "image": "img/SKU-2050.jpg"
+  },
+  {
+   "sku": "SKU-2226",
+   "name": "Litago Med Jordbærsmak",
+   "brand": "Litago",
+   "category": "strawberry-milks",
+   "size": "0,5L",
+   "image": "img/SKU-2226.jpg"
+  },
+  {
+   "sku": "SKU-6604",
+   "name": "Earl grey tea",
+   "brand": "twinings",
+   "category": "teas",
+   "size": "25 x 2 g",
+   "image": "img/SKU-6604.jpg"
+  },
+  {
+   "sku": "SKU-6185",
+   "name": "Stratos Salty Caramel",
+   "brand": "Nidar",
+   "category": "chocolates",
+   "size": "",
+   "image": "img/SKU-6185.jpg"
+  },
+  {
+   "sku": "SKU-4742",
+   "name": "Amerikansk Dressing Sriracha",
+   "brand": "Kavli",
+   "category": "",
+   "size": "",
+   "image": "img/SKU-4742.jpg"
+  },
+  {
+   "sku": "SKU-8423",
+   "name": "Holiday DipMix",
+   "brand": "Maarud",
+   "category": "groceries",
+   "size": "22 g",
+   "image": "img/SKU-8423.jpg"
+  },
+  {
+   "sku": "SKU-9699",
+   "name": "Tyttebærsyltetøy",
+   "brand": "LERUM AS",
+   "category": "lingonberries-jams",
+   "size": "",
+   "image": "img/SKU-9699.jpg"
+  },
+  {
+   "sku": "SKU-9519",
+   "name": "Frokost Yoghurt vanilje",
+   "brand": "Q-MEIERIENE AS",
+   "category": "vanilla-yogurt",
+   "size": "",
+   "image": "img/SKU-9519.jpg"
+  },
+  {
+   "sku": "SKU-2893",
+   "name": "8 Flour Tortilla Wraps Regular",
+   "brand": "Old El Paso (General Mills)",
+   "category": "wheat-flatbreads",
+   "size": "326g",
+   "image": "img/SKU-2893.jpg"
+  },
+  {
+   "sku": "SKU-8451",
+   "name": "Pepsi max lime",
+   "brand": "Ringnes AS",
+   "category": "sweetened-beverages",
+   "size": "l",
+   "image": "img/SKU-8451.jpg"
+  },
+  {
+   "sku": "SKU-7025",
+   "name": "Potetskruer Salt",
+   "brand": "Maarud",
+   "category": "salty-snacks-made-from-potato",
+   "size": "90 g",
+   "image": "img/SKU-7025.jpg"
+  },
+  {
+   "sku": "SKU-6856",
+   "name": "Klem mosa Bringebær",
+   "brand": "Lerum",
+   "category": "strawberry-jams",
+   "size": "415g",
+   "image": "img/SKU-6856.jpg"
+  },
+  {
+   "sku": "SKU-6709",
+   "name": "Jegergryte med sjampinjong og tyttebær",
+   "brand": "Toro",
+   "category": "stews",
+   "size": "106 g",
+   "image": "img/SKU-6709.jpg"
+  },
+  {
+   "sku": "SKU-3301",
+   "name": "Thé vert Earl Grey",
+   "brand": "Twinings",
+   "category": "herbal-teas",
+   "size": "",
+   "image": "img/SKU-3301.jpg"
+  },
+  {
+   "sku": "SKU-7631",
+   "name": "Smash",
+   "brand": "Nidar",
+   "category": "chocolates",
+   "size": "160g",
+   "image": "img/SKU-7631.jpg"
+  },
+  {
+   "sku": "SKU-4252",
+   "name": "Crispo",
+   "brand": "Nidar",
+   "category": "chocolates",
+   "size": "155g",
+   "image": "img/SKU-4252.jpg"
+  },
+  {
+   "sku": "SKU-1271",
+   "name": "Amerikansk dressing jalapenos",
+   "brand": "Kavli",
+   "category": "groceries",
+   "size": "230g",
+   "image": "img/SKU-1271.jpg"
+  },
+  {
+   "sku": "SKU-5556",
+   "name": "Exotic Orange Mango Passionfruit",
+   "brand": "RINGNES AS",
+   "category": "sweetened-beverages",
+   "size": "",
+   "image": "img/SKU-5556.jpg"
+  },
+  {
+   "sku": "SKU-9462",
+   "name": "Notting Hill Earl Grey Capsules",
+   "brand": "Twinings",
+   "category": "teas",
+   "size": "",
+   "image": "img/SKU-9462.jpg"
+  },
+  {
+   "sku": "SKU-3927",
+   "name": "Schokolade Halbbitter",
+   "brand": "Ritter Sport",
+   "category": "dark-chocolates",
+   "size": "100g",
+   "image": "img/SKU-3927.jpg"
+  },
+  {
+   "sku": "SKU-8597",
+   "name": "Kefir",
+   "brand": "Tine sa",
+   "category": "kefir",
+   "size": "1000 g",
+   "image": "img/SKU-8597.jpg"
+  },
+  {
+   "sku": "SKU-3238",
+   "name": "Litago med smak av Bursdagskake",
+   "brand": "Litago",
+   "category": "cow-milks",
+   "size": "500ml",
+   "image": "img/SKU-3238.jpg"
+  },
+  {
+   "sku": "SKU-9134",
+   "name": "Drømmelett",
+   "brand": "Q-MEIERIENE AS",
+   "category": "fermented-milk-products",
+   "size": "",
+   "image": "img/SKU-9134.jpg"
+  },
+  {
+   "sku": "SKU-8059",
+   "name": "Nidar Marsipanpølser",
+   "brand": "Nidar",
+   "category": "chocolates",
+   "size": "110 g",
+   "image": "img/SKU-8059.jpg"
+  },
+  {
+   "sku": "SKU-3832",
+   "name": "Russian Earl Grey",
+   "brand": "Twinings",
+   "category": "flavored-teas",
+   "size": "150 g",
+   "image": "img/SKU-3832.jpg"
+  },
+  {
+   "sku": "SKU-6933",
+   "name": "Jordbær",
+   "brand": "LERUM AS",
+   "category": "strawberry-jams",
+   "size": "425 g",
+   "image": "img/SKU-6933.jpg"
+  },
+  {
+   "sku": "SKU-6664",
+   "name": "grovere leverpostei",
+   "brand": "Stabburet",
+   "category": "pork-liver-pates",
+   "size": "6 x 22g",
+   "image": "img/SKU-6664.jpg"
+  },
+  {
+   "sku": "SKU-2786",
+   "name": "Pølse Sennep",
+   "brand": "Idun",
+   "category": "groceries",
+   "size": "510g",
+   "image": "img/SKU-2786.jpg"
+  },
+  {
+   "sku": "SKU-9734",
+   "name": "Russian Earl Grey",
+   "brand": "Twinings",
+   "category": "lemon-flavored-black-teas",
+   "size": "20 sachets, 30g",
+   "image": "img/SKU-9734.jpg"
+  },
+  {
+   "sku": "SKU-3771",
+   "name": "Q Lettrømme med skrulokk",
+   "brand": "Q-meieriene as",
+   "category": "sour-creams",
+   "size": "300 g",
+   "image": "img/SKU-3771.jpg"
+  },
+  {
+   "sku": "SKU-6611",
+   "name": "Strator Julefigurer",
+   "brand": "Stratos",
+   "category": "christmas-sweets",
+   "size": "140g",
+   "image": "img/SKU-6611.jpg"
+  },
+  {
+   "sku": "SKU-1256",
+   "name": "Fløtesaus",
+   "brand": "Toro",
+   "category": "dehydrated-sauces",
+   "size": "50 g",
+   "image": "img/SKU-1256.jpg"
+  },
+  {
+   "sku": "SKU-8879",
+   "name": "nescafe brasero",
+   "brand": "Nescafe",
+   "category": "instant-coffees",
+   "size": "1,8 g",
+   "image": "img/SKU-8879.jpg"
+  },
+  {
+   "sku": "SKU-3308",
+   "name": "Knusperflakes",
+   "brand": "Ritter Sport",
+   "category": "milk-chocolate-bar",
+   "size": "100 g",
+   "image": "img/SKU-3308.jpg"
+  },
+  {
+   "sku": "SKU-1405",
+   "name": "White Whole Hazelnuts",
+   "brand": "Ritter Sport",
+   "category": "white-chocolates-with-hazelnuts",
+   "size": "100 g",
+   "image": "img/SKU-1405.jpg"
+  },
+  {
+   "sku": "SKU-2621",
+   "name": "Seterrømme 35% fett",
+   "brand": "TINE SA",
+   "category": "sour-creams",
+   "size": "",
+   "image": "img/SKU-2621.jpg"
+  },
+  {
+   "sku": "SKU-5105",
+   "name": "Crispo",
+   "brand": "Nidar",
+   "category": "bars-covered-with-chocolate",
+   "size": "65g",
+   "image": "img/SKU-5105.jpg"
+  },
+  {
+   "sku": "SKU-5194",
+   "name": "Kakaoklasse 74% Die Kräftige",
+   "brand": "Ritter Sport",
+   "category": "susser-snack",
+   "size": "100 g",
+   "image": "img/SKU-5194.jpg"
+  },
+  {
+   "sku": "SKU-8223",
+   "name": "Pizzafyll tomat og løk",
+   "brand": "Toro",
+   "category": "",
+   "size": "55 g",
+   "image": "img/SKU-8223.jpg"
+  }
+ ]
+}
