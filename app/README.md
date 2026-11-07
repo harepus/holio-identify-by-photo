@@ -23,7 +23,7 @@ The camera is a plain `<input type="file" accept="image/*" capture="environment"
 
 | URL | Shows |
 |---|---|
-| `/` | Purchase order, scanner, unknown-code sheet. The scanner has buttons that simulate a scan of each line's barcode and of the unknown code `7031234567890` |
+| `/` | Purchase order, scanner, unknown-code sheet. Over HTTPS or on localhost the scanner reads real barcodes with the back camera. Buttons below it simulate a scan of each line's barcode and of the unknown code `7031234567890` |
 | `/#/pc` | Holio on PC panel, counted from this browser session's events |
 | `?lang=nb` | Norwegian, in the component and the shell |
 | `?mock=match` | Canned answers instead of the server. Also `choose`, `none`, `dark`, `timeout` and `error` |

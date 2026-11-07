@@ -151,6 +151,7 @@ export function App() {
               po={po}
               t={t}
               linkedCount={Object.keys(links).length}
+              paused={overlay.kind !== "none"}
               onBack={() => setView("po")}
               onScan={scan}
               onIdentify={() => setOverlay({ kind: "identify" })}
