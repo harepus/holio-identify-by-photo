@@ -8,6 +8,7 @@ import { PurchaseOrderPage } from "./PurchaseOrderPage";
 import { ScannerPage } from "./ScannerPage";
 import { ManualSearch } from "./ManualSearch";
 import { ReceiptReview } from "./ReceiptReview";
+import { useOverlayFocus } from "./useOverlayFocus";
 import { receive, undoReceipt, type Receiving, type ReceiptRequest } from "./receiving";
 import { readSession, writeSession, type SessionEvent } from "./session";
 import { shellStrings } from "./strings";
@@ -25,6 +26,7 @@ export function App() {
   const [load, setLoad] = useState<Load>({ status: "loading" });
   const [view, setView] = useState<"po" | "scanner">("po");
   const [overlay, setOverlay] = useState<Overlay>({ kind: "none" });
+  const overlayFocus = useOverlayFocus(overlay.kind);
   const [receipt, setReceipt] = useState<{ id: number; text: string; image: string } | null>(null);
   const [notice, setNotice] = useState("");
   const [photoSkus, setPhotoSkus] = useState<Set<string>>(new Set());
@@ -80,13 +82,16 @@ export function App() {
   }
   const close = () => setOverlay({ kind: "none" });
   const reviewLine = overlay.kind === "review" ? po?.lines.find((line) => line.sku === overlay.sku) : undefined;
-  return <div className="app">
-    <header className="apphead">
+  return <div className="app" onKeyDown={(event) => {
+    if (overlay.kind !== "none" && event.key === "Escape") { event.preventDefault(); close(); }
+    else overlayFocus.onKeyDown(event);
+  }}>
+    <header className="apphead" inert={overlay.kind !== "none"}>
       {view === "scanner" && <button className="icon-btn" aria-label="Back" onClick={() => { close(); setView("po"); }}><ArrowLeft /></button>}
       <div className="name">{view === "po" ? "Receive order" : "Scan items"}<small>{po ? t.poTitle(po.id) : "Holio Ops"}</small></div>
       <span className="sp" /><span className="chip-demo">Demo</span>{mock && <span className="chip-mock">Mock: {mock}</span>}
     </header>
-    <main className="stage">
+    <main className="stage" ref={overlayFocus.stage}>
       <div className="page" key={view} inert={overlay.kind !== "none"} aria-hidden={overlay.kind !== "none"}>
         {load.status === "loading" && <p role="status">Loading purchase order...</p>}
         {load.status === "failed" && <div className="err"><h2>Could not load this order</h2><p>Check your connection and try again.</p><button className="btn btn-s" onClick={reload}>Try again</button></div>}

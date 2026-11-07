@@ -27,6 +27,19 @@ def run(page):
     expect(page.locator('.cam-received')).to_have_count(0)
     expect(page.get_by_role('button', name='Undo last receipt')).to_have_count(0)
     print('[ok] known scan and undo')
+    page.get_by_role('button', name='No barcode?', exact=True).click()
+    expect(page.get_by_role('button', name='Identify by photo', exact=True)).to_be_focused()
+    page.keyboard.press('Shift+Tab')
+    expect(page.get_by_role('button', name='Back to scanning', exact=True)).to_be_focused()
+    page.keyboard.press('Tab')
+    expect(page.get_by_role('button', name='Identify by photo', exact=True)).to_be_focused()
+    page.keyboard.press('Escape')
+    expect(page.get_by_role('button', name='No barcode?', exact=True)).to_be_focused()
+    page.get_by_role('button', name='Search manually', exact=True).click()
+    expect(page.get_by_label('Name, SKU or barcode')).to_be_focused()
+    page.keyboard.press('Escape')
+    expect(page.get_by_role('button', name='Search manually', exact=True)).to_be_focused()
+    print('[ok] keyboard focus containment, Escape and return to scanner')
     page.get_by_role('button', name='Unknown code 7031234567890').click()
     shot(page, '02-unknown')
     page.get_by_role('dialog').get_by_role('button', name='Search manually').click()
@@ -102,6 +115,6 @@ if __name__ == '__main__':
         try:
             run(page)
             assert not errors, errors
-            print('[ok] 7 browser scenarios; no page errors')
+            print('[ok] 8 browser scenarios; no page errors')
         finally:
             browser.close()
