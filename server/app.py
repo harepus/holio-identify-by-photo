@@ -161,8 +161,8 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 @app.exception_handler(RequestValidationError)
 async def on_validation_error(_: Request, exc: RequestValidationError):
     first = exc.errors()[0]
-    return JSONResponse({"error": "invalid_request", "detail": f"{field_path(tuple(first['loc']))}: {first['msg']}"},
-                        status_code=400)
+    where = "body" if first["type"] == "json_invalid" else field_path(tuple(first["loc"]))
+    return JSONResponse({"error": "invalid_request", "detail": f"{where}: {first['msg']}"}, status_code=400)
 
 
 @app.exception_handler(InvalidRequest)

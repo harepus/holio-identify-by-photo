@@ -89,6 +89,7 @@ def test_malformed_json_is_400(client):
     r = client.post("/v1/identify", content=b"{", headers={"content-type": "application/json"})
     assert r.status_code == 400
     assert r.json()["error"] == "invalid_request"
+    assert r.json()["detail"].startswith("body:")
 
 
 def test_valid_request_returns_the_contract_shape(client):
