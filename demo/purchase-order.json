@@ -14,7 +14,9 @@
       "category": "flavoured-potato-crisps",
       "expected": 24,
       "received": 0,
-      "image": "img/SKU-6764.jpg"
+      "image": "img/SKU-6764.jpg",
+      "barcode": "7050122114607",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7050122114607"
     },
     {
       "lineId": "L2",
@@ -25,7 +27,9 @@
       "category": "flavoured-potato-crisps",
       "expected": 24,
       "received": 0,
-      "image": "img/SKU-1203.jpg"
+      "image": "img/SKU-1203.jpg",
+      "barcode": "7050122114614",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7050122114614"
     },
     {
       "lineId": "L3",
@@ -36,7 +40,9 @@
       "category": "flavoured-potato-crisps",
       "expected": 12,
       "received": 0,
-      "image": "img/SKU-9190.jpg"
+      "image": "img/SKU-9190.jpg",
+      "barcode": "7050122114690",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7050122114690"
     },
     {
       "lineId": "L4",
@@ -47,7 +53,9 @@
       "category": "chocolates",
       "expected": 18,
       "received": 0,
-      "image": "img/SKU-7631.jpg"
+      "image": "img/SKU-7631.jpg",
+      "barcode": "7037710050011",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7037710050011"
     },
     {
       "lineId": "L5",
@@ -58,7 +66,9 @@
       "category": "salty-snacks-made-from-potato",
       "expected": 24,
       "received": 0,
-      "image": "img/SKU-7025.jpg"
+      "image": "img/SKU-7025.jpg",
+      "barcode": "7050122112894",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7050122112894"
     },
     {
       "lineId": "L6",
@@ -69,7 +79,9 @@
       "category": "chocolates",
       "expected": 12,
       "received": 0,
-      "image": "img/SKU-4252.jpg"
+      "image": "img/SKU-4252.jpg",
+      "barcode": "7037710050028",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7037710050028"
     },
     {
       "lineId": "L7",
@@ -80,7 +92,9 @@
       "category": "bars-covered-with-chocolate",
       "expected": 12,
       "received": 0,
-      "image": "img/SKU-5105.jpg"
+      "image": "img/SKU-5105.jpg",
+      "barcode": "7037710021264",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7037710021264"
     },
     {
       "lineId": "L8",
@@ -91,7 +105,9 @@
       "category": "groceries",
       "expected": 30,
       "received": 0,
-      "image": "img/SKU-8423.jpg"
+      "image": "img/SKU-8423.jpg",
+      "barcode": "7050122131574",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7050122131574"
     }
   ],
   "notOnOrder": [
@@ -100,7 +116,9 @@
       "name": "Melkesjokolade",
       "brand": "Freia",
       "size": "200g",
-      "image": "img/SKU-1254.jpg"
+      "image": "img/SKU-1254.jpg",
+      "barcode": "7040110569908",
+      "barcodeSource": "https://world.openfoodfacts.org/product/7040110569908"
     }
   ]
 }
