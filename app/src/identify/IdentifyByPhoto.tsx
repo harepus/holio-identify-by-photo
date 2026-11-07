@@ -49,7 +49,7 @@ export function IdentifyByPhoto(props: IdentifyByPhotoProps) {
   const fileInput = useRef<HTMLInputElement>(null);
   const firstPhotoAt = useRef<number | null>(null);
   const firstTopSku = useRef<string | null | undefined>(undefined);
-  const t = strings[props.locale];
+  const t = props.reviewBeforeReceive ? { ...strings[props.locale], confirm: "Review receipt" } : strings[props.locale];
 
   usePass(
     state.kind === "identifying" ? state.startedAt : null,
@@ -138,7 +138,7 @@ export function IdentifyByPhoto(props: IdentifyByPhotoProps) {
     pickCancel: () => dispatch({ type: "pick-cancel" }),
     confirm: (candidate) => {
       const code = latest.current.scannedCode;
-      const linkCode = code && !offeredCodes.has(code) ? code : null;
+      const linkCode = !latest.current.reviewBeforeReceive && code && !offeredCodes.has(code) ? code : null;
       if (linkCode) offeredCodes.add(linkCode);
       latest.current.onConfirm(result(candidate));
       dispatch({ type: "confirmed", candidate, linkCode });

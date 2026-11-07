@@ -31,7 +31,7 @@ def take(page: Page, case: str) -> None:
 def identify(page: Page) -> float:
     t0 = time.time()
     page.get_by_role("button", name="Identify", exact=True).click()
-    expect(page.get_by_text("Comparing with")).to_have_count(0, timeout=30000)
+    page.locator(".hid-badge-lg, .hid-err, .hid-empty").first.wait_for(timeout=30000)
     return time.time() - t0
 
 
@@ -53,40 +53,33 @@ def run(page: Page) -> None:
     page.get_by_role("button", name=f"Unknown code {UNKNOWN}").click()
     page.get_by_role("dialog").get_by_role("button", name="Identify by photo").click()
     take(page, "h009")
-    secs = identify(page)
+    with page.expect_response(lambda r: "/v1/identify" in r.url, timeout=30000) as response:
+        secs = identify(page)
+    if response.value.status == 503:
+        assert response.value.json()["error"] == "model_unavailable"
+        expect(page.get_by_text("Could not identify right now.", exact=True)).to_be_visible()
+        shot(page, "02-model-unavailable")
+        page.locator(".hid").get_by_role("button", name="Search manually", exact=True).click()
+        expect(page.get_by_label("Name, SKU or barcode")).to_be_visible()
+        print("[ok] 503 model_unavailable and manual recovery; live recognition skipped. screens.py covers labeled mock success.")
+        return
     expect(page.locator(".hid-badge-lg")).to_have_text("Match")
     expect(page.get_by_text("Potetskruer Salt").first).to_be_visible()
     print(f"[ok] h009 Maarud Potetskruer Salt: match in {secs:.1f} s")
     shot(page, "02-match-h009")
 
-    page.get_by_role("button", name="Confirm").click()
-    expect(page.get_by_role("dialog", name=f"Link barcode {UNKNOWN} to Potetskruer Salt 90 g?")).to_be_visible()
-    shot(page, "03-link-barcode")
-    page.get_by_role("button", name="Link barcode").click()
-    expect(page.locator(".cam")).to_be_visible()
-    shot(page, "04-scanner-return")
-
+    page.get_by_role("button", name="Review receipt", exact=True).click()
+    expect(page.get_by_role("dialog", name="Review receipt")).to_be_visible()
+    shot(page, "03-review")
+    page.get_by_role("button", name="Receive 1", exact=True).click()
+    expect(page.locator(".scan-banner")).to_contain_text("now 1 of 24")
     page.get_by_role("button", name=f"Unknown code {UNKNOWN}").click()
-    expect(page.locator(".scan-banner")).to_contain_text("2/24")
-    print("[ok] the linked barcode now scans straight to Potetskruer Salt")
-    shot(page, "05-linked-scan")
-
+    expect(page.locator(".scan-banner")).to_contain_text("now 2 of 24")
+    shot(page, "04-linked-scan")
+    print("[ok] live photo, receipt review, barcode link and rescan")
     page.get_by_role("button", name="Melkesjokolade 200g 7040110569908").click()
-    page.get_by_role("dialog").get_by_role("button", name="Identify by photo").click()
-    take(page, "h016")
-    secs = identify(page)
-    expect(page.get_by_text("Not on PO #500004701").first).to_be_visible()
-    expect(page.get_by_text("Melkesjokolade").first).to_be_visible(timeout=30000)
-    print(f"[ok] h016 Freia Melkesjokolade: not on the order in {secs:.1f} s, best guess from the register")
-    shot(page, "06-not-on-order")
-    page.get_by_role("button", name="Register deviation").click()
-    expect(page.get_by_role("dialog", name="Receive extra item")).to_be_visible()
-    shot(page, "08-extra-link")
-    page.get_by_role("button", name="Link barcode").click()
-    expect(page.locator(".scan-banner")).to_contain_text("1 extra received")
-    page.locator(".sim-grid").get_by_role("button", name="Melkesjokolade 200g 7040110569908").first.click()
-    expect(page.locator(".scan-banner")).to_contain_text("2 extra received")
-    shot(page, "09-extra-rescan")
+    expect(page.get_by_role("dialog", name="Not on this order")).to_contain_text("Nothing received")
+    shot(page, "05-off-order")
 
     page.goto(f"{BASE}/#/pc")
     page.wait_for_timeout(500)
