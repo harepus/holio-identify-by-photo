@@ -13,6 +13,7 @@ uv run server/app.py
 - On start, a background thread loads CLIP and indexes the 247 products in `demo/register`. This took 14 s on the build Mac, and `GET /healthz` shows when it is done.
 - The first start copies the 350 MB CLIP TorchScript file from the arena entry into `server/cache/`, or exports it from open_clip when the arena copy is missing. `server/cache/` is gitignored.
 - `HPI_SAVE_RUNS=1` saves each call's photos, request and response under `server/runs/<timestamp>/`, which is also gitignored.
+- `HPI_IMAGE_HOSTS` is a comma-separated list of hosts the server may fetch candidate images from, such as Holio's image CDN. It is empty by default, so only `/demo/...` paths and `data:` URIs work. A remote fetch has no redirects and stops at 8 MB.
 
 ## Routes
 

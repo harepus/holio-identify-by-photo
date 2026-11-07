@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Literal
+from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -41,6 +42,7 @@ DIST = ROOT / "app" / "dist"
 RUNS = Path(__file__).resolve().parent / "runs"
 MAX_PHOTO_BYTES = 6 * 1024 * 1024
 IMAGE_SCHEMES = ("http://", "https://", "/", "data:")
+IMAGE_HOSTS = frozenset(h.strip().lower() for h in os.environ.get("HPI_IMAGE_HOSTS", "").split(",") if h.strip())
 
 log = logging.getLogger("hpi")
 
@@ -118,6 +120,8 @@ def parse(req: IdentifyRequest) -> IdentifyInput:
         seen.add(c.sku)
         if not c.image.startswith(IMAGE_SCHEMES):
             raise InvalidRequest(f"candidates[{i}].image: must be an http(s) URL, a path such as /demo/..., or a data: URI")
+        if c.image.startswith(("http://", "https://")) and (urlsplit(c.image).hostname or "") not in IMAGE_HOSTS:
+            raise InvalidRequest(f"candidates[{i}].image: host is not in HPI_IMAGE_HOSTS")
         cands.append(eng.Candidate(c.sku, c.name, c.brand or "", c.size or "", c.image))
     photos = tuple(decode_photo(i, p) for i, p in enumerate(req.photos))
     return IdentifyInput(photos, tuple(cands), req.scannedCode, req.context, req.locale)

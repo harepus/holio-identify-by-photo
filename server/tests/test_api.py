@@ -131,3 +131,10 @@ def test_demo_files_are_served(client):
     r = client.get("/demo/purchase-order.json")
     assert r.status_code == 200
     assert r.json()["id"] == "500004701"
+
+
+def test_remote_image_from_a_host_not_allowed_is_400(client):
+    row = {**ROW, "image": "http://169.254.169.254/latest/meta-data/x.jpg"}
+    r = client.post("/v1/identify", json=body(candidates=[row]))
+    assert r.status_code == 400
+    assert "HPI_IMAGE_HOSTS" in r.json()["detail"]

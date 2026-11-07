@@ -39,6 +39,17 @@ JIT = CACHE / ARENA_JIT.name
 SHORTLIST = 8
 JUDGE_TIMEOUT_S = 22.0
 FETCH_TIMEOUT_S = 10.0
+MAX_IMAGE_BYTES = 8 * 1024 * 1024
+
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    """An allowed host must not bounce the fetch to another one."""
+
+    def redirect_request(self, *args, **kwargs):
+        return None
+
+
+_OPENER = urllib.request.build_opener(_NoRedirect)
 CLI_MODEL = "sonnet"
 API_MODEL = "claude-sonnet-5-5"
 LANGS = ["en-US", "fr-FR", "de-DE", "it-IT", "es-ES", "pt-BR"]
@@ -453,8 +464,10 @@ class Engine:
                 if c.image.startswith("data:"):
                     data = base64.b64decode(c.image.partition(",")[2], validate=True)
                 else:
-                    with urllib.request.urlopen(c.image, timeout=FETCH_TIMEOUT_S) as r:
-                        data = r.read()
+                    with _OPENER.open(c.image, timeout=FETCH_TIMEOUT_S) as r:
+                        data = r.read(MAX_IMAGE_BYTES + 1)
+                    if len(data) > MAX_IMAGE_BYTES:
+                        raise ValueError("image larger than MAX_IMAGE_BYTES")
                 path = None
             with Image.open(io.BytesIO(data)) as im:
                 im.verify()
