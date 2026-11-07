@@ -138,3 +138,31 @@ def test_remote_image_from_a_host_not_allowed_is_400(client):
     r = client.post("/v1/identify", json=body(candidates=[row]))
     assert r.status_code == 400
     assert "HPI_IMAGE_HOSTS" in r.json()["detail"]
+
+
+def test_body_over_the_limit_is_413_before_parsing(client, monkeypatch):
+    monkeypatch.setattr(server, "MAX_BODY_BYTES", 1000)
+    r = client.post("/v1/identify", json=body())
+    assert r.status_code == 413
+
+
+def test_token_is_required_when_configured(client, monkeypatch):
+    monkeypatch.setattr(server, "TOKEN", "s3cret")
+    assert client.post("/v1/identify", json=body()).status_code == 401
+    ok = client.post("/v1/identify", json=body(), headers={"Authorization": "Bearer s3cret"})
+    assert ok.status_code == 200
+
+
+def test_busy_server_answers_429(client):
+    held = [server.BUSY.acquire(blocking=False) for _ in range(8)]
+    try:
+        assert client.post("/v1/identify", json=body()).status_code == 429
+    finally:
+        for got in held:
+            if got:
+                server.BUSY.release()
+
+
+def test_overlong_candidate_name_is_400(client):
+    row = {**ROW, "name": "x" * 201}
+    assert client.post("/v1/identify", json=body(candidates=[row])).status_code == 400

@@ -19,8 +19,8 @@ One stateless call. Holio sends the worker's photos and the candidates it alread
 | Field | Rule |
 |---|---|
 | `photos` | 1 or 2 images, each at most 6 MB decoded. Photo 1 is the front, photo 2 the label or size print |
-| `candidates` | 1 to 500 rows, unique `sku`. `image` is an http(s) URL, a path under the server's static root such as `/demo/...`, or a `data:` URI |
-| `scannedCode` | Optional. The unknown barcode the scanner read, echoed for logging only |
+| `candidates` | 1 to 500 rows, unique `sku`. `sku` at most 64 characters, `name` 200, `brand` 120, `size` 60. `image` is an http(s) URL, a path under the server's static root such as `/demo/...`, or a `data:` URI |
+| `scannedCode` | Optional, at most 64 characters. The unknown barcode the scanner read, echoed for logging only |
 | `context` | `receiving`, `returns`, `counting` or `lookup` |
 | `locale` | `en` or `nb`. The language of `evidence` |
 
@@ -52,6 +52,9 @@ One stateless call. Holio sends the worker's photos and the candidates it alread
 | HTTP | Body | When |
 |---|---|---|
 | 400 | `{ "error": "invalid_request", "detail": "..." }` | The request breaks a rule above |
+| 401 | `{ "error": "unauthorized" }` | The server has a service token and the request lacks `Authorization: Bearer <token>` |
+| 413 | `{ "error": "invalid_request", "detail": "..." }` | No `Content-Length`, or a body over 32 MB |
+| 429 | `{ "error": "busy" }` | All model slots are in use |
 | 502 | `{ "error": "image_fetch_failed", "sku": "SKU-1203" }` | A candidate image cannot be fetched or decoded |
 | 503 | `{ "error": "model_unavailable" }` | No model backend is configured or reachable |
 | 504 | `{ "error": "model_timeout" }` | The model gave no answer in 22 s |

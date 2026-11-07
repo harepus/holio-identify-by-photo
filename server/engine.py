@@ -463,6 +463,8 @@ class Engine:
             else:
                 if c.image.startswith("data:"):
                     data = base64.b64decode(c.image.partition(",")[2], validate=True)
+                    if len(data) > MAX_IMAGE_BYTES:
+                        raise ValueError("image larger than MAX_IMAGE_BYTES")
                 else:
                     with _OPENER.open(c.image, timeout=FETCH_TIMEOUT_S) as r:
                         data = r.read(MAX_IMAGE_BYTES + 1)

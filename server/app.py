@@ -9,6 +9,7 @@
 """Holio photo identification: POST /v1/identify, per contract/identify.md."""
 import base64
 import binascii
+import hmac
 import io
 import json
 import logging
@@ -20,14 +21,13 @@ from contextlib import asynccontextmanager
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Literal
+from typing import Annotated, Literal
 from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from PIL import Image
@@ -41,6 +41,11 @@ DEMO = ROOT / "demo"
 DIST = ROOT / "app" / "dist"
 RUNS = Path(__file__).resolve().parent / "runs"
 MAX_PHOTO_BYTES = 6 * 1024 * 1024
+MAX_PHOTO_CHARS = MAX_PHOTO_BYTES * 4 // 3 + 64
+MAX_IMAGE_CHARS = eng.MAX_IMAGE_BYTES * 4 // 3 + 64
+MAX_BODY_BYTES = 32 * 1024 * 1024
+TOKEN = os.environ.get("HPI_TOKEN", "")
+BUSY = threading.BoundedSemaphore(int(os.environ.get("HPI_MAX_CONCURRENT", "2")))
 IMAGE_SCHEMES = ("http://", "https://", "/", "data:")
 IMAGE_HOSTS = frozenset(h.strip().lower() for h in os.environ.get("HPI_IMAGE_HOSTS", "").split(",") if h.strip())
 
@@ -50,17 +55,17 @@ log = logging.getLogger("hpi")
 # ---------- boundary ----------
 
 class CandidateIn(BaseModel):
-    sku: str = Field(min_length=1)
-    name: str = Field(min_length=1)
-    brand: str | None = None
-    size: str | None = None
-    image: str = Field(min_length=1)
+    sku: str = Field(min_length=1, max_length=64)
+    name: str = Field(min_length=1, max_length=200)
+    brand: str | None = Field(default=None, max_length=120)
+    size: str | None = Field(default=None, max_length=60)
+    image: str = Field(min_length=1, max_length=MAX_IMAGE_CHARS)
 
 
 class IdentifyRequest(BaseModel):
-    photos: list[str] = Field(min_length=1, max_length=2)
+    photos: list[Annotated[str, Field(max_length=MAX_PHOTO_CHARS)]] = Field(min_length=1, max_length=2)
     candidates: list[CandidateIn] = Field(min_length=1, max_length=500)
-    scannedCode: str | None = None
+    scannedCode: str | None = Field(default=None, max_length=64)
     context: Literal["receiving", "returns", "counting", "lookup"]
     locale: Locale
 
@@ -159,7 +164,28 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="Holio photo identification", lifespan=lifespan)
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+
+class Gate:
+    """Check the token and the declared body size before anything reads or parses the body."""
+
+    def __init__(self, inner):
+        self.inner = inner
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "http" and scope["method"] == "POST":
+            headers = dict(scope["headers"])
+            if TOKEN and not hmac.compare_digest(headers.get(b"authorization", b""), f"Bearer {TOKEN}".encode()):
+                return await JSONResponse({"error": "unauthorized"}, status_code=401)(scope, receive, send)
+            length = headers.get(b"content-length", b"")
+            if not length.isdigit() or int(length) > MAX_BODY_BYTES:
+                return await JSONResponse({"error": "invalid_request",
+                                           "detail": f"body: send Content-Length, at most {MAX_BODY_BYTES} bytes"},
+                                          status_code=413)(scope, receive, send)
+        await self.inner(scope, receive, send)
+
+
+app.add_middleware(Gate)
 
 
 @app.exception_handler(RequestValidationError)
@@ -193,6 +219,8 @@ async def on_timeout(_: Request, __: eng.ModelTimeout):
 def identify(req: IdentifyRequest) -> IdentifyResponse:
     t0 = time.monotonic()
     inp = parse(req)
+    if not BUSY.acquire(blocking=False):
+        return JSONResponse({"error": "busy"}, status_code=429)
     outcome = "error"
     try:
         result = ENGINE.identify(inp.photos, inp.candidates, inp.locale)
@@ -205,6 +233,7 @@ def identify(req: IdentifyRequest) -> IdentifyResponse:
         save_run(inp, resp)
         return resp
     finally:
+        BUSY.release()
         log.info("identify status=%s candidates=%d context=%s code=%s ms=%d", outcome, len(inp.candidates),
                  inp.context, inp.scanned_code or "-", (time.monotonic() - t0) * 1000)
 
