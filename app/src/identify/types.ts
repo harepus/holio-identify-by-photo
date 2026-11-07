@@ -14,6 +14,8 @@ export type PhotoResult = {
   sku: string;
   source: "photo";
   evidence: string;
+  /** The answer the worker acted on: confirmed a match, picked from the list, or sent the best guess to deviation. */
+  status: IdentifyResponse["status"];
   photos: number;
   /** The worker took the top candidate of the first answer. */
   firstSuggestion: boolean;

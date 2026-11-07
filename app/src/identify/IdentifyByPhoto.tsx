@@ -105,14 +105,18 @@ export function IdentifyByPhoto(props: IdentifyByPhotoProps) {
     dispatch({ type: "photo-taken", photo, check });
   }
 
-  const result = (candidate: Candidate, evidence: string, photos: number): PhotoResult => ({
-    sku: candidate.sku,
-    source: "photo",
-    evidence,
-    photos,
-    firstSuggestion: firstTopSku.current === candidate.sku,
-    ms: Date.now() - (firstPhotoAt.current ?? Date.now()),
-  });
+  const result = (candidate: Candidate): PhotoResult => {
+    const answer = state.kind === "confirm" ? state.choose : state;
+    return {
+      sku: candidate.sku,
+      source: "photo",
+      evidence: "evidence" in answer ? answer.evidence : "",
+      status: answer.kind === "result.match" ? "match" : answer.kind === "result.none" ? "none" : "choose",
+      photos: "photos" in answer ? answer.photos.length : 0,
+      firstSuggestion: firstTopSku.current === candidate.sku,
+      ms: Date.now() - (firstPhotoAt.current ?? Date.now()),
+    };
+  };
 
   const actions: Actions = {
     close: () => dispatch({ type: "close" }),
@@ -132,15 +136,15 @@ export function IdentifyByPhoto(props: IdentifyByPhotoProps) {
     },
     pick: (sku) => dispatch({ type: "pick", sku }),
     pickCancel: () => dispatch({ type: "pick-cancel" }),
-    confirm: (candidate, evidence, photos) => {
+    confirm: (candidate) => {
       const code = latest.current.scannedCode;
       const linkCode = code && !offeredCodes.has(code) ? code : null;
       if (linkCode) offeredCodes.add(linkCode);
-      latest.current.onConfirm(result(candidate, evidence, photos));
+      latest.current.onConfirm(result(candidate));
       dispatch({ type: "confirmed", candidate, linkCode });
     },
-    deviation: (candidate, evidence, photos) => {
-      latest.current.onDeviation(result(candidate, evidence, photos));
+    deviation: (candidate) => {
+      latest.current.onDeviation(result(candidate));
       dispatch({ type: "close" });
     },
     searchManually: () => {

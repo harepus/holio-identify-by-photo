@@ -17,8 +17,8 @@ export type Actions = {
   addSizePhoto: () => void;
   pick: (sku: string) => void;
   pickCancel: () => void;
-  confirm: (candidate: Candidate, evidence: string, photos: number) => void;
-  deviation: (candidate: Candidate, evidence: string, photos: number) => void;
+  confirm: (candidate: Candidate) => void;
+  deviation: (candidate: Candidate) => void;
   searchManually: () => void;
   link: (candidate: Candidate, code: string) => void;
 };
@@ -304,7 +304,7 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
           <Product candidate={top} />
           {state.evidence && <div className="hid-ev">{state.evidence}</div>}
           <div className="hid-btncol">
-            <Btn kind="p" icon={<Check size={22} />} onClick={() => actions.confirm(top, state.evidence, state.photos.length)}>
+            <Btn kind="p" icon={<Check size={22} />} onClick={() => actions.confirm(top)}>
               {t.confirm}
             </Btn>
             <Btn kind="s" onClick={actions.notThis}>
@@ -325,7 +325,7 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
         <>
           <ChooseList state={choose} t={t} actions={actions} />
           <Sheet title={t.confirmQuestion(fullName(candidate))}>
-            <Btn kind="p" icon={<Check size={22} />} onClick={() => actions.confirm(candidate, choose.evidence, choose.photos.length)}>
+            <Btn kind="p" icon={<Check size={22} />} onClick={() => actions.confirm(candidate)}>
               {t.confirm}
             </Btn>
             <Btn kind="s" onClick={actions.pickCancel}>
@@ -359,7 +359,7 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
               <Product candidate={state.guess} />
               {state.evidence && <div className="hid-ev">{state.evidence}</div>}
               <div className="hid-btncol">
-                <Btn kind="p" icon={<TriangleAlert size={22} />} onClick={() => actions.deviation(state.guess, state.evidence, state.photos.length)}>
+                <Btn kind="p" icon={<TriangleAlert size={22} />} onClick={() => actions.deviation(state.guess)}>
                   {t.registerDeviation}
                 </Btn>
                 <Btn kind="s" icon={<Search size={22} />} onClick={actions.searchManually}>
