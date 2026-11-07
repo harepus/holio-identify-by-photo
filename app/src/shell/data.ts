@@ -16,7 +16,7 @@ const toCandidate = (p: RawProduct, base: string): Candidate => ({
   image: `${base}${p.image}`,
 });
 
-export const productLabel = (c: Candidate) => [c.name, c.size].filter(Boolean).join(" ");
+export const productLabel = (c: Candidate) => [c.name, c.size?.replace(/ /g, "\u00a0")].filter(Boolean).join(" ");
 
 export const lineCandidate = (line: PoLine) => toCandidate(line, "/demo/");
 

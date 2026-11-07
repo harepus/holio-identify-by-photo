@@ -157,6 +157,31 @@ def run(page: Page) -> None:
     shot(page, "21-pc-panel-desktop")
 
 
+def live_request(page: Page) -> None:
+    """Without ?mock, the component posts the contract's request to /v1/identify."""
+    seen = []
+
+    def answer(route):
+        seen.append(route.request.post_data_json)
+        route.fulfill(json={"status": "match", "candidates": [{"sku": "SKU-1203", "likelihood": "most_likely"}], "evidence": "live route", "readText": [], "ms": 1})
+
+    page.route("**/v1/identify", answer)
+    open_po(page, "")
+    expect(page.locator(".chip-mock")).to_have_count(0)
+    page.locator(".fab").click()
+    page.get_by_role("button", name="Unknown code 7031234567890").click()
+    page.get_by_role("dialog").get_by_role("button", name="Identify by photo").click()
+    take(page, FRONT)
+    page.get_by_role("button", name="Identify", exact=True).click()
+    expect(page.get_by_text("live route")).to_be_visible()
+    body = seen[0]
+    assert body["photos"][0].startswith("data:image/jpeg;base64,"), "photo sent as a JPEG data URL"
+    assert len(body["candidates"]) == 8 and body["candidates"][1]["image"] == "/demo/img/SKU-1203.jpg", "the 8 PO lines are the candidates"
+    assert (body["context"], body["locale"], body["scannedCode"]) == ("receiving", "en", "7031234567890"), "context, locale and code sent"
+    page.unroute("**/v1/identify")
+    print("[ok] live request matches the contract")
+
+
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     with sync_playwright() as p:
@@ -164,6 +189,7 @@ def main() -> None:
         page = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=2)
         errors: list[str] = []
         page.on("pageerror", lambda e: errors.append(str(e)))
+        live_request(page)
         run(page)
         browser.close()
         if errors:

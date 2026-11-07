@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { ArrowLeft, Camera } from "lucide-react";
 import type { Locale } from "../identify";
 import type { PurchaseOrder } from "./data";
@@ -16,6 +17,10 @@ export function totals(po: PurchaseOrder) {
 }
 
 export function PurchaseOrderPage({ po, t, locale, highlight, photoSkus }: Props) {
+  const highlighted = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    highlighted.current?.scrollIntoView({ block: "nearest" });
+  }, [highlight, po]);
   const { received, expected } = totals(po);
   const done = received >= expected;
   const date = new Intl.DateTimeFormat(locale === "nb" ? "nb-NO" : "en-GB", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(po.date));
@@ -36,7 +41,7 @@ export function PurchaseOrderPage({ po, t, locale, highlight, photoSkus }: Props
         </div>
       </div>
       {po.lines.map((line) => (
-        <div className={`line${highlight === line.sku ? " line-hl" : ""}`} key={line.lineId}>
+        <div className={`line${highlight === line.sku ? " line-hl" : ""}`} key={line.lineId} ref={highlight === line.sku ? highlighted : undefined}>
           <div className="line-th">
             <img src={`/demo/${line.image}`} alt="" />
           </div>

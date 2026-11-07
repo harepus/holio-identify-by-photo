@@ -51,6 +51,10 @@ export function ScannerPage({ po, t, linkedCount, onBack, onScan, onIdentify, on
       <section className="sim" aria-label={t.simulate}>
         <div className="sim-head">{t.simulate}</div>
         <div className="sim-grid">
+          <button type="button" className="sim-btn sim-unknown" onClick={() => onScan(UNKNOWN_CODE)}>
+            <span className="sim-nm">{t.unknownCode}</span>
+            <span className="mono">{UNKNOWN_CODE}</span>
+          </button>
           {po.lines.map((line) => (
             <button type="button" className="sim-btn" key={line.lineId} onClick={() => onScan(ean13(line.sku))}>
               <span className="sim-nm">
@@ -59,10 +63,6 @@ export function ScannerPage({ po, t, linkedCount, onBack, onScan, onIdentify, on
               <span className="mono">{ean13(line.sku)}</span>
             </button>
           ))}
-          <button type="button" className="sim-btn sim-unknown" onClick={() => onScan(UNKNOWN_CODE)}>
-            <span className="sim-nm">{t.unknownCode}</span>
-            <span className="mono">{UNKNOWN_CODE}</span>
-          </button>
         </div>
         {linkedCount > 0 && (
           <div className="center mt10">

@@ -34,7 +34,8 @@ export type ScreenProps = {
   canSearchRegister: boolean;
 };
 
-export const fullName = (c: Candidate) => [c.name, c.size].filter(Boolean).join(" ");
+/** Name and size, with the size kept on one line. */
+export const fullName = (c: Candidate) => [c.name, c.size?.replace(/ /g, "\u00a0")].filter(Boolean).join(" ");
 const meta = (c: Candidate) => [c.sku, c.size, c.brand].filter(Boolean).join(" · ");
 
 function Page({ title, onBack, backLabel, right, children }: { title: string; onBack: () => void; backLabel: string; right?: ReactNode; children: ReactNode }) {

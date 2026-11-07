@@ -82,7 +82,8 @@ export function PcPanel({ events, company, warehouse, t, locale }: Props) {
                         )}
                       </td>
                       <td>{e.order}</td>
-                      <td className="dt-badges">
+                      <td>
+                        <div className="dt-badges">
                         {e.kind === "manual" ? (
                           <span className="badge">{p.manual}</span>
                         ) : (
@@ -95,6 +96,7 @@ export function PcPanel({ events, company, warehouse, t, locale }: Props) {
                           </>
                         )}
                         {e.mock && <span className="chip-mock">{t.mock}</span>}
+                        </div>
                       </td>
                       <td>{p.byValue}</td>
                     </tr>

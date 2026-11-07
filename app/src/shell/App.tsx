@@ -142,7 +142,7 @@ export function App() {
       </header>
 
       <main className="stage">
-        <div className="page">
+        <div className="page" key={view}>
           {load.status === "loading" && <div className="muted center mt14">{t.loading}</div>}
           {load.status === "failed" && <div className="err">{t.loadFailed}</div>}
           {po && view === "po" && <PurchaseOrderPage po={po} t={t} locale={locale} highlight={highlight} photoSkus={photoSkus} />}

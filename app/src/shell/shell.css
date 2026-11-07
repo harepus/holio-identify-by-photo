@@ -87,7 +87,7 @@ img { display: block; }
 .c3 { bottom: 22px; left: 22px; border-right: 0; border-top: 0; }
 .c4 { bottom: 22px; right: 22px; border-left: 0; border-top: 0; }
 .scanline { position: absolute; left: 36px; right: 36px; top: 50%; height: 2px; background: var(--orange); box-shadow: 0 0 8px var(--orange); }
-.cam-tool { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; }
+.cam-tool { position: absolute; top: 12px; right: 12px; z-index: 1; width: 40px; height: 40px; border-radius: 50%; background: #2c3133; display: flex; align-items: center; justify-content: center; }
 .cam-hint { position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; font-size: 14px; }
 
 .sim { margin-top: 18px; border: 1.5px dashed var(--input); border-radius: 16px; padding: 10px; flex: none; }
@@ -136,7 +136,7 @@ img { display: block; }
 .tile-c { color: var(--muted); font-size: 13px; margin-top: 4px; min-height: 19px; }
 .dt-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
 .dt { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; }
-.dt th, .dt td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.dt th, .dt td { white-space: nowrap; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .dt th { color: var(--muted); font-weight: 500; font-size: 13px; }
 .dt tr:last-child td { border-bottom: 0; }
 .dt-th { width: 30px; height: 34px; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; margin-right: 8px; }
