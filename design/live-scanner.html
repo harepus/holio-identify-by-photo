@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live scanner</title>
+<style>
+  :root { --ink:#152022; --bg:#f9faf7; --card:#fff; --line:#e8e9e3; --muted:#777872; --orange:#ff9220; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.45 Inter, system-ui, sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:26px; margin:0 0 6px; } h2 { font-size:18px; margin:28px 0 8px; }
+  .serves { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px 16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin-top:12px; }
+  .state h3 { font-size:14px; margin:0 0 8px; }
+  .cam { background:#17191a; border-radius:16px; position:relative; overflow:hidden; height:200px; color:#fff; }
+  .cam.live { background:linear-gradient(135deg,#4a4f45,#262a2b); }
+  .corner { position:absolute; width:22px; height:22px; border:3px solid #fff; border-radius:4px; }
+  .c1{top:16px;left:16px;border-right:0;border-bottom:0}.c2{top:16px;right:16px;border-left:0;border-bottom:0}
+  .c3{bottom:16px;left:16px;border-right:0;border-top:0}.c4{bottom:16px;right:16px;border-left:0;border-top:0}
+  .scanline { position:absolute; left:30px; right:30px; top:50%; height:2px; background:var(--orange); box-shadow:0 0 8px var(--orange); }
+  .hint { position:absolute; left:10px; right:10px; bottom:12px; text-align:center; font-size:13px; }
+  .msg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 24px; font-size:13px; }
+  .bars { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:110px; height:56px; background:repeating-linear-gradient(90deg,#fff 0 3px,#111 3px 5px,#fff 5px 6px,#111 6px 10px); border:6px solid #fff; }
+  .read { position:absolute; left:50%; top:14px; transform:translateX(-50%); background:#ecf8ed; color:#439a42; border-radius:999px; padding:3px 10px; font-size:12px; font-weight:600; }
+  p.note { color:var(--muted); font-size:13px; margin:6px 0 0; }
+  table { border-collapse:collapse; width:100%; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  td,th { text-align:left; padding:8px 10px; border-top:1px solid var(--line); font-size:13px; vertical-align:top; }
+  th { border-top:0; background:#f1f2ed; }
+</style>
+</head>
+<body>
+<main>
+<h1>Live scanner in the demo shell</h1>
+<div class="serves">
+  <p>Serves Holio's brief, pain 3: a pack with a code the register does not know. Today the demo scanner is drawn and scans come from buttons. With a live camera the jury sees the real moment: scan a real pack, the code is unknown, identify it by photo, link the code, and the next scan of that pack receives it.</p>
+  <p class="note">Demo shell only. The <code>IdentifyByPhoto</code> component does not change, because Holio Ops already has its own scanner. The simulate buttons stay for PCs and for phones without camera access.</p>
+</div>
+
+<h2>States of the viewfinder</h2>
+<div class="grid">
+  <div class="state"><h3>1. Starting</h3>
+    <div class="cam"><span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span><div class="msg">Starting the camera</div></div>
+    <p class="note">While the browser asks for camera access.</p></div>
+  <div class="state"><h3>2. Scanning</h3>
+    <div class="cam live"><span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span><span class="scanline"></span><span class="hint">Point at the barcode</span></div>
+    <p class="note">Live back camera fills the frame. Reads EAN-13, EAN-8, UPC-A, UPC-E and Code 128.</p></div>
+  <div class="state"><h3>3. Code read</h3>
+    <div class="cam live"><span class="bars"></span><span class="read">7038010009457</span><span class="hint">Point at the barcode</span></div>
+    <p class="note">The code goes to the same handler as a simulated scan. Known code: received, toast. Unknown code: the unknown-code sheet. The same code is ignored for 2.5 s, so one pack is not counted twice.</p></div>
+  <div class="state"><h3>4. Camera blocked</h3>
+    <div class="cam"><span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span><div class="msg">Camera access is off. Allow it in the browser settings, or use the buttons below.</div></div>
+    <p class="note">Permission denied, or no camera.</p></div>
+  <div class="state"><h3>5. Not HTTPS</h3>
+    <div class="cam"><span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span><div class="msg">Open this page over HTTPS to scan with the camera. The buttons below still work.</div></div>
+    <p class="note">Browsers give the camera only to HTTPS pages and localhost.</p></div>
+</div>
+
+<h2>Copy</h2>
+<table>
+<tr><th>Key</th><th>English</th><th>Norwegian</th></tr>
+<tr><td>camStarting</td><td>Starting the camera</td><td>Starter kameraet</td></tr>
+<tr><td>pointAt</td><td>Point at the barcode</td><td>Pek på strekkoden</td></tr>
+<tr><td>camBlocked</td><td>Camera access is off. Allow it in the browser settings, or use the buttons below.</td><td>Kameraet er ikke tillatt. Slå det på i nettleserens innstillinger, eller bruk knappene under.</td></tr>
+<tr><td>camNeedsHttps</td><td>Open this page over HTTPS to scan with the camera. The buttons below still work.</td><td>Åpne siden over HTTPS for å skanne med kameraet. Knappene under virker fortsatt.</td></tr>
+</table>
+
+<h2>Serving it over HTTPS</h2>
+<p>The server stays on port 8770. On the M3, <code>tailscale serve</code> adds <code>https://shmp3.taildb1007.ts.net:8771</code>, tailnet only, not Funnel.</p>
+</main>
+</body>
+</html>
