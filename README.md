@@ -24,7 +24,7 @@ cd app && pnpm install && pnpm build && cd ..
 uv run server/app.py          # http://localhost:8770, also reachable from a phone on the LAN
 ```
 
-The server needs macOS (Vision OCR) and a logged-in `claude` CLI. The demo order and product register are public Open Food Facts products, never customer data. `?mock=match` and the other mock modes answer without the server, and they label themselves "Mock" in the header.
+On a shared network, start it with `HPI_HOST=127.0.0.1` so that only this Mac reaches it. The server needs macOS (Vision OCR) and a logged-in `claude` CLI. The demo order and product register are public Open Food Facts products, never customer data. `?mock=match` and the other mock modes answer without the server, and they label themselves "Mock" in the header.
 
 ## Evidence
 

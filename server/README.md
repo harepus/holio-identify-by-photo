@@ -8,7 +8,7 @@ One stateless endpoint, `POST /v1/identify`, as specified in `contract/identify.
 uv run server/app.py
 ```
 
-- Listens on `0.0.0.0:8770`, so a phone on the LAN or tailnet can reach it. `HPI_PORT` changes the port.
+- Listens on `0.0.0.0:8770`, so a phone on the LAN or tailnet can reach it. `HPI_PORT` changes the port and `HPI_HOST` the address. On a shared network such as venue Wi-Fi, set `HPI_HOST=127.0.0.1`, or the Mac's Tailscale IP so that only the tailnet reaches it.
 - Needs macOS (Vision OCR) and a logged-in `claude` CLI, found on `PATH` or at `~/.local/bin/claude`.
 - On start, a background thread loads CLIP and indexes the 247 products in `demo/register`. This took 14 s on the build Mac, and `GET /healthz` shows when it is done.
 - The first start copies the 350 MB CLIP TorchScript file from the arena entry into `server/cache/`, or exports it from open_clip when the arena copy is missing. `server/cache/` is gitignored.
