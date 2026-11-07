@@ -1,6 +1,6 @@
 import type { Candidate } from "../identify";
 
-export type PoLine = { barcode?: string; lineId: string; sku: string; name: string; brand: string; size: string; expected: number; received: number; image: string };
+export type PoLine = { location?: string; barcode?: string; lineId: string; sku: string; name: string; brand: string; size: string; expected: number; received: number; image: string };
 export type PurchaseOrder = { id: string; supplier: string; warehouse: string; company: string; date: string; lines: PoLine[]; notOnOrder: RawProduct[] };
 
 type RawProduct = { barcode?: string; sku: string; name: string; brand?: string; size?: string; image: string };
@@ -8,12 +8,15 @@ type RawProduct = { barcode?: string; sku: string; name: string; brand?: string;
 /** "140g" reads "140 g", as Holio prints sizes. */
 export const formatSize = (size: string) => size.replace(/(\d)\s*([a-zA-Z])/g, "$1 $2");
 
-const toCandidate = (p: RawProduct, base: string): Candidate => ({
+export type RegisterProduct = Candidate & { barcode?: string };
+
+const toCandidate = (p: RawProduct, base: string): RegisterProduct => ({
+  barcode: p.barcode,
   sku: p.sku,
   name: p.name,
   brand: p.brand || undefined,
   size: p.size ? formatSize(p.size) : undefined,
-  image: `${base}${p.image}`,
+  image: /^(https?:|data:|\/)/.test(p.image) ? p.image : `${base}${p.image}`,
 });
 
 export const productLabel = (c: Candidate) => [c.name, c.size?.replace(/ /g, "\u00a0")].filter(Boolean).join(" ");
@@ -27,10 +30,10 @@ export async function loadPurchaseOrder(): Promise<PurchaseOrder> {
   return { ...po, lines: po.lines.map((l) => ({ ...l, size: formatSize(l.size) })) };
 }
 
-let register: Promise<Candidate[]> | null = null;
+let register: Promise<RegisterProduct[]> | null = null;
 
 /** Every row of the demo register. The server shortlists them. */
-export function searchRegister(): Promise<Candidate[]> {
+export function searchRegister(): Promise<RegisterProduct[]> {
   register ??= fetch("/demo/register/register.json")
     .then((res) => {
       if (!res.ok) throw new Error(`register ${res.status}`);

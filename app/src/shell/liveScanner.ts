@@ -37,6 +37,7 @@ export function useLiveScanner(onCode: (code: string) => void, active: boolean) 
     let timer: number | undefined;
     let stopped = false;
     const last = lastRef.current;
+    if (last.code) last.at = Date.now();
 
     (async () => {
       try {

@@ -8,7 +8,7 @@
 | `src/shell/` | The demo host. Not part of the drop-in |
 | `e2e/` | Playwright scripts for screenshots and the photo check |
 
-The design it follows is `design/holio-photo-id.html`. The endpoint it calls is `contract/identify.md`.
+The receiving shell follows `design/receiving-v2.html`. The original drop-in design is `design/holio-photo-id.html`. The endpoint it calls is `contract/identify.md`.
 
 ## Run the shell
 
@@ -25,16 +25,17 @@ The camera is a plain `<input type="file" accept="image/*" capture="environment"
 |---|---|
 | `/` | Purchase order, scanner, unknown-code sheet. Over HTTPS or on localhost the scanner reads real barcodes with the back camera. Buttons below it simulate a scan of each line's barcode and of the unknown code `7031234567890` |
 | `/#/pc` | Holio on PC panel, counted from this browser session's events |
-| `?lang=nb` | Norwegian, in the component and the shell |
 | `?mock=match` | Canned answers instead of the server. Also `choose`, `none`, `dark`, `timeout` and `error` |
 
 Mock mode answers after about 2 s on the demo order's SKUs. The header then shows a "Mock" chip, and every PC panel row from a mocked run carries one too, so a mocked run never passes for a live one. `timeout` never answers, so the component's own 25 s limit fires.
 
-A barcode linked with "Link barcode" is kept in `localStorage`. Scanning it again receives the product directly. "Forget linked barcodes" under the scan buttons clears them.
+A receipt review adds an unknown barcode only when its checkbox is checked. It is an additional code in localStorage. Primary product barcodes stay unchanged. The next scan receives directly unless the line is full or has no location. Over-receipt requires Receive anyway.
+
+The shell is English. `?lang=nb` is no longer a shell option. The drop-in still supports both locales.
 
 ## Mount the component
 
-Mount it inside a `position: relative` element that covers the page area between Holio's header and tab bar. Keep the page you came from rendered underneath: after Confirm, the link-barcode sheet opens over it.
+Mount it inside a `position: relative` element that covers the page area between Holio's header and tab bar. Keep the page you came from rendered underneath. In receiving v2, set `reviewBeforeReceive` and open the host receipt review from `onConfirm`. This suppresses the old post-confirm link sheet. The host owns the quantity and barcode commit. The default component behavior stays compatible for existing consumers.
 
 ```tsx
 import { IdentifyByPhoto, httpIdentify } from "./identify";
@@ -62,6 +63,7 @@ const identify = httpIdentify("/api/identify"); // or a function through Holio's
 
 | Prop | Type | Use |
 |---|---|---|
+| `reviewBeforeReceive` | `boolean?` | Labels confirmation Review receipt and skips the legacy link sheet. The host commits the receipt |
 | `candidates` | `Candidate[]` | What the flow already knows: the PO lines in receiving, the sales order lines in returns, the location's products in counting |
 | `scannedCode` | `string?` | The unknown code from the scanner. When set, Confirm offers "Link barcode", at most once per code per session |
 | `context` | `"receiving" \| "returns" \| "counting" \| "lookup"` | Sent to the endpoint |
@@ -83,35 +85,32 @@ The component resizes each photo to 1600 px on the long side, JPEG quality 0.85,
 
 Styles are plain CSS scoped under `.hid`, with every class prefixed `hid-`, so nothing leaks in or out.
 
+## Receiving flow
+
+Known scans add one and keep the scanner open. Feedback stays visible with the product image, quantity, new total and Undo last receipt. Undo restores the previous count and location once; the extra barcode stays linked.
+
+Unknown barcode and No barcode offer equal photo and manual actions. Search starts on the PO, then explicitly expands to the register. Name, SKU and supplied barcodes are searchable. Selecting an order item opens review. Off-order items cannot be received.
+
+Review accepts a positive whole quantity and a nonempty location. It starts with the line's last location. A missing location requires entry. Receive is the only commit; over-receipt has a separate Receive anyway decision. Barcode conflicts block the receipt until the worker unchecks linking. Quantities and locations are in page memory. Reload resets them. Barcode links persist locally; Demo tools can clear them.
+
+The PC panel counts completed photo reviews in this browser session. It is identification history, not a stock ledger. Undo does not remove that history. Mock rows remain labeled.
+
 ## Checks
 
 ```sh
-pnpm tsc --noEmit
-pnpm vitest run
+pnpm install
+pnpm typecheck
+pnpm test
 pnpm build
-uv run --with playwright python e2e/screens.py       # dev server on :5174, screenshots to .e2e-shots/
-uv run --with playwright python e2e/photo_check.py   # dark and blur thresholds on the fixture photos
+# From the repo root, in a separate terminal:
+HPI_HOST=127.0.0.1 HPI_PORT=8781 uv run server/app.py
+uv run --with playwright python app/e2e/live.py http://127.0.0.1:8781
+uv run --with playwright python app/e2e/live_scanner.py http://127.0.0.1:8781
+uv run --with playwright python app/e2e/screens.py http://127.0.0.1:8781
 ```
 
-The e2e scripts default to `http://localhost:5174` and take a base URL as their first argument. Start the dev server with `pnpm dev --port 5174`. `screens.py` runs in mock mode and needs `/demo` served, by the identify server or by any static server over the repo root (`HOLIO_SERVER=http://localhost:8771 pnpm dev --port 5174` with `python3 -m http.server 8771` at the root).
+Screenshots are in `app/.e2e-shots/`. `screens.py` uses labeled photo mocks and tests receipt, search, over-receipt and recovery. `live.py` calls the real endpoint; when it returns 503 model_unavailable, the script checks manual recovery and reports recognition skipped. `live_scanner.py` needs ffmpeg and uses Chromium's fake camera with real barcode frames. It checks default and forced ZXing decoding, duplicate suppression, linking and a new scan. It does not need the model.
 
-## Phone scanner
+Never use the frozen live demo's ports for these checks. HPI_DEMO_KEY may be unset locally on loopback. There is no stock backend in this prototype. Physical iPhone and Zebra camera behavior, gloves, virtual keyboards and warehouse Wi-Fi still need testing.
 
-The camera occupies 56% of the viewport. Known scans receive one unit and stay in
-Scanner, with a 600 ms green frame and a 2.5 s product/count banner. Back returns
-to the order. The same visible barcode is suppressed until absent for 2.5 s.
-Photo confirmation and barcode linking return to Scanner. For the demo Freia
-product outside the order, Register deviation offers a shell-only confirmation
-to link the barcode and receive an extra unit. Subsequent scans count extra units.
-The added line has zero expected units; it does not change what was ordered.
-
-Demo tools is collapsed by default. Expand it for the existing simulated scan
-buttons and Forget linked barcodes. Order codes use `barcode` from
-`demo/purchase-order.json`, with generated EANs only as a fallback. Refresh the
-verified Open Food Facts matches with `python3 demo/fetch_barcodes.py` at repo root.
-The JSON records each match's source URL, including the Freia product outside the order.
-
-Camera capture requests 1920x1080 and continuous focus when supported. Native
-BarcodeDetector remains preferred; ZXing decodes a centered 80%-width,
-50%-height canvas crop, capped at 1280 pixels wide. Camera setup failures keep
-photo identification and Demo tools available.
+The 45-state design also sketches durable saving, retry/idempotency, offline receipt blocking, a location directory, session reset and order completion. Those backend-dependent states are deferred. This demo implements receipt decisions locally. The original native photo picker and two-photo capture remain. No non-grocery items were added.

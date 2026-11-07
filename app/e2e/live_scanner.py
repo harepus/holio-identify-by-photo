@@ -1,3 +1,6 @@
+# /// script
+# dependencies = ["playwright"]
+# ///
 """The live camera scanner, end to end, with Chromium's fake camera filming a printed barcode.
 
 Run with the server up:  uv run --with playwright --with python-barcode --with pillow python app/e2e/live_scanner.py [base_url]
@@ -7,9 +10,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-import barcode
-from barcode.writer import ImageWriter
-from PIL import Image
+import struct
+import zlib
 from playwright.sync_api import Page, expect, sync_playwright
 
 APP = Path(__file__).resolve().parent.parent
@@ -23,12 +25,31 @@ UNKNOWN = "7038010009457"
 def camera_video(code: str | None) -> Path:
     """A 640x480 Y4M clip of one EAN-13 barcode, or none, on a grey desk, for --use-file-for-fake-video-capture."""
     png, y4m = OUT / f"code-{code or 'none'}.png", OUT / f"code-{code or 'none'}.y4m"
-    frame = Image.new("RGB", (640, 480), (120, 124, 118))
+    # EAN-13 encoding, drawn into a PPM for ffmpeg. No image library needed.
+    left = ["0001101", "0011001", "0010011", "0111101", "0100011", "0110001", "0101111", "0111011", "0110111", "0001011"]
+    parity = ["LLLLLL", "LLGLGG", "LLGGLG", "LLGGGL", "LGLLGG", "LGGLLG", "LGGGLL", "LGLGLG", "LGLGGL", "LGGLGL"]
+    bits = ""
     if code:
-        label = barcode.get("ean13", code[:12], writer=ImageWriter()).render({"module_height": 18, "quiet_zone": 4})
-        label.thumbnail((440, 300))
-        frame.paste(label, ((640 - label.width) // 2, (480 - label.height) // 2))
-    frame.save(png)
+        bits = "101"
+        for digit, kind in zip(code[1:7], parity[int(code[0])]):
+            pattern = left[int(digit)]
+            bits += pattern if kind == "L" else ''.join('1' if c == '0' else '0' for c in pattern[::-1])
+        bits += "01010"
+        for digit in code[7:]:
+            bits += ''.join('1' if c == '0' else '0' for c in left[int(digit)])
+        bits += "101"
+    rows = []
+    for y in range(480):
+        row = bytearray()
+        for x in range(640):
+            module = (x - 177) // 3
+            black = 150 <= y < 330 and 0 <= module < len(bits) and bits[module] == '1'
+            v = 0 if black else 255 if code and 140 <= x < 500 and 130 <= y < 350 else 120
+            row.extend((v, v, v))
+        rows.append(b'\0' + bytes(row))
+    def chunk(kind, data):
+        return struct.pack('>I', len(data)) + kind + data + struct.pack('>I', zlib.crc32(kind + data))
+    png.write_bytes(b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', 640, 480, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(b''.join(rows))) + chunk(b'IEND', b''))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", str(png), "-t", "2", "-r", "15",
                     "-pix_fmt", "yuv420p", str(y4m)], check=True)
     return y4m
@@ -61,8 +82,7 @@ def line(page: Page, name: str):
 def known_code_receives(p, native: bool) -> None:
     page = open_page(p, camera_video(KNOWN), native=native)
     page.locator(".fab").click()
-    expect(page.locator(".scan-banner")).to_contain_text("Superchips Paprika 140 g, 1/24", timeout=10000)
-    expect(page.locator(".cam-received")).to_be_visible()
+    expect(page.locator(".scan-banner")).to_contain_text("Received, now 1 of 24", timeout=10000)
     shot(page, f"known-{'native' if native else 'zxing'}")
     page.wait_for_timeout(3500)
     expect(page.locator(".sub")).to_contain_text("1/156")
@@ -78,15 +98,15 @@ def unknown_code_links(p) -> None:
     dialog = page.get_by_role("dialog")
     expect(dialog).to_contain_text(UNKNOWN, timeout=10000)
     shot(page, "unknown-sheet")
-    dialog.get_by_role("button", name="Identify by photo").click()
-    for n in ("photo1.jpg", "photo2.jpg"):
-        page.locator(".hid-file").set_input_files(str(PHOTOS / "h009" / n))
-        page.wait_for_timeout(200)
-    page.get_by_role("button", name="Identify", exact=True).click()
-    expect(page.locator(".hid-badge-lg")).to_have_text("Match", timeout=30000)
-    page.get_by_role("button", name="Confirm").click()
-    page.get_by_role("button", name="Link barcode").click()
-    expect(page.locator(".scan-banner")).to_contain_text("Potetskruer Salt 90 g, 2/24", timeout=10000)
+    dialog.get_by_role("button", name="Search manually").click()
+    page.get_by_label("Name, SKU or barcode").fill("Potetskruer")
+    page.locator(".search-results .product-row").click()
+    page.get_by_role("button", name="Receive 1", exact=True).click()
+    page.wait_for_timeout(3000)
+    expect(page.locator(".scan-banner")).to_contain_text("now 1 of 24")
+    page.get_by_role("button", name="Back", exact=True).click()
+    page.get_by_role("button", name="Open scanner").click()
+    expect(page.locator(".scan-banner")).to_contain_text("now 2 of 24", timeout=10000)
     shot(page, "linked-rescan")
     page.context.browser.close()
 

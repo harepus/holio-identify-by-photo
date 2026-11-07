@@ -1,4 +1,4 @@
-import type { Identify, IdentifyRequest, IdentifyResponse, Locale } from "../identify";
+import type { Identify, IdentifyRequest, IdentifyResponse } from "../identify";
 
 export const MOCK_MODES = ["match", "choose", "none", "dark", "timeout", "error"] as const;
 export type MockMode = (typeof MOCK_MODES)[number];
@@ -10,41 +10,19 @@ export function mockModeFrom(search: string): MockMode | null {
 
 const MOCK_DELAY_MS = 2000;
 
-const evidence: Record<string, Record<Locale, string>> = {
-  match: {
-    en: "The pack says 'Sour Cream & Onion' and '140 g'. Only SKU-1203 matches both.",
-    nb: "Pakken sier 'Sour Cream & Onion' og '140 g'. Bare SKU-1203 passer begge.",
-  },
-  choose: {
-    en: "The front looks the same for 65 g and 155 g. The size is not visible.",
-    nb: "Forsiden ser lik ut for 65 g og 155 g. Størrelsen er ikke synlig.",
-  },
-  settled: {
-    en: "Photo 2 says '155 g'. Of the Crispo products on this order, only SKU-4252 is 155 g.",
-    nb: "Bilde 2 sier '155 g'. Av Crispo-produktene på denne ordren er bare SKU-4252 155 g.",
-  },
-  none: {
-    en: "The pack says 'Freia' and 'Melkesjokolade'. No line on this order has that name.",
-    nb: "Pakken sier 'Freia' og 'Melkesjokolade'. Ingen linje på denne ordren har det navnet.",
-  },
-};
-
 const ranked = (skus: string[]) => skus.map((sku, i) => ({ sku, likelihood: i === 0 ? ("most_likely" as const) : ("possible" as const) }));
 
 function answer(mode: MockMode, req: IdentifyRequest): IdentifyResponse {
+  const candidates = req.candidates.slice(0, 3);
   const base = { ms: MOCK_DELAY_MS, readText: [] as string[] };
-  if (mode === "choose") {
-    return req.photos.length >= 2
-      ? { ...base, status: "match", candidates: ranked(["SKU-4252", "SKU-5105"]), evidence: evidence.settled![req.locale], readText: ["Crispo", "155 g"] }
-      : { ...base, status: "choose", candidates: ranked(["SKU-4252", "SKU-5105", "SKU-7631"]), evidence: evidence.choose![req.locale], readText: ["Nidar", "Crispo"] };
-  }
-  if (mode === "none") {
-    const readText = ["Freia", "Melkesjokolade", "200 g"];
-    return req.context === "lookup" && req.candidates.some((c) => c.sku === "SKU-1254")
-      ? { ...base, status: "match", candidates: ranked(["SKU-1254"]), evidence: evidence.none![req.locale], readText }
-      : { ...base, status: "none", candidates: [], evidence: evidence.none![req.locale], readText };
-  }
-  return { ...base, status: "match", candidates: ranked(["SKU-1203", "SKU-6764"]), evidence: evidence.match![req.locale], readText: ["SUPERCHIPS", "SOUR CREAM & ONION", "140 g"] };
+  if (mode === "none" && req.context !== "lookup") return { ...base, status: "none", candidates: [], evidence: "Mock: no order match. Searching the register." };
+  const selected = candidates[1] ?? candidates[0];
+  return {
+    ...base,
+    status: mode === "choose" && req.photos.length < 2 ? "choose" : selected ? "match" : "none",
+    candidates: ranked(selected ? [selected.sku, ...candidates.filter((c) => c.sku !== selected.sku).map((c) => c.sku)] : []),
+    evidence: `Mock answer for ${selected?.name ?? "no product"}. This does not analyze the uploaded photo.`,
+  };
 }
 
 /** Canned answers after about 2 s, on the demo order's SKUs. timeout never answers, so the component's own 25 s limit fires. */

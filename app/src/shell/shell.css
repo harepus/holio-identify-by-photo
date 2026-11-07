@@ -154,3 +154,51 @@ img { display: block; }
 .scan-banner svg { flex: none; color: var(--green); }
 .sim summary { cursor: pointer; min-height: 32px; padding: 4px; color: var(--muted); font-size: 14px; }
 .sim[open] summary { margin-bottom: 10px; }
+
+/* Receiving v2: scroll content, keep receiving actions within thumb reach. */
+:root { --muted:#5b6057; --line:#e9ebe0; --bgreen-bg:#f2f9f2; --bgreen:#477946; --bblue-bg:#ebf3fa; --bblue:#286497; --bred-bg:#f9eded; --bred:#b72e2e; }
+.apphead { min-height:76px; padding:10px 16px; }
+.apphead small { display:block; color:var(--muted); font-size:13px; font-weight:400; }
+.icon-btn { min-width:48px; min-height:48px; align-items:center; justify-content:center; margin:0; }
+button, input, [role=button] { touch-action:manipulation; }
+button:focus-visible, input:focus-visible, [role=button]:focus-visible { outline:3px solid #347bba; outline-offset:2px; }
+button:disabled { opacity:.5; cursor:default; }
+.btn { min-height:48px; }
+.btn-p { background:var(--orange); color:var(--ink); min-height:56px; }
+.fab { left:16px; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); width:auto; height:56px; border-radius:12px; background:var(--orange); color:var(--ink); display:flex; align-items:center; justify-content:center; gap:10px; font-weight:600; box-shadow:0 0 0 16px var(--bg); }
+.badge-r { background:var(--bred-bg); color:var(--bred); }
+.line { cursor:pointer; min-height:112px; flex-shrink:0; }
+.line-tx small { display:block; font-size:12px; color:var(--muted); margin:4px 0; }
+.line-tx .badge { padding:2px 6px; font-size:11px; }
+.line-ct { flex-shrink:0; }
+.cam { height:clamp(160px,30dvh,300px); min-height:160px; flex-shrink:0; }
+.sub { margin:0 0 12px; }
+.scan-banner { position:static; transform:none; margin:12px 0; display:flex; align-items:center; gap:8px; padding:12px; background:var(--bgreen-bg); color:var(--ink); border:1px solid #5a9459; border-radius:12px; font-size:14px; }
+.scan-banner img { width:40px; height:48px; object-fit:contain; }
+.scan-banner svg { flex-shrink:0; }
+.scanner-actions { display:grid; gap:8px; margin-top:12px; }
+.sim { margin-top:12px; }
+.sim summary, .link { min-height:48px; display:flex; align-items:center; justify-content:center; }
+.sheet { max-height:100%; overflow-y:auto; padding:20px 16px calc(16px + env(safe-area-inset-bottom)); }
+.sheet h2 { font-size:22px; margin-bottom:12px; }
+.product-row { display:flex; align-items:center; gap:12px; padding:12px 0; width:100%; text-align:left; border-bottom:1px solid var(--line); }
+.product-row img { width:56px; height:64px; object-fit:contain; flex:none; background:white; border-radius:8px; }
+.product-row strong, .product-row small { display:block; }
+.product-row small { color:var(--muted); font-size:13px; }
+.product-row h3 { font-size:17px; margin:4px 0; }
+.review { display:flex; flex-direction:column; gap:12px; }
+.review h2 { margin:0; }
+input { font:inherit; color:var(--ink); padding:12px; border:1px solid #dcded8; border-radius:10px; min-height:48px; width:100%; background:white; }
+.stepper { display:grid; grid-template-columns:60px 1fr 60px; gap:10px; }
+.stepper input { text-align:center; min-width:0; font-size:22px; }
+.stepper button { min-height:60px; border-radius:12px; background:var(--chip); display:grid; place-items:center; }
+.check-field { display:flex; align-items:center; gap:12px; padding:12px; background:var(--chip); border-radius:12px; font-size:14px; overflow-wrap:anywhere; }
+.check-field input { width:24px; height:24px; min-height:24px; flex:none; accent-color:var(--ink); }
+.check-field small { display:block; color:var(--muted); }
+.review-actions { position:sticky; bottom:-16px; background:white; display:grid; gap:8px; padding:12px 0; margin-top:auto; }
+.search-page { position:absolute; inset:0; z-index:20; background:var(--bg); display:flex; flex-direction:column; padding:16px; gap:12px; }
+.search-page h2 { font-size:22px; }
+.search-results { overflow-y:auto; flex:1; min-height:0; }
+.search-page .review-actions { background:var(--bg); flex:none; }
+.hid .hid-btn-p { background:var(--orange); color:var(--ink); }
+.hid button { min-height:48px; }

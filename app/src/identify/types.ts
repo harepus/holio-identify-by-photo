@@ -28,6 +28,7 @@ export type LinkBarcodeResult = { sku: string; code: string };
 export type LineProgress = { received: number; expected: number };
 
 export type IdentifyByPhotoProps = {
+  reviewBeforeReceive?: boolean;
   candidates: Candidate[];
   scannedCode?: string;
   context: Context;

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { ArrowLeft, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { lineBarcode, UNKNOWN_CODE, type PurchaseOrder } from "./data";
 import { useLiveScanner } from "./liveScanner";
 import { totals } from "./PurchaseOrderPage";
 import type { ShellStrings } from "./strings";
 
 type Props = {
-  receipt: { id: number; text: string } | null;
+  onUndo?: () => void;
+  receipt: { id: number; text: string; image: string } | null;
   po: PurchaseOrder;
   t: ShellStrings;
   linkedCount: number;
@@ -18,28 +19,22 @@ type Props = {
   onForgetLinks: () => void;
 };
 
-export function ScannerPage({ receipt, po, t, linkedCount, paused, onBack, onScan, onIdentify, onSearchManually, onForgetLinks }: Props) {
+export function ScannerPage({ receipt, po, t, linkedCount, paused, onScan, onIdentify, onSearchManually, onForgetLinks, onUndo }: Props) {
   const [flash, setFlash] = useState(false);
-  const [banner, setBanner] = useState(false);
+
   useEffect(() => {
-    if (!receipt) return;
+    if (!receipt) { setFlash(false); return; }
     setFlash(true);
-    setBanner(true);
+
     const flashTimer = setTimeout(() => setFlash(false), 600);
-    const bannerTimer = setTimeout(() => setBanner(false), 2500);
-    return () => { clearTimeout(flashTimer); clearTimeout(bannerTimer); };
+
+    return () => { clearTimeout(flashTimer); };
   }, [receipt]);
   const { received, expected } = totals(po);
   const { videoRef, state: cam } = useLiveScanner(onScan, !paused);
   const message = { starting: t.camStarting, blocked: t.camBlocked, insecure: t.camNeedsHttps, live: null }[cam.kind];
   return (
     <>
-      <h1 className="title">
-        <button type="button" className="icon-btn" aria-label={t.back} onClick={onBack}>
-          <ArrowLeft size={28} strokeWidth={1.8} />
-        </button>
-        {t.scanner}
-      </h1>
       <div className="sub">
         {t.poTitle(po.id)} · {received}/{expected} {t.received}
       </div>
@@ -51,18 +46,14 @@ export function ScannerPage({ receipt, po, t, linkedCount, paused, onBack, onSca
         <span className="corner c3" />
         <span className="corner c4" />
         {cam.kind === "live" && <span className="scanline" />}
-        {banner && receipt && !paused && <div className="scan-banner" role="status"><Check size={20} /><span>{receipt.text}</span></div>}
+
         {cam.kind === "live" && <span className="cam-hint">{t.pointAt}</span>}
       </div>
-      <div className="center mt14">
-        <button type="button" className="link" onClick={onIdentify}>
-          {t.noBarcode}
-        </button>
-      </div>
-      <div className="center mt10">
-        <button type="button" className="link muted" onClick={onSearchManually}>
-          {t.searchManually}
-        </button>
+      {receipt && <div className="scan-banner" role="status"><img src={receipt.image} alt="" /><Check size={20} /><span>{receipt.text}</span></div>}
+      <div className="scanner-actions">
+        {onUndo && <button className="btn btn-s" onClick={onUndo}>Undo last receipt</button>}
+        <button className="btn btn-s" onClick={onIdentify}>No barcode?</button>
+        <button className="btn btn-s" onClick={onSearchManually}>Search manually</button>
       </div>
       <details className="sim">
         <summary>{t.demoTools}</summary>
