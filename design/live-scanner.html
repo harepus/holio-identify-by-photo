@@ -45,8 +45,8 @@
     <div class="cam live"><span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span><span class="scanline"></span><span class="hint">Point at the barcode</span></div>
     <p class="note">Live back camera fills the frame. Reads EAN-13, EAN-8, UPC-A, UPC-E and Code 128.</p></div>
   <div class="state"><h3>3. Code read</h3>
-    <div class="cam live"><span class="bars"></span><span class="read">7038010009457</span><span class="hint">Point at the barcode</span></div>
-    <p class="note">The code goes to the same handler as a simulated scan. Known code: received, toast. Unknown code: the unknown-code sheet. The same code is ignored for 2.5 s, so one pack is not counted twice.</p></div>
+    <div class="cam live"><span class="bars"></span><span class="read">Superchips Paprika 140 g, 3/24</span><span class="hint">Point at the barcode</span></div>
+    <p class="note">The code goes to the same handler as a simulated scan. Known code: receive one and stay in the scanner. Show the product and new count in the frame; flash green for 600 ms. Unknown code: the unknown-code sheet. The same code is ignored for 2.5 s, so one pack is not counted twice.</p></div>
   <div class="state"><h3>4. Camera blocked</h3>
     <div class="cam"><span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span><div class="msg">Camera access is off. Allow it in the browser settings, or use the buttons below.</div></div>
     <p class="note">Permission denied, or no camera.</p></div>
@@ -66,6 +66,12 @@
 
 <h2>Serving it over HTTPS</h2>
 <p>The server stays on port 8770. On the M3, <code>tailscale serve</code> adds <code>https://shmp3.taildb1007.ts.net:8771</code>, tailnet only, not Funnel.</p>
+<h2>Continuous receiving</h2>
+<div class="grid">
+<div class="state"><h3>Read confirmed, 600 ms green flash</h3><div class="cam live" style="box-shadow:inset 0 0 0 5px #439a42"><span class="read" style="width:85%;text-align:center">Superchips Paprika 140 g, 3/24</span><span class="hint">Point at the barcode</span></div><p>Scanner stays open. Back returns to the order. Linking a code returns here.</p></div>
+<div class="state"><h3>Demo tools collapsed</h3><details><summary>Demo tools</summary><button>Unknown code</button></details><p>Default on phones. Camera uses 56% of the viewport height.</p></div>
+<div class="state"><h3>Demo tools expanded</h3><details open><summary>Demo tools</summary><p>Demo: simulate a scan</p><button>Unknown code</button><button>Superchips Paprika 140 g</button><button>Forget linked barcodes</button></details></div>
+</div>
 </main>
 </body>
 </html>
