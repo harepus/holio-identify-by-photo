@@ -36,7 +36,7 @@ function answer(mode: MockMode, req: IdentifyRequest): IdentifyResponse {
   if (mode === "choose") {
     return req.photos.length >= 2
       ? { ...base, status: "match", candidates: ranked(["SKU-4252", "SKU-5105"]), evidence: evidence.settled![req.locale], readText: ["Crispo", "155 g"] }
-      : { ...base, status: "choose", candidates: ranked(["SKU-4252", "SKU-5105", "SKU-7298"]), evidence: evidence.choose![req.locale], readText: ["Nidar", "Crispo"] };
+      : { ...base, status: "choose", candidates: ranked(["SKU-4252", "SKU-5105", "SKU-7631"]), evidence: evidence.choose![req.locale], readText: ["Nidar", "Crispo"] };
   }
   if (mode === "none") {
     const readText = ["Freia", "Melkesjokolade", "200 g"];
