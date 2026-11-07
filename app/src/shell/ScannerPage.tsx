@@ -1,10 +1,12 @@
-import { ArrowLeft, Flashlight } from "lucide-react";
-import { ean13, UNKNOWN_CODE, type PurchaseOrder } from "./data";
+import { useEffect, useState } from "react";
+import { ArrowLeft, Check } from "lucide-react";
+import { lineBarcode, UNKNOWN_CODE, type PurchaseOrder } from "./data";
 import { useLiveScanner } from "./liveScanner";
 import { totals } from "./PurchaseOrderPage";
 import type { ShellStrings } from "./strings";
 
 type Props = {
+  receipt: { id: number; text: string } | null;
   po: PurchaseOrder;
   t: ShellStrings;
   linkedCount: number;
@@ -16,7 +18,17 @@ type Props = {
   onForgetLinks: () => void;
 };
 
-export function ScannerPage({ po, t, linkedCount, paused, onBack, onScan, onIdentify, onSearchManually, onForgetLinks }: Props) {
+export function ScannerPage({ receipt, po, t, linkedCount, paused, onBack, onScan, onIdentify, onSearchManually, onForgetLinks }: Props) {
+  const [flash, setFlash] = useState(false);
+  const [banner, setBanner] = useState(false);
+  useEffect(() => {
+    if (!receipt) return;
+    setFlash(true);
+    setBanner(true);
+    const flashTimer = setTimeout(() => setFlash(false), 600);
+    const bannerTimer = setTimeout(() => setBanner(false), 2500);
+    return () => { clearTimeout(flashTimer); clearTimeout(bannerTimer); };
+  }, [receipt]);
   const { received, expected } = totals(po);
   const { videoRef, state: cam } = useLiveScanner(onScan, !paused);
   const message = { starting: t.camStarting, blocked: t.camBlocked, insecure: t.camNeedsHttps, live: null }[cam.kind];
@@ -31,7 +43,7 @@ export function ScannerPage({ po, t, linkedCount, paused, onBack, onScan, onIden
       <div className="sub">
         {t.poTitle(po.id)} · {received}/{expected} {t.received}
       </div>
-      <div className="cam" data-camera={cam.kind}>
+      <div className={`cam${flash ? " cam-received" : ""}`} data-camera={cam.kind}>
         {cam.kind !== "insecure" && <video ref={videoRef} className="cam-video" playsInline muted aria-hidden="true" />}
         {message && <span className="cam-msg">{message}</span>}
         <span className="corner c1" />
@@ -39,9 +51,7 @@ export function ScannerPage({ po, t, linkedCount, paused, onBack, onScan, onIden
         <span className="corner c3" />
         <span className="corner c4" />
         {cam.kind === "live" && <span className="scanline" />}
-        <span className="cam-tool" aria-label={t.flashlight}>
-          <Flashlight size={22} />
-        </span>
+        {banner && receipt && !paused && <div className="scan-banner" role="status"><Check size={20} /><span>{receipt.text}</span></div>}
         {cam.kind === "live" && <span className="cam-hint">{t.pointAt}</span>}
       </div>
       <div className="center mt14">
@@ -54,19 +64,26 @@ export function ScannerPage({ po, t, linkedCount, paused, onBack, onScan, onIden
           {t.searchManually}
         </button>
       </div>
-      <section className="sim" aria-label={t.simulate}>
+      <details className="sim">
+        <summary>{t.demoTools}</summary>
         <div className="sim-head">{t.simulate}</div>
         <div className="sim-grid">
           <button type="button" className="sim-btn sim-unknown" onClick={() => onScan(UNKNOWN_CODE)}>
             <span className="sim-nm">{t.unknownCode}</span>
             <span className="mono">{UNKNOWN_CODE}</span>
           </button>
-          {po.lines.map((line) => (
-            <button type="button" className="sim-btn" key={line.lineId} onClick={() => onScan(ean13(line.sku))}>
+          {po.notOnOrder.map((product) => (
+            <button type="button" className="sim-btn sim-unknown" key={product.sku} onClick={() => onScan(lineBarcode(product))}>
+              <span className="sim-nm">{product.name} {product.size}</span>
+              <span className="mono">{lineBarcode(product)}</span>
+            </button>
+          ))}
+          {po.lines.filter((line) => line.expected > 0).map((line) => (
+            <button type="button" className="sim-btn" key={line.lineId} onClick={() => onScan(lineBarcode(line))}>
               <span className="sim-nm">
                 {line.name} {line.size}
               </span>
-              <span className="mono">{ean13(line.sku)}</span>
+              <span className="mono">{lineBarcode(line)}</span>
             </button>
           ))}
         </div>
@@ -77,7 +94,7 @@ export function ScannerPage({ po, t, linkedCount, paused, onBack, onScan, onIden
             </button>
           </div>
         )}
-      </section>
+      </details>
     </>
   );
 }

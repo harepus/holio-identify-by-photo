@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box, Camera, Check, House, Info, Link, RotateCw } from "lucide-react";
 import { IdentifyByPhoto, httpIdentify, type Candidate, type LinkBarcodeResult, type Locale, type PhotoCheck, type PhotoResult } from "../identify";
-import { ean13, lineCandidate, loadPurchaseOrder, productLabel, readLinks, searchRegister, writeLinks, type PurchaseOrder } from "./data";
+import { lineBarcode, lineCandidate, loadPurchaseOrder, productLabel, readLinks, searchRegister, writeLinks, type PoLine, type PurchaseOrder } from "./data";
 import { mockIdentify, mockModeFrom } from "./mock";
 import { PcPanel } from "./PcPanel";
 import { PurchaseOrderPage } from "./PurchaseOrderPage";
@@ -19,7 +19,7 @@ const t = shellStrings[locale];
 const TOAST_MS = 4000;
 
 type Load = { status: "loading" } | { status: "failed" } | { status: "ready"; po: PurchaseOrder };
-type Overlay = { kind: "none" } | { kind: "unknown-code"; code: string } | { kind: "identify"; scannedCode?: string };
+type Overlay = { kind: "extra-link"; code: string; product: Candidate } | { kind: "none" } | { kind: "unknown-code"; code: string } | { kind: "identify"; scannedCode?: string };
 type Toast = { id: number; icon: "check" | "link" | "info"; text: string };
 
 function useHash() {
@@ -38,6 +38,7 @@ export function App() {
   const [view, setView] = useState<"po" | "scanner">("po");
   const [overlay, setOverlay] = useState<Overlay>({ kind: "none" });
   const [toast, setToast] = useState<Toast | null>(null);
+  const [receipt, setReceipt] = useState<{ id: number; text: string } | null>(null);
   const [highlight, setHighlight] = useState<string | null>(null);
   const [photoSkus, setPhotoSkus] = useState<Set<string>>(new Set());
   const [links, setLinks] = useState(readLinks);
@@ -73,18 +74,22 @@ export function App() {
 
   function receive(sku: string, byPhoto: boolean) {
     if (!po) return;
-    const line = po.lines.find((l) => l.sku === sku);
+    const extra = po.notOnOrder.find((l) => l.sku === sku);
+    const line: PoLine | undefined = po.lines.find((l) => l.sku === sku) ?? (extra ? {
+      ...extra, lineId: `extra-${sku}`, brand: extra.brand ?? "", size: extra.size ?? "", expected: 0, received: 0,
+    } : undefined);
     if (!line) return;
-    setLoad({ status: "ready", po: { ...po, lines: po.lines.map((l) => (l.sku === sku ? { ...l, received: l.received + 1 } : l)) } });
+    setLoad({ status: "ready", po: { ...po, lines: (po.lines.some((l) => l.sku === sku) ? po.lines : [...po.lines, line]).map((l) => (l.sku === sku ? { ...l, received: l.received + 1 } : l)) } });
     if (byPhoto) setPhotoSkus((s) => new Set(s).add(sku));
     setHighlight(sku);
-    setView("po");
-    show("check", t.receivedToast(productLabel(lineCandidate(line)), byPhoto));
+    setToast(null);
+    setReceipt({ id: Date.now(), text: line.expected === 0 ? t.extraReceived(`${line.name} ${line.size}`, line.received + 1) : `${line.name} ${line.size}, ${line.received + 1}/${line.expected}` });
   }
 
   function scan(code: string) {
     if (!po) return;
-    const sku = po.lines.find((l) => ean13(l.sku) === code || links[code] === l.sku)?.sku;
+    const sku = po.lines.find((l) => lineBarcode(l) === code || links[code] === l.sku)?.sku
+      ?? po.notOnOrder.find((l) => links[code] === l.sku)?.sku;
     if (sku) receive(sku, false);
     else setOverlay({ kind: "unknown-code", code });
   }
@@ -109,12 +114,15 @@ export function App() {
 
   function onDeviation(result: PhotoResult) {
     const order = t.poTitle(po?.id ?? "");
+    const code = overlay.kind === "identify" ? overlay.scannedCode : undefined;
     searchRegister()
       .catch((): Candidate[] => [])
       .then((rows) => {
         const product = rows.find((r) => r.sku === result.sku) ?? null;
         logEvent({ kind: "photo", at: Date.now(), order, mock: Boolean(mock), result, product, linked: false });
-        show("info", t.deviationToast(product ? productLabel(product) : result.sku));
+        if (code && product && po?.notOnOrder.some((l) => l.sku === product.sku)) {
+          setOverlay({ kind: "extra-link", code, product });
+        } else show("info", t.deviationToast(product ? productLabel(product) : result.sku));
       });
   }
 
@@ -148,6 +156,7 @@ export function App() {
           {po && view === "po" && <PurchaseOrderPage po={po} t={t} locale={locale} highlight={highlight} photoSkus={photoSkus} />}
           {po && view === "scanner" && (
             <ScannerPage
+              receipt={receipt}
               po={po}
               t={t}
               linkedCount={Object.keys(links).length}
@@ -174,6 +183,26 @@ export function App() {
             {toast.icon === "info" && <Info size={22} />}
             <span>{toast.text}</span>
           </div>
+        )}
+
+        {overlay.kind === "extra-link" && (
+          <>
+            <div className="dim" />
+            <div className="sheet" role="dialog" aria-modal="true" aria-label={t.linkExtra}>
+              <h2 className="sheet-title">{t.linkExtra}</h2>
+              <p>{productLabel(overlay.product)}</p>
+              <p className="sheet-text">{t.extraExplanation}</p>
+              <div className="mono">{overlay.code}</div>
+              <div className="btncol">
+                <button className="btn btn-p" onClick={() => {
+                  onLinkBarcode({ sku: overlay.product.sku, code: overlay.code });
+                  receive(overlay.product.sku, true);
+                  setOverlay({ kind: "none" });
+                }}>{t.linkBarcode}</button>
+                <button className="btn btn-s" onClick={() => setOverlay({ kind: "none" })}>{t.back}</button>
+              </div>
+            </div>
+          </>
         )}
 
         {overlay.kind === "unknown-code" && (

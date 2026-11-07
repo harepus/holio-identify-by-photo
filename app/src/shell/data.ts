@@ -1,9 +1,9 @@
 import type { Candidate } from "../identify";
 
-export type PoLine = { lineId: string; sku: string; name: string; brand: string; size: string; expected: number; received: number; image: string };
-export type PurchaseOrder = { id: string; supplier: string; warehouse: string; company: string; date: string; lines: PoLine[] };
+export type PoLine = { barcode?: string; lineId: string; sku: string; name: string; brand: string; size: string; expected: number; received: number; image: string };
+export type PurchaseOrder = { id: string; supplier: string; warehouse: string; company: string; date: string; lines: PoLine[]; notOnOrder: RawProduct[] };
 
-type RawProduct = { sku: string; name: string; brand?: string; size?: string; image: string };
+type RawProduct = { barcode?: string; sku: string; name: string; brand?: string; size?: string; image: string };
 
 /** "140g" reads "140 g", as Holio prints sizes. */
 export const formatSize = (size: string) => size.replace(/(\d)\s*([a-zA-Z])/g, "$1 $2");
@@ -50,6 +50,8 @@ export function ean13(sku: string): string {
   const sum = [...body].reduce((s, d, i) => s + Number(d) * (i % 2 ? 3 : 1), 0);
   return body + ((10 - (sum % 10)) % 10);
 }
+
+export const lineBarcode = (line: Pick<PoLine, "sku" | "barcode">) => line.barcode ?? ean13(line.sku);
 
 export const UNKNOWN_CODE = "7031234567890";
 

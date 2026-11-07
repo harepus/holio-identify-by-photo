@@ -13,7 +13,7 @@ type Props = {
 };
 
 export function totals(po: PurchaseOrder) {
-  return po.lines.reduce((s, l) => ({ received: s.received + l.received, expected: s.expected + l.expected }), { received: 0, expected: 0 });
+  return po.lines.reduce((s, l) => ({ received: s.received + (l.expected > 0 ? l.received : 0), expected: s.expected + l.expected }), { received: 0, expected: 0 });
 }
 
 export function PurchaseOrderPage({ po, t, locale, highlight, photoSkus }: Props) {
@@ -22,7 +22,7 @@ export function PurchaseOrderPage({ po, t, locale, highlight, photoSkus }: Props
     highlighted.current?.scrollIntoView({ block: "nearest" });
   }, [highlight, po]);
   const { received, expected } = totals(po);
-  const done = received >= expected;
+  const done = po.lines.every((line) => line.received >= line.expected);
   const date = new Intl.DateTimeFormat(locale === "nb" ? "nb-NO" : "en-GB", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(po.date));
   return (
     <>
@@ -59,7 +59,7 @@ export function PurchaseOrderPage({ po, t, locale, highlight, photoSkus }: Props
           </div>
           <div className="line-ct">
             <b>
-              {line.received}/{line.expected}
+              {line.expected === 0 ? t.extraCount(line.received) : `${line.received}/${line.expected}`}
             </b>
             {t.received}
           </div>

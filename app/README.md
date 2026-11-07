@@ -94,3 +94,24 @@ uv run --with playwright python e2e/photo_check.py   # dark and blur thresholds 
 ```
 
 The e2e scripts default to `http://localhost:5174` and take a base URL as their first argument. Start the dev server with `pnpm dev --port 5174`. `screens.py` runs in mock mode and needs `/demo` served, by the identify server or by any static server over the repo root (`HOLIO_SERVER=http://localhost:8771 pnpm dev --port 5174` with `python3 -m http.server 8771` at the root).
+
+## Phone scanner
+
+The camera occupies 56% of the viewport. Known scans receive one unit and stay in
+Scanner, with a 600 ms green frame and a 2.5 s product/count banner. Back returns
+to the order. The same visible barcode is suppressed until absent for 2.5 s.
+Photo confirmation and barcode linking return to Scanner. For the demo Freia
+product outside the order, Register deviation offers a shell-only confirmation
+to link the barcode and receive an extra unit. Subsequent scans count extra units.
+The added line has zero expected units; it does not change what was ordered.
+
+Demo tools is collapsed by default. Expand it for the existing simulated scan
+buttons and Forget linked barcodes. Order codes use `barcode` from
+`demo/purchase-order.json`, with generated EANs only as a fallback. Refresh the
+verified Open Food Facts matches with `python3 demo/fetch_barcodes.py` at repo root.
+The JSON records each match's source URL, including the Freia product outside the order.
+
+Camera capture requests 1920x1080 and continuous focus when supported. Native
+BarcodeDetector remains preferred; ZXing decodes a centered 80%-width,
+50%-height canvas crop, capped at 1280 pixels wide. Camera setup failures keep
+photo identification and Demo tools available.
