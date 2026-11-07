@@ -298,10 +298,12 @@ def parse_answer(text: str) -> dict | None:
 
 def to_judgement(ans: dict | None, shortlist: Sequence[str]) -> Judgement | None:
     """Map letters back to SKUs. A pick that is neither 'none' nor a shown letter counts as unreadable."""
-    if not ans:
+    if not isinstance(ans, dict) or not isinstance(ans.get("pick"), str):
+        return None
+    if not isinstance(ans.get("ranking") or [], list):
         return None
     by_letter = dict(zip(LETTERS, shortlist))
-    raw_pick = str(ans.get("pick", "none")).strip().upper()
+    raw_pick = ans["pick"].strip().upper()
     if raw_pick != "NONE" and raw_pick not in by_letter:
         return None
     try:
