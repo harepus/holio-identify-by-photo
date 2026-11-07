@@ -14,6 +14,7 @@ uv run server/app.py
 - The first start copies the 350 MB CLIP TorchScript file from the arena entry into `server/cache/`, or exports it from open_clip when the arena copy is missing. `server/cache/` is gitignored.
 - `HPI_SAVE_RUNS=1` saves each call's photos, request and response under `server/runs/<timestamp>/`, which is also gitignored.
 - `HPI_TOKEN` makes `POST /v1/identify` require `Authorization: Bearer <token>`. Set it when Holio's backend calls the service. The demo leaves it empty, because the browser calls it directly on the same origin.
+- `HPI_BASIC_AUTH=user:password` puts a browser password on every route. Use it when the demo is reachable from the internet, for example through Tailscale Funnel. Do not combine it with `HPI_TOKEN`, since both use the `Authorization` header.
 - `HPI_MAX_CONCURRENT` caps parallel identify calls, 2 by default. A call beyond the cap gets 429.
 - `HPI_IMAGE_HOSTS` is a comma-separated list of hosts the server may fetch candidate images from, such as Holio's image CDN. It is empty by default, so only `/demo/...` paths and `data:` URIs work. A remote fetch has no redirects and stops at 8 MB.
 

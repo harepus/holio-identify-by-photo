@@ -153,6 +153,15 @@ def test_token_is_required_when_configured(client, monkeypatch):
     assert ok.status_code == 200
 
 
+def test_basic_auth_guards_every_route_when_configured(client, monkeypatch):
+    monkeypatch.setattr(server, "BASIC", "demo:pw")
+    denied = client.get("/demo/purchase-order.json")
+    assert denied.status_code == 401
+    assert denied.headers["www-authenticate"].startswith("Basic")
+    assert client.get("/demo/purchase-order.json", auth=("demo", "pw")).status_code == 200
+    assert client.post("/v1/identify", json=body(), auth=("demo", "pw")).status_code == 200
+
+
 def test_busy_server_answers_429(client):
     held = [server.BUSY.acquire(blocking=False) for _ in range(8)]
     try:

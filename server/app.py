@@ -45,6 +45,7 @@ MAX_PHOTO_CHARS = MAX_PHOTO_BYTES * 4 // 3 + 64
 MAX_IMAGE_CHARS = eng.MAX_IMAGE_BYTES * 4 // 3 + 64
 MAX_BODY_BYTES = 32 * 1024 * 1024
 TOKEN = os.environ.get("HPI_TOKEN", "")
+BASIC = os.environ.get("HPI_BASIC_AUTH", "")
 BUSY = threading.BoundedSemaphore(int(os.environ.get("HPI_MAX_CONCURRENT", "2")))
 IMAGE_SCHEMES = ("http://", "https://", "/", "data:")
 IMAGE_HOSTS = frozenset(h.strip().lower() for h in os.environ.get("HPI_IMAGE_HOSTS", "").split(",") if h.strip())
@@ -167,14 +168,18 @@ app = FastAPI(title="Holio photo identification", lifespan=lifespan)
 
 
 class Gate:
-    """Check the token and the declared body size before anything reads or parses the body."""
+    """Check the password, the token and the declared body size before anything reads or parses the body."""
 
     def __init__(self, inner):
         self.inner = inner
 
     async def __call__(self, scope, receive, send):
+        headers = dict(scope.get("headers") or [])
+        if scope["type"] == "http" and BASIC and not hmac.compare_digest(
+                headers.get(b"authorization", b""), b"Basic " + base64.b64encode(BASIC.encode())):
+            return await JSONResponse({"error": "unauthorized"}, status_code=401,
+                                      headers={"WWW-Authenticate": 'Basic realm="Holio demo"'})(scope, receive, send)
         if scope["type"] == "http" and scope["method"] == "POST":
-            headers = dict(scope["headers"])
             if TOKEN and not hmac.compare_digest(headers.get(b"authorization", b""), f"Bearer {TOKEN}".encode()):
                 return await JSONResponse({"error": "unauthorized"}, status_code=401)(scope, receive, send)
             length = headers.get(b"content-length", b"")
