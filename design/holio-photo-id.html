@@ -862,18 +862,20 @@ svg.i.lg{width:28px;height:28px;stroke-width:1.8}
   scannedCode={code}                       // optional, from the unknown-code sheet
   context="receiving"                      // "receiving" | "returns" | "counting" | "lookup"
   locale="nb"                              // "en" | "nb"
-  endpoint="/api/identify"                 // Holio's route to POST /v1/identify
+  identify={httpIdentify("/api/identify")} // or a function through Holio's own API client
   onConfirm={(r) =&gt; receiveLine(po.id, r)} // r = { sku, source: "photo", evidence }
   onLinkBarcode={(r) =&gt; linkCode(r)}       // r = { sku, code }
   onSearchManually={() =&gt; openSearch()}
   onDeviation={(r) =&gt; openDeviation(po.id, r)}
-  onSearchRegister={(words) =&gt; searchProducts(words, 8)} // optional, for screen 7
+  onSearchRegister={(words) =&gt; searchProducts(words)} // optional, for screen 7
+  contextLabel="PO #500004701"           // optional, used in titles such as "Not on PO #500004701"
+  progress=&#123;{ received: 0, expected: 24 }} // optional, for "0/24 becomes 1/24"
 /&gt;
 
 type Candidate = { sku: string; name: string; brand?: string; size?: string; image: string };
 // onConfirm gets the same shape a barcode scan produces, plus source and evidence,
 // so Holio feeds it into the handler it already has for a scanned line.</code></pre>
-<p><code>onSearchRegister</code> is the one prop beyond the contract. Without it, a "none" answer goes straight to screen 9c, and screen 7 is skipped. With it, the component asks Holio for a text shortlist of the full register from the words the model read, and ranks that shortlist with a second call.</p>
+<p><code>identify</code> is a function, <code>(request, signal) =&gt; Promise&lt;response&gt;</code>, so Holio can route the call through the authenticated API client Holio Ops already has. <code>httpIdentify(url)</code> builds one for a plain URL. <code>onSearchRegister</code> is the one prop beyond the contract. Without it, a "none" answer goes straight to screen 9c, and screen 7 is skipped. With it, the component asks Holio for a text shortlist of the full register from the words the model read, and ranks that shortlist with a second call.</p>
 <h3>Component states</h3>
 <div class="tscroll"><table class="t" style="min-width:720px">
 <thead><tr><th>State</th><th>Screen</th><th>Enters when</th><th>Leaves to</th></tr></thead>
@@ -946,7 +948,7 @@ Authorization: Bearer &lt;IDENTIFY_SERVICE_TOKEN&gt;      // Holio's server to o
 <tr><td>Correct abstains</td><td>9 of 9</td><td>Items not in the register got "none"</td></tr>
 <tr><td>Latency, p50</td><td>about 5 s</td><td>Shared Mac, four arenas running. About 5 s of that is the model round trip</td></tr>
 <tr><td>Photos</td><td>Open Food Facts, unseen brands</td><td>Freia, Tine, Kavli, Maarud, Lerum, Stabburet, Q, Solo, Toro, Ringnes and others</td></tr>
-<tr><td>With PO context (8 candidates)</td><td id="ctx-number">36 of 38 right on the first suggestion, 0 confidently wrong, and the other 2 went to a top 3 that held the right product. When the item was not on the order, 45 of 47 said so. p50 5.6 s</td><td>The same holdout photos, each against a simulated 8-product order of one brand. Script and results: evidence/po-context in the repo</td></tr>
+<tr><td>With PO context (8 candidates)</td><td id="ctx-number">36 of 38 right on the first suggestion, 0 confidently wrong, and the other 2 went to a top 3 that held the right product. When the item was not on the order, 45 of 47 gave no match. p50 5.6 s</td><td>The same holdout photos, each against a simulated 8-product order of one brand. Script and results: evidence/po-context in the repo</td></tr>
 </tbody>
 </table>
 <h3>Limits</h3>
