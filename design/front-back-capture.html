@@ -68,6 +68,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-l
 <main>
 <p><span class="tag">Holio side challenge, pain 3</span></p>
 <h1>Front and back in one identify call</h1>
+<p>Copy follows PR 4 (minimal copy): titles and essential controls only. The side labels Front and Back, and the "Back photo" button, carry the instruction.</p>
 <p class="lead">Serves Holio pain 3: "Items without a barcode, or with one the system does not know. Recognise the product from a photo or packaging text." The capture screen asks for the front and the back before the first identify call, so the size and variant print reaches the model in the same call.</p>
 
 <h2>Why</h2>
@@ -91,16 +92,14 @@ svg.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-l
 <p class="state"><code>capture</code>, photos 0</p>
 <div class="phone">
 <div class="ph-title"><svg class="i"><use href="#i-back"/></svg>Identify by photo</div>
-<p class="guide">Photograph the front and the back of the pack.</p>
 <div class="vf"><svg class="i"><use href="#i-camera"/></svg></div>
 <div class="thumbs">
 <div class="th empty"><svg class="i"><use href="#i-camera"/></svg>Front</div>
 <div class="th empty faded">Back</div>
-<span class="small">No photo yet</span>
 </div>
 <div class="btns"><div class="btn off">Identify</div></div>
 </div>
-<div class="nb">nb: Identifiser med bilde. Ta bilde av forsiden og baksiden av pakken. Forside. Bakside. Ingen bilde ennå. Identifiser.</div>
+<div class="nb">nb: Identifiser med bilde. Forside. Bakside. Identifiser.</div>
 <dl><dt>Worker</dt><dd>Taps the viewfinder and photographs the front.</dd></dl>
 </div>
 
@@ -109,20 +108,18 @@ svg.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-l
 <p class="state"><code>capture</code>, photos 1</p>
 <div class="phone">
 <div class="ph-title"><svg class="i"><use href="#i-back"/></svg>Identify by photo</div>
-<p class="guide">Photograph the front and the back of the pack.</p>
 <div class="preview"><span class="lab">Front</span></div>
 <div class="thumbs">
 <div class="th front"><span class="cap">Front</span><span class="x">x</span></div>
 <div class="th empty"><svg class="i"><use href="#i-camera"/></svg>Back</div>
-<span class="small">Front taken. Now the back.</span>
 </div>
 <div class="btns">
-<div class="btn s">Identify now</div>
-<div class="btn p"><svg class="i"><use href="#i-camera"/></svg>Photograph the back</div>
+<div class="btn s">Identify</div>
+<div class="btn p"><svg class="i"><use href="#i-camera"/></svg>Back photo</div>
 </div>
 </div>
-<div class="nb">nb: Forsiden er tatt. Nå baksiden. Identifiser nå. Ta bilde av baksiden.</div>
-<dl><dt>Worker</dt><dd>Turns the pack and taps "Photograph the back". "Identify now" stays for packs whose back holds nothing, or when the front already shows the size.</dd><dt>Change</dt><dd>Before, "Identify" was primary here and "Add photo" secondary. The two swap, so the default path sends both sides.</dd></dl>
+<div class="nb">nb: Forside. Bakside. Identifiser. Baksidebilde.</div>
+<dl><dt>Worker</dt><dd>Turns the pack and taps "Back photo". "Identify" stays as the secondary button for packs whose back holds nothing, or when the front already shows the size.</dd><dt>Change</dt><dd>Before, "Identify" was primary here and "Add photo" secondary. The two swap, so the default path sends both sides.</dd></dl>
 </div>
 
 <div class="screen">
@@ -130,16 +127,14 @@ svg.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-l
 <p class="state"><code>capture</code>, photos 2</p>
 <div class="phone">
 <div class="ph-title"><svg class="i"><use href="#i-back"/></svg>Identify by photo</div>
-<p class="guide">Photograph the front and the back of the pack.</p>
 <div class="preview back"><span class="lab">Back</span></div>
 <div class="thumbs">
 <div class="th front"><span class="cap">Front</span></div>
 <div class="th backp"><span class="cap">Back</span><span class="x">x</span></div>
-<span class="small">Front and back</span>
 </div>
 <div class="btns"><div class="btn p">Identify</div></div>
 </div>
-<div class="nb">nb: Forside og bakside. Identifiser.</div>
+<div class="nb">nb: Forside. Bakside. Identifiser.</div>
 <dl><dt>Worker</dt><dd>Taps "Identify". One call carries both photos, photo 1 the front and photo 2 the back.</dd><dt>Server</dt><dd>The judge prompt names photo 2 as the back of the pack, which often holds the size, variant and ingredients.</dd></dl>
 </div>
 
