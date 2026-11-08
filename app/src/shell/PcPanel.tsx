@@ -38,12 +38,11 @@ export function PcPanel({ events, company, warehouse, t, locale }: Props) {
             <span className="badge badge-b">{p.session}</span>
             {anyMock && <span className="chip-mock">{t.mock}</span>}
           </div>
-          <div className="muted">{p.lead}</div>
           <div className="tiles">
-            <Tile label={p.identified} value={String(identified)} note={p.identifiedNote} />
-            <Tile label={p.first} value={String(first)} note={identified ? p.firstNote(Math.round((first / identified) * 100), identified) : ""} />
-            <Tile label={p.linked} value={String(linked)} note={p.linkedNote} />
-            <Tile label={p.median} value={med === null ? "-" : `${Math.round(med / 1000)} s`} note={p.medianNote} />
+            <Tile label={p.identified} value={String(identified)} />
+            <Tile label={p.first} value={String(first)} />
+            <Tile label={p.linked} value={String(linked)} />
+            <Tile label={p.median} value={med === null ? "-" : `${Math.round(med / 1000)} s`} />
           </div>
           <div className="dt-scroll">
             <table className="dt">
@@ -114,12 +113,11 @@ export function PcPanel({ events, company, warehouse, t, locale }: Props) {
   );
 }
 
-function Tile({ label, value, note }: { label: string; value: string; note: string }) {
+function Tile({ label, value }: { label: string; value: string }) {
   return (
     <div className="tile">
       <div className="tile-l">{label}</div>
       <div className="tile-v">{value}</div>
-      <div className="tile-c">{note}</div>
     </div>
   );
 }

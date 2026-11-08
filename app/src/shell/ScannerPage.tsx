@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check } from "lucide-react";
+import { CameraOff, Check, LoaderCircle, LockKeyhole } from "lucide-react";
 import { lineBarcode, UNKNOWN_CODE, type PurchaseOrder } from "./data";
 import { useLiveScanner } from "./liveScanner";
 import { totals } from "./PurchaseOrderPage";
@@ -35,19 +35,16 @@ export function ScannerPage({ receipt, po, t, linkedCount, paused, onScan, onIde
   const message = { starting: t.camStarting, blocked: t.camBlocked, insecure: t.camNeedsHttps, live: null }[cam.kind];
   return (
     <>
-      <div className="sub">
-        {t.poTitle(po.id)} · {received}/{expected} {t.received}
-      </div>
+      <div className="scan-totals"><span>{t.poTitle(po.id)}</span><strong aria-label={`${received}/${expected} ${t.received}`}>{received}/{expected}</strong></div>
       <div className={`cam${flash ? " cam-received" : ""}`} data-camera={cam.kind}>
         {cam.kind !== "insecure" && <video ref={videoRef} className="cam-video" playsInline muted aria-hidden="true" />}
-        {message && <span className="cam-msg">{message}</span>}
+        {message && <span className="cam-msg" role="status">{cam.kind === "starting" ? <LoaderCircle size={28} aria-hidden="true" /> : cam.kind === "insecure" ? <LockKeyhole size={28} aria-hidden="true" /> : <CameraOff size={28} aria-hidden="true" />}<strong>{message}</strong></span>}
         <span className="corner c1" />
         <span className="corner c2" />
         <span className="corner c3" />
         <span className="corner c4" />
         {cam.kind === "live" && <span className="scanline" />}
 
-        {cam.kind === "live" && <span className="cam-hint">{t.pointAt}</span>}
       </div>
       {receipt && <div className="scan-banner" role="status"><img src={receipt.image} alt="" /><Check size={20} /><span>{receipt.text}</span></div>}
       <div className="scanner-actions">
@@ -57,7 +54,6 @@ export function ScannerPage({ receipt, po, t, linkedCount, paused, onScan, onIde
       </div>
       <details className="sim">
         <summary>{t.demoTools}</summary>
-        <div className="sim-head">{t.simulate}</div>
         <div className="sim-grid">
           <button type="button" className="sim-btn sim-unknown" onClick={() => onScan(UNKNOWN_CODE)}>
             <span className="sim-nm">{t.unknownCode}</span>

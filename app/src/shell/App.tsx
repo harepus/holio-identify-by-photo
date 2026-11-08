@@ -49,7 +49,7 @@ export function App() {
       if (!line) return "Order item unavailable";
       setLoad({ ...load, receiving: next });
       writeLinks(next.links);
-      setReceipt({ id: Date.now(), image: lineCandidate(line).image, text: `+${request.quantity} ${line.name} ${line.size}. Received, now ${line.received} of ${line.expected} · ${request.location}` });
+      setReceipt({ id: Date.now(), image: lineCandidate(line).image, text: `+${request.quantity} ${line.name} ${line.size} · ${line.received}/${line.expected} · ${request.location}` });
       setNotice("");
       if (overlay.kind === "review" && overlay.photo) {
         const result = overlay.photo;
@@ -59,7 +59,7 @@ export function App() {
       setOverlay({ kind: "none" });
       setView("scanner");
       return null;
-    } catch (error) { return error instanceof Error ? error.message : "Could not receive. Nothing changed."; }
+    } catch (error) { return error instanceof Error ? error.message : "Receipt failed"; }
   }
   function scan(code: string) {
     if (load.status !== "ready" || overlay.kind !== "none") return;
@@ -88,27 +88,27 @@ export function App() {
   }}>
     <header className="apphead" inert={overlay.kind !== "none"}>
       {view === "scanner" && <button className="icon-btn" aria-label="Back" onClick={() => { close(); setView("po"); }}><ArrowLeft /></button>}
-      <div className="name">{view === "po" ? "Receive order" : "Scan items"}<small>{po ? t.poTitle(po.id) : "Holio Ops"}</small></div>
+      <div className="name">{view === "po" ? "Receive order" : "Scan items"}</div>
       <span className="sp" /><span className="chip-demo">Demo</span>{mock && <span className="chip-mock">Mock: {mock}</span>}
     </header>
     <main className="stage" ref={overlayFocus.stage}>
       <div className="page" key={view} inert={overlay.kind !== "none"} aria-hidden={overlay.kind !== "none"}>
-        {load.status === "loading" && <p role="status">Loading purchase order...</p>}
-        {load.status === "failed" && <div className="err"><h2>Could not load this order</h2><p>Check your connection and try again.</p><button className="btn btn-s" onClick={reload}>Try again</button></div>}
+        {load.status === "loading" && <h2 role="status">Loading purchase order</h2>}
+        {load.status === "failed" && <div className="err"><h2>Order unavailable</h2><button className="btn btn-s" onClick={reload}>Try again</button></div>}
         {po && po.lines.length === 0 && <h2>No items to receive</h2>}
         {po && view === "po" && <PurchaseOrderPage po={po} t={t} locale="en" highlight={null} photoSkus={photoSkus} onReview={(sku) => setOverlay({ kind: "review", sku })} />}
-        {po && load.status === "ready" && view === "scanner" && <ScannerPage receipt={receipt} po={po} t={t} linkedCount={Object.keys(load.receiving.links).length} paused={overlay.kind !== "none"} onBack={() => setView("po")} onScan={scan} onIdentify={() => setOverlay({ kind: "unknown" })} onSearchManually={search} onForgetLinks={() => { writeLinks({}); setLoad({ ...load, receiving: { ...load.receiving, links: {} } }); }} onUndo={load.receiving.last ? () => { setLoad({ ...load, receiving: undoReceipt(load.receiving) }); setReceipt(null); setNotice("Last receipt undone. Added barcodes remain linked."); } : undefined} />}
+        {po && load.status === "ready" && view === "scanner" && <ScannerPage receipt={receipt} po={po} t={t} linkedCount={Object.keys(load.receiving.links).length} paused={overlay.kind !== "none"} onBack={() => setView("po")} onScan={scan} onIdentify={() => setOverlay({ kind: "unknown" })} onSearchManually={search} onForgetLinks={() => { writeLinks({}); setLoad({ ...load, receiving: { ...load.receiving, links: {} } }); }} onUndo={load.receiving.last ? () => { setLoad({ ...load, receiving: undoReceipt(load.receiving) }); setReceipt(null); setNotice("Receipt undone"); } : undefined} />}
         {notice && <p role="status" className="card">{notice}</p>}
       </div>
       {po && po.lines.length > 0 && view === "po" && overlay.kind === "none" && <button className="fab" aria-label="Open scanner" onClick={() => setView("scanner")}><Camera /> Scan</button>}
       {overlay.kind !== "none" && overlay.kind !== "identify" && <div className="dim" />}
       {overlay.kind === "unknown" && <section className="sheet" role="dialog" aria-modal="true" aria-label={overlay.code ? "Unknown barcode" : "No barcode"}>
-        <h2>{overlay.code ? "Unknown barcode" : "No barcode"}</h2><p className="sheet-text">{overlay.code ? `Barcode ${overlay.code} is not linked to a product.` : "Identify the item or choose it from the order."}</p>
+        <h2>{overlay.code ? "Unknown barcode" : "No barcode"}</h2>{overlay.code && <div className="sheet-code mono">{overlay.code}</div>}
         <div className="btncol"><button className="btn btn-s" onClick={() => setOverlay({ kind: "identify", code: overlay.code })}>Identify by photo</button><button className="btn btn-s" onClick={search}>Search manually</button><button className="btn btn-s" onClick={close}>Back to scanning</button></div>
       </section>}
       {po && load.status === "ready" && overlay.kind === "search" && <ManualSearch lines={po.lines} links={load.receiving.links} onClose={close} onChoose={(product) => setOverlay(po.lines.some((line) => line.sku === product.sku) ? { kind: "review", sku: product.sku, code: overlay.code } : { kind: "off-order", product, code: overlay.code })} />}
       {reviewLine && overlay.kind === "review" && <ReceiptReview line={reviewLine} code={overlay.code} onReceive={commit} onCancel={close} />}
-      {overlay.kind === "off-order" && <section className="sheet" role="dialog" aria-modal="true" aria-label="Not on this order"><h2>Not on {po ? t.poTitle(po.id) : "this order"}</h2><div className="product-row"><img src={overlay.product.image} alt="" /><strong>{overlay.product.name} {overlay.product.size}</strong></div><p>Nothing received. Set this item aside or find the correct product.</p><div className="btncol"><button className="btn btn-s" onClick={close}>Back to scanning</button><button className="btn btn-s" onClick={search}>Search manually</button></div></section>}
+      {overlay.kind === "off-order" && <section className="sheet" role="dialog" aria-modal="true" aria-label="Not on this order"><h2>Not on {po ? t.poTitle(po.id) : "this order"}</h2><div className="product-row"><img src={overlay.product.image} alt="" /><strong>{overlay.product.name} {overlay.product.size}</strong></div><div className="btncol"><button className="btn btn-s" onClick={close}>Back to scanning</button><button className="btn btn-s" onClick={search}>Search manually</button></div></section>}
       {po && overlay.kind === "identify" && <IdentifyByPhoto candidates={po.lines.map(lineCandidate)} scannedCode={overlay.code} context="receiving" locale="en" identify={identify} reviewBeforeReceive onConfirm={photoConfirmed} onLinkBarcode={() => undefined} onSearchManually={search} onDeviation={(result) => {
         const code = overlay.code;
         searchRegister().then((rows) => { const product = rows.find((row) => row.sku === result.sku); if (product) setOverlay({ kind: "off-order", product, code }); else search(); }, search);
