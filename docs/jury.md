@@ -4,7 +4,7 @@ Start with the [64-second recording](demo/receiving.mp4). It shows a real model 
 
 ## Open the app
 
-The hosted demo is at `https://m4.taildb1007.ts.net:8443`. Use the access link shared privately by the team. An unauthenticated request returns 401. The key is intentionally absent from this repository; after opening the access link once, the browser keeps an access cookie.
+The hosted demo is at `https://shmp3.taildb1007.ts.net:8443/holio`. Use the access link shared privately by the team. An unauthenticated request returns 401. The key is intentionally absent from this repository; after opening the access link once, the browser keeps an access cookie.
 
 The host Mac must remain awake and online, and its Claude subscription must have usage available. If the host is unavailable, use the recording or [run locally](../README.md#run-locally).
 
