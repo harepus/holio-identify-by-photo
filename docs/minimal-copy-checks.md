@@ -16,3 +16,9 @@ The real call used the existing Sonnet CLI configuration on an isolated loopback
 Initial browser runs found ambiguous test selectors after field labels were shortened. The tests now select the Quantity spinbutton and Location textbox by role and exact name; the complete final run passed.
 
 [Order](../evidence/minimal-copy-20261108/order.png) · [Real match](../evidence/minimal-copy-20261108/match.png) · [Receipt review](../evidence/minimal-copy-20261108/review.png)
+
+## Published build
+
+The frontend was released from commit `5fe8894`. The hosted HTML and all five assets match the tested build. The server process and recognition engine were retained, and the previous build is preserved under the rollback tag `safe/product-before-minimal-copy-20261108`.
+
+The machine's hostname and public port assignment changed independently during delivery. Holio now opens at `https://shmp3.taildb1007.ts.net:8443/holio`, using the existing access key. Its added routes preserve the other service's root handler. Authentication, the login redirect, catalog loading and API request validation were checked on the new public route.
