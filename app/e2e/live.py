@@ -57,7 +57,7 @@ def run(page: Page) -> None:
         secs = identify(page)
     if response.value.status == 503:
         assert response.value.json()["error"] == "model_unavailable"
-        expect(page.get_by_text("Could not identify right now.", exact=True)).to_be_visible()
+        expect(page.get_by_text("Identification unavailable", exact=True)).to_be_visible()
         shot(page, "02-model-unavailable")
         page.locator(".hid").get_by_role("button", name="Search manually", exact=True).click()
         expect(page.get_by_label("Name, SKU or barcode")).to_be_visible()
@@ -72,13 +72,14 @@ def run(page: Page) -> None:
     expect(page.get_by_role("dialog", name="Review receipt")).to_be_visible()
     shot(page, "03-review")
     page.get_by_role("button", name="Receive 1", exact=True).click()
-    expect(page.locator(".scan-banner")).to_contain_text("now 1 of 24")
+    expect(page.locator(".scan-banner")).to_contain_text("1/24")
     page.get_by_role("button", name=f"Unknown code {UNKNOWN}").click()
-    expect(page.locator(".scan-banner")).to_contain_text("now 2 of 24")
+    expect(page.locator(".scan-banner")).to_contain_text("2/24")
     shot(page, "04-linked-scan")
     print("[ok] live photo, receipt review, barcode link and rescan")
     page.get_by_role("button", name="Melkesjokolade 200g 7040110569908").click()
-    expect(page.get_by_role("dialog", name="Not on this order")).to_contain_text("Nothing received")
+    expect(page.get_by_role("dialog", name="Not on this order")).to_be_visible()
+    expect(page.get_by_role("dialog").get_by_role("button", name="Receive", exact=False)).to_have_count(0)
     shot(page, "05-off-order")
 
     page.goto(f"{BASE}/#/pc")

@@ -1,0 +1,35 @@
+{
+ "status": "match",
+ "candidates": [
+  {
+   "sku": "SKU-7025",
+   "likelihood": "most_likely"
+  },
+  {
+   "sku": "SKU-9190",
+   "likelihood": "possible"
+  },
+  {
+   "sku": "SKU-6764",
+   "likelihood": "possible"
+  }
+ ],
+ "evidence": "The pack prints Maarud 'Potetskruer' with 'SALT' on a yellow label, and only one Potetskruer Salt product is listed, so no other size competes.",
+ "readText": [
+  "07.08.2023",
+  "Ofte god etter",
+  "85 2 45 52 3 22:52",
+  "MAARUD",
+  "DOFI",
+  "SKRVER",
+  "SALT",
+  "INGREDIENSER",
+  "Potetstivelse, potetpulver, solsikke-/rapsolje,",
+  "krydderblanding (salt, stivelsessirup, maltodekstrin,",
+  "druesukker, gjærekstrakt, løk, aroma, syre (sitronsyre),",
+  "tomat, tapiokamel, løpstikke).",
+  "Kan inneholde spor av MELK og HVETE.",
+  "Pakket i beskyttende atmosfære."
+ ],
+ "ms": 5106
+}

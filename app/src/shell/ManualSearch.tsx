@@ -20,12 +20,11 @@ export function ManualSearch({ lines, links, onChoose, onClose }: { lines: PoLin
   return <section className="search-page" role="dialog" aria-modal="true" aria-label="Search manually">
     <h2>{all ? "Search all products" : "Search order items"}</h2>
     <label htmlFor="search">Name, SKU or barcode</label><input id="search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} autoFocus />
-    <p className="muted">{all ? "All products · not limited to this order" : `On this order · ${lines.length} items`}</p>
     <div className="search-results">
-      {all && register.kind === "loading" && <p role="status">Searching all products...</p>}
-      {all && register.kind === "failed" && <div role="alert"><p>Could not search all products. Order items are still available.</p><button className="btn btn-s" onClick={() => setAttempt(attempt + 1)}>Try again</button></div>}
-      {(!all || register.kind === "ready") && results.length === 0 && <p>No matching {all ? "products" : "order items"}. Try a shorter name.</p>}
-      {results.map((row) => <button className="product-row" key={row.sku} onClick={() => onChoose(row)}><img src={row.image} alt="" /><span><small>{row.sku} · {row.size}</small><strong>{productLabel(row)}</strong>{!lines.some((line) => line.sku === row.sku) && <small>Not on this order</small>}</span></button>)}
+      {all && register.kind === "loading" && <h3 role="status">Searching products</h3>}
+      {all && register.kind === "failed" && <div role="alert"><h3>Search unavailable</h3><button className="btn btn-s" onClick={() => setAttempt(attempt + 1)}>Try again</button></div>}
+      {(!all || register.kind === "ready") && results.length === 0 && <h3>No matching {all ? "products" : "order items"}</h3>}
+      {results.map((row) => <button className="product-row" key={row.sku} onClick={() => onChoose(row)}><img src={row.image} alt="" /><span><strong>{productLabel(row)}</strong><small>{row.sku}</small>{!lines.some((line) => line.sku === row.sku) && <small>Not on this order</small>}</span></button>)}
     </div>
     <div className="review-actions"><button className="btn btn-s" onClick={() => setAll(!all)}>{all ? "Back to order items" : "Search all products"}</button><button className="btn btn-s" onClick={onClose}>Back to scanning</button></div>
   </section>;

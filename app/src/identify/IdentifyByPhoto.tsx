@@ -164,11 +164,9 @@ export function IdentifyByPhoto(props: IdentifyByPhotoProps) {
         state={state}
         t={t}
         actions={actions}
-        candidateCount={props.candidates.length}
         context={props.context}
         contextLabel={props.contextLabel}
         progress={props.progress}
-        canSearchRegister={Boolean(props.onSearchRegister)}
       />
     </div>
   );

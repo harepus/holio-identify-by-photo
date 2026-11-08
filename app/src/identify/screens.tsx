@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowLeft, Camera, Check, Flashlight, Link, RefreshCcw, RotateCcw, Search, TriangleAlert, WifiOff, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Camera, Check, Link, RefreshCcw, RotateCcw, Search, TriangleAlert, WifiOff, X } from "lucide-react";
 import type { RankedCandidate, State } from "./machine";
 import { MAX_PHOTOS } from "./machine";
 import type { Strings } from "./strings";
@@ -27,25 +27,23 @@ export type ScreenProps = {
   state: State;
   t: Strings;
   actions: Actions;
-  candidateCount: number;
   context: Context;
   contextLabel?: string;
   progress?: Record<string, LineProgress>;
-  canSearchRegister: boolean;
 };
 
 /** Name and size, with the size kept on one line. */
 export const fullName = (c: Candidate) => [c.name, c.size?.replace(/ /g, "\u00a0")].filter(Boolean).join(" ");
 const meta = (c: Candidate) => [c.sku, c.size, c.brand].filter(Boolean).join(" · ");
 
-function Page({ title, onBack, backLabel, right, children }: { title: string; onBack: () => void; backLabel: string; right?: ReactNode; children: ReactNode }) {
+function Page({ title, onBack, backLabel, right, children, announceTitle }: { title: string; onBack: () => void; backLabel: string; right?: ReactNode; children: ReactNode; announceTitle?: boolean }) {
   return (
     <div className="hid-page">
       <h1 className="hid-title">
         <button type="button" className="hid-back" aria-label={backLabel} onClick={onBack}>
           <ArrowLeft size={28} strokeWidth={1.8} />
         </button>
-        <span className="hid-title-text">{title}</span>
+        <span className="hid-title-text" role={announceTitle ? "alert" : undefined}>{title}</span>
         {right}
       </h1>
       {children}
@@ -116,14 +114,13 @@ function Product({ candidate }: { candidate: Candidate }) {
   );
 }
 
-function Sheet({ title, text, children }: { title: string; text?: string; children: ReactNode }) {
+function Sheet({ title, children }: { title: string; children: ReactNode }) {
   return (
     <>
       <div className="hid-dim" />
       <div className="hid-sheet" role="dialog" aria-modal="true" aria-label={title}>
         <div className="hid-handle" />
         <h2 className="hid-sheet-title">{title}</h2>
-        {text && <p className="hid-muted hid-sheet-text">{text}</p>}
         <div className="hid-btncol">{children}</div>
       </div>
     </>
@@ -153,7 +150,6 @@ function Capture({ photos, secondForSize, t, actions }: { photos: string[]; seco
   const takeSecond = secondForSize ? t.addSizePhoto : t.photographBack;
   return (
     <>
-      <p className="hid-guide">{secondForSize ? t.guideSize : t.guide}</p>
       {last ? (
         <div className="hid-photo hid-photo-worker hid-preview">
           <img src={last} alt="" />
@@ -188,7 +184,6 @@ function Capture({ photos, secondForSize, t, actions }: { photos: string[]; seco
             {t.side(2, secondForSize)}
           </button>
         )}
-        <span className="hid-muted hid-small">{t.captureStatus(n, secondForSize)}</span>
       </Thumbs>
       <div className="hid-btnrow">
         {n === 0 && (
@@ -199,7 +194,7 @@ function Capture({ photos, secondForSize, t, actions }: { photos: string[]; seco
         {n === 1 && (
           <>
             <Btn kind="s" onClick={actions.identify}>
-              {t.identifyNow}
+              {t.identify}
             </Btn>
             <Btn kind="p" icon={<Camera size={22} />} onClick={actions.openCamera}>
               {takeSecond}
@@ -216,32 +211,11 @@ function Capture({ photos, secondForSize, t, actions }: { photos: string[]; seco
   );
 }
 
-function Steps({ step, t }: { step: 1 | 2 | 3; t: Strings }) {
-  return (
-    <ul className="hid-steps">
-      {t.steps.map((label, i) => {
-        const n = i + 1;
-        const status = n < step ? "done" : n === step ? "run" : "wait";
-        return (
-          <li key={label} className={status === "wait" ? "hid-step-wait" : undefined}>
-            <span className={`hid-st hid-st-${status}`}>
-              {status === "done" && <Check size={16} strokeWidth={2.5} />}
-              {status === "run" && <RotateCcw size={14} strokeWidth={2.5} />}
-            </span>
-            {label}
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
 function ChooseList({ state, t, actions }: { state: Extract<State, { kind: "result.choose" }>; t: Strings; actions: Actions }) {
   return (
     <Page title={t.chooseTitle} onBack={actions.close} backLabel={t.back}>
       <div className="hid-choose-head">
         <Thumbs photos={state.photos} t={t} />
-        {state.evidence && <div className="hid-ev hid-ev-inline">{state.evidence}</div>}
       </div>
       {state.ranked.map((r) => (
         <CandidateRow key={r.candidate.sku} ranked={r} t={t} onPick={() => actions.pick(r.candidate.sku)} />
@@ -256,12 +230,11 @@ function ChooseList({ state, t, actions }: { state: Extract<State, { kind: "resu
           {t.noneOfThese}
         </button>
       </div>
-      {state.ranked.length > 0 && <div className="hid-muted hid-small hid-center hid-mt10">{t.tapToConfirm}</div>}
     </Page>
   );
 }
 
-export function Screen({ state, t, actions, candidateCount, context, contextLabel, progress, canSearchRegister }: ScreenProps) {
+export function Screen({ state, t, actions, context, contextLabel, progress }: ScreenProps) {
   switch (state.kind) {
     case "capture":
       return (
@@ -273,12 +246,10 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
     case "identifying":
       return (
         <Page title={t.identifyingTitle} onBack={actions.close} backLabel={t.back}>
-          <div className="hid-sub">{t.comparing(candidateCount, contextLabel)}</div>
           <Thumbs photos={state.photos} t={t} />
-          <Steps step={state.step} t={t} />
+          <div className="hid-progress" role="status" aria-label={t.identifyingTitle}><span className="hid-st hid-st-run" aria-hidden="true"><RotateCcw size={16} /></span></div>
           <div className="hid-counter" aria-live="polite">
             {t.seconds(state.seconds)}
-            <small>{t.usually}</small>
           </div>
           <div className="hid-center hid-mt18">
             <button type="button" className="hid-link" onClick={actions.cancel}>
@@ -305,12 +276,9 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
         >
           <Compare photo={state.photos[0]!} image={top.image} t={t} />
           {state.photos.length === MAX_PHOTOS && (
-            <Thumbs photos={state.photos} t={t} className="hid-thumbs-sm">
-              <span className="hid-muted hid-small">{t.twoPhotos(state.secondForSize)}</span>
-            </Thumbs>
+            <Thumbs photos={state.photos} t={t} className="hid-thumbs-sm" />
           )}
           <Product candidate={top} />
-          {state.evidence && <div className="hid-ev">{state.evidence}</div>}
           <div className="hid-btncol">
             <Btn kind="p" icon={<Check size={22} />} onClick={() => actions.confirm(top)}>
               {t.confirm}
@@ -319,7 +287,7 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
               {t.notThis}
             </Btn>
           </div>
-          {line && <div className="hid-muted hid-small hid-center hid-mt10">{t.confirmHint(line.received, line.expected)}</div>}
+          {line && <div className="hid-quantity" aria-label={t.receiptProgress(line.received, line.expected)}><span>{line.received}/{line.expected}</span><ArrowRight size={18} aria-hidden="true" /><span>{line.received + 1}/{line.expected}</span></div>}
         </Page>
       );
     }
@@ -348,10 +316,6 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
     case "result.none":
       return (
         <Page title={t.notOnTitle(contextLabel)} onBack={actions.close} backLabel={t.back}>
-          <div className="hid-warn hid-warn-top">
-            <TriangleAlert size={22} />
-            <span>{t.noneOnOrder(candidateCount)}</span>
-          </div>
           {state.kind === "register-search" ? (
             <div className="hid-cand hid-loading" role="status">
               <span className="hid-st hid-st-run">
@@ -365,7 +329,6 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
                 <Compare photo={state.photos[0]!} image={state.guess.image} t={t} square />
               </div>
               <Product candidate={state.guess} />
-              {state.evidence && <div className="hid-ev">{state.evidence}</div>}
               <div className="hid-btncol">
                 <Btn kind="p" icon={<TriangleAlert size={22} />} onClick={() => actions.deviation(state.guess)}>
                   {t.registerDeviation}
@@ -387,8 +350,6 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
             <div className="hid-empty-ico">
               <Search size={28} strokeWidth={1.8} />
             </div>
-            <h2>{t.noMatch}</h2>
-            <p>{t.nothingLooksLike(contextLabel, canSearchRegister)}</p>
           </div>
           <div className="hid-btncol">
             <Btn kind="p" icon={<Search size={22} />} onClick={actions.searchManually}>
@@ -403,22 +364,12 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
 
     case "error.photo":
       return (
-        <Page title={t.captureTitle} onBack={actions.close} backLabel={t.back}>
-          <p className="hid-guide">{state.secondForSize ? t.guideSize : t.guide}</p>
+        <Page announceTitle title={state.reason === "dark" ? t.tooDark : t.tooBlurred} onBack={actions.close} backLabel={t.back} right={<TriangleAlert size={22} aria-hidden="true" />}>
           <div className="hid-cam hid-rejected">
             <img src={state.rejected} alt="" />
             <span className="hid-lab">{t.side(state.photos.length + 1, state.secondForSize)}</span>
           </div>
-          <div className="hid-err" role="alert">
-            <TriangleAlert size={22} />
-            <span>{state.reason === "dark" ? t.tooDark : t.tooBlurred}</span>
-          </div>
           <div className="hid-btnrow">
-            {state.reason === "dark" && (
-              <Btn kind="s" icon={<Flashlight size={22} />} onClick={actions.retake}>
-                {t.flashlightOn}
-              </Btn>
-            )}
             <Btn kind="p" icon={<Camera size={22} />} onClick={actions.retake}>
               {t.retake}
             </Btn>
@@ -433,15 +384,12 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
 
     case "error.network":
       return (
-        <Page title={t.identifyingTitle} onBack={actions.close} backLabel={t.back}>
-          <div className="hid-sub">{t.comparing(candidateCount, contextLabel)}</div>
+        <Page announceTitle title={t.couldNot} onBack={actions.close} backLabel={t.back}>
           <Thumbs photos={state.photos} t={t} />
           <div className="hid-empty">
             <div className="hid-empty-ico">
               <WifiOff size={28} strokeWidth={1.8} />
             </div>
-            <h2>{t.couldNot}</h2>
-            <p>{t.checkConnection}</p>
           </div>
           <div className="hid-btncol">
             <Btn kind="p" icon={<RefreshCcw size={22} />} onClick={actions.retry}>
@@ -456,7 +404,7 @@ export function Screen({ state, t, actions, candidateCount, context, contextLabe
 
     case "link-barcode":
       return (
-        <Sheet title={t.linkQuestion(state.code, fullName(state.candidate))} text={t.linkNext}>
+        <Sheet title={t.linkQuestion(state.code, fullName(state.candidate))}>
           <Btn kind="p" icon={<Link size={22} />} onClick={() => actions.link(state.candidate, state.code)}>
             {t.linkBarcode}
           </Btn>
