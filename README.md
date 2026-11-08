@@ -35,8 +35,8 @@ These are grocery photos from a development dataset. The two product checks use 
 Use macOS, Node/pnpm, uv and an existing Claude CLI login. The server uses Apple Vision for OCR, CLIP for retrieval and Claude Sonnet for the final suggestion.
 
 ```sh
-git clone https://github.com/harepus/holio-photo-id.git
-cd holio-photo-id
+git clone https://github.com/harepus/holio-identify-by-photo.git
+cd holio-identify-by-photo
 pnpm --dir app install --frozen-lockfile
 pnpm --dir app build
 HPI_HOST=127.0.0.1 HPI_PORT=8781 uv run server/app.py
