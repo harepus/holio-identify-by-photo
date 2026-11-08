@@ -6,6 +6,7 @@ APP = Path(__file__).resolve().parent.parent
 OUT = APP / '.e2e-shots'
 BASE = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:8781'
 FRONT = APP.parent / 'server/tests/fixtures/photos/h009/photo1.jpg'
+BACK = APP.parent / 'server/tests/fixtures/photos/h009/photo2.jpg'
 
 
 def shot(page, name):
@@ -81,7 +82,14 @@ def run(page):
     print('[ok] register search and off-order refusal')
     page.get_by_role('button', name='No barcode?', exact=True).click()
     page.get_by_role('button', name='Identify by photo', exact=True).click()
+    expect(page.get_by_text('Photograph the front and the back of the pack.', exact=True)).to_be_visible()
     page.locator('.hid-file').set_input_files(str(FRONT))
+    expect(page.get_by_text('Front taken. Now the back.', exact=True)).to_be_visible()
+    shot(page, '10-front-taken')
+    page.get_by_role('button', name='Photograph the back', exact=True).first.click()
+    page.locator('.hid-file').set_input_files(str(BACK))
+    expect(page.get_by_text('Front and back', exact=True)).to_be_visible()
+    shot(page, '11-front-and-back')
     page.get_by_role('button', name='Identify', exact=True).click()
     page.get_by_role('button', name='Review receipt', exact=True).click()
     expect(page.get_by_role('dialog', name='Review receipt')).to_be_visible()
@@ -93,7 +101,7 @@ def run(page):
     page.get_by_role('button', name='No barcode?', exact=True).click()
     page.get_by_role('button', name='Identify by photo', exact=True).click()
     page.locator('.hid-file').set_input_files(str(FRONT))
-    page.get_by_role('button', name='Identify', exact=True).click()
+    page.get_by_role('button', name='Identify now', exact=True).click()
     expect(page.get_by_text('Could not identify right now.', exact=True)).to_be_visible()
     shot(page, '09-photo-error')
     page.get_by_role('button', name='Search manually', exact=True).click()

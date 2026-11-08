@@ -248,7 +248,7 @@ def jpeg(p: Path, maxside=1280) -> bytes:
 
 PROMPT = """You identify a grocery item for a warehouse worker. The item has no usable barcode.
 
-The first image(s) are phone photos of ONE physical item: photo 1 is the front, photo 2 (if given) another side such as ingredients. The last image is a contact sheet of register product photos labelled with letters. The register rows for those letters are:
+The first image(s) are phone photos of ONE physical item: photo 1 is the front, photo 2 (if given) the back or a close-up of the size print, which often settles the size and variant. The last image is a contact sheet of register product photos labelled with letters. The register rows for those letters are:
 
 <register_rows>
 {rows}
