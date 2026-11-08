@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-11-08T09:37:25.707Z",
+  "applicationCommit": "63b54d55c066263d2480afdc1cd293ffe5fb420b",
+  "model": {
+    "backend": "claude-cli",
+    "configuredModel": "sonnet",
+    "resolvedModelRecorded": false,
+    "accountSubstitution": false
+  },
+  "environment": {
+    "server": "isolated loopback",
+    "builtAssets": "preserved live build",
+    "baselineFilesVerified": 407,
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "physicalPhone": false
+  },
+  "input": {
+    "fixture": "server/tests/fixtures/photos/h009",
+    "photoCount": 2,
+    "candidateCount": 8,
+    "barcode": "7031234567890",
+    "barcodeInput": "labeled Demo tools button",
+    "mock": false,
+    "uploadedPhotoSha256": {
+      "photo2.jpg": "49c9086dd370051b97c652eef755b903939c6d98196a966d7960e1de73fb13bf",
+      "photo1.jpg": "2093e593fd98d70fa3f6294f0125f180241be47a04602e5d0900353926c1255d"
+    }
+  },
+  "result": {
+    "attempts": 1,
+    "httpStatus": 200,
+    "status": "match",
+    "expectedSku": "SKU-7025",
+    "returnedSku": "SKU-7025",
+    "catalogName": "Potetskruer Salt",
+    "catalogSize": "90 g",
+    "serverMs": 5106,
+    "browserRequestMs": 5111,
+    "technicalFailures": 0,
+    "visualUncertainty": false,
+    "sizeReadIndependently": false
+  },
+  "flow": {
+    "reviewBeforeReceive": true,
+    "receivedBeforeConfirm": 0,
+    "receivedAfterConfirm": 1,
+    "location": "A-01-02",
+    "extraBarcodeLinked": true,
+    "receivedAfterNextScan": 2,
+    "modelCallsIncludingNextScan": 1,
+    "offOrderBarcodeRejectedAfterRecording": true,
+    "offOrderNothingReceived": true
+  },
+  "limits": [
+    "Known fixture, one attempt; not an accuracy estimate.",
+    "Catalog supplies the size; this run does not prove independent size reading.",
+    "Barcode input was simulated; the model response was real.",
+    "Receipts and barcode links are local demo state, not Holio stock writes."
+  ],
+  "cleanup": {
+    "isolatedServerStopped": true,
+    "liveProcessRestarted": false,
+    "liveFilesVerifiedAfter": 407,
+    "livePort": 8770
+  },
+  "artifacts": {
+    "video": "../../docs/demo/receiving.mp4",
+    "response": "response.json",
+    "nextScan": "next-scan.png"
+  },
+  "setupErrors": [
+    {
+      "stage": "server startup",
+      "error": "ERR_CONNECTION_REFUSED",
+      "beforeRecording": true,
+      "beforeModelRequest": true
+    }
+  ],
+  "video": {
+    "durationSeconds": 63.533333,
+    "framesPerSecond": 30,
+    "cuts": false,
+    "speedChanged": false,
+    "sha256": "aca9e642ec92303d58457c794c92474dabc655e339d5f308e52636d496b47151"
+  }
+}
