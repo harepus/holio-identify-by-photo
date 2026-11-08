@@ -1,0 +1,55 @@
+{
+  "complete": true,
+  "error": null,
+  "baselineUnchanged": true,
+  "isolatedServerStopped": true,
+  "responses": [
+    {
+      "httpStatus": 200,
+      "body": {
+        "status": "match",
+        "candidates": [
+          {
+            "sku": "SKU-7025",
+            "likelihood": "most_likely"
+          },
+          {
+            "sku": "SKU-9190",
+            "likelihood": "possible"
+          },
+          {
+            "sku": "SKU-6764",
+            "likelihood": "possible"
+          }
+        ],
+        "evidence": "The pack prints Maarud 'Potet Skruer' 'SALT' in red lettering on a yellow panel with comic-strip artwork, and only one Potetskruer product is listed.",
+        "readText": [
+          "07.08.2023",
+          "Ofte god etter",
+          "85 2 45 52 3 22:52",
+          "MAARUD",
+          "DOFI",
+          "SKRVER",
+          "SALT",
+          "INGREDIENSER",
+          "Potetstivelse, potetpulver, solsikke-/rapsolje,",
+          "krydderblanding (salt, stivelsessirup, maltodekstrin,",
+          "druesukker, gjærekstrakt, løk, aroma, syre (sitronsyre),",
+          "tomat, tapiokamel, løpstikke).",
+          "Kan inneholde spor av MELK og HVETE.",
+          "Pakket i beskyttende atmosfære."
+        ],
+        "ms": 7893
+      }
+    }
+  ],
+  "finishedAt": "2026-11-08T03:01:08.237352+00:00",
+  "model": {
+    "backend": "claude-cli",
+    "configuredModel": "sonnet",
+    "accountSubstitution": false
+  },
+  "fixture": "server/tests/fixtures/photos/h009",
+  "applicationCommit": "63b54d55c066263d2480afdc1cd293ffe5fb420b",
+  "browserObservedSeconds": 8.4
+}
