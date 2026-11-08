@@ -16,17 +16,17 @@ Use a fresh browser session so the example code has not already been linked. Dow
 2. Expand **Demo tools**, then select **Unknown code 7031234567890**. These buttons simulate barcode input; they do not simulate recognition.
 3. Select **Identify by photo**. Upload the front photo, then add the back photo. On a phone, the photo action opens the camera instead of a desktop file picker.
 4. Select **Identify**. In the recording, the result was **Potetskruer Salt**, **SKU-7025**, catalog size **90 g**. A model result can vary; check the product and variant yourself.
-5. Select **Review receipt**. Check quantity **1**, location **A-01-02**, and **Add barcode 7031234567890 to this product**. No quantity has been received yet.
-6. Select **Receive 1**. The scanner shows **now 1 of 24**.
-7. Select the same unknown-code button again. It now shows **now 2 of 24**, without another photo or model call.
+5. Select **Review receipt**. Check quantity **1**, location **A-01-02**, and **Link barcode 7031234567890**. No quantity has been received yet.
+6. Select **Receive 1**. The scanner shows **1/24**.
+7. Select the same unknown-code button again. It now shows **2/24**, without another photo or model call.
 
 Select **Undo last receipt** to reverse the last quantity change. Undo keeps the barcode link. Reload resets quantities and locations; **Demo tools** can forget linked barcodes.
 
 ## Check the boundaries
 
-- Select **Melkesjokolade 200g 7040110569908** in Demo tools. It is not on this order; the sheet says **Nothing received**.
+- Select **Melkesjokolade 200g 7040110569908** in Demo tools. It opens **Not on PO #500004701** with no Receive action.
 - Use **Search manually** to choose a product without the model. Search starts with the order and can expand to the full register.
-- When recognition fails technically, the app shows **Could not identify right now** and retains manual search. Record the error separately from an incorrect or uncertain product suggestion.
+- When recognition fails technically, the app shows **Identification unavailable** and retains manual search. Record the error separately from an incorrect or uncertain product suggestion.
 - Mock URLs such as `?mock=choose` demonstrate interface states and display a **Mock** badge. Keep them out of recognition measurements.
 
 ## Physical phone check before presenting

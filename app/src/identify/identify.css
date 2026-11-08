@@ -42,8 +42,6 @@
 .hid .hid-title { display: flex; align-items: center; gap: 14px; font-size: 27px; font-weight: 700; line-height: 1.15; margin: 4px 0 16px; letter-spacing: -0.01em; }
 .hid .hid-title-text { flex: 1; min-width: 0; }
 .hid .hid-back { display: flex; flex: none; margin: -6px; padding: 6px; border-radius: 10px; }
-.hid .hid-sub { color: var(--hid-muted); font-size: 15px; margin: -10px 0 14px; }
-.hid .hid-guide { font-size: 15px; line-height: 1.4; margin: -6px 0 12px; }
 .hid .hid-muted { color: var(--hid-muted); }
 .hid .hid-small { font-size: 13px; }
 .hid .hid-center { text-align: center; }
@@ -102,24 +100,15 @@
 .hid .hid-thumbs-sm + .hid-product { margin-top: 10px; }
 .hid .hid-product-name { font-size: 20px; font-weight: 700; line-height: 1.2; }
 .hid .hid-product .hid-muted { margin-top: 2px; }
-.hid .hid-ev { background: var(--hid-chip); border-radius: 12px; padding: 10px 12px; font-size: 14.5px; line-height: 1.4; margin-top: 12px; }
 .hid .hid-choose-head { display: flex; gap: 10px; align-items: center; margin: -6px 0 10px; }
 .hid .hid-choose-head .hid-thumbs { min-height: 0; }
-.hid .hid-ev-inline { margin: 0; flex: 1; }
 
 /* identifying */
-.hid .hid-steps { margin: 18px 0 0; padding: 0; list-style: none; }
-.hid .hid-steps li { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--hid-line); font-size: 16px; }
-.hid .hid-steps li:last-child { border-bottom: 0; }
-.hid .hid-steps li.hid-step-wait { color: var(--hid-muted); }
 .hid .hid-st { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
-.hid .hid-st-done { background: var(--hid-green-bg); color: var(--hid-green); }
 .hid .hid-st-run { border: 2px solid var(--hid-ink); border-right-color: var(--hid-input); color: var(--hid-ink); animation: hid-spin 1s linear infinite; }
-.hid .hid-st-wait { border: 2px solid var(--hid-input); }
 @keyframes hid-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .hid .hid-st-run { animation: none; } }
 .hid .hid-counter { font-size: 40px; font-weight: 700; text-align: center; margin: 28px 0 4px; letter-spacing: -0.02em; line-height: 1.2; }
-.hid .hid-counter small { display: block; font-size: 14px; font-weight: 400; color: var(--hid-muted); letter-spacing: 0; }
 
 /* candidates */
 .hid .hid-cand { display: flex; gap: 12px; align-items: center; width: 100%; text-align: left; background: #fff; border: 1px solid var(--hid-line); border-radius: 16px; padding: 10px 14px 10px 10px; margin-bottom: 8px; flex: none; }
@@ -141,14 +130,15 @@
 .hid .hid-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px 16px; gap: 8px; }
 .hid .hid-empty-ico { width: 64px; height: 64px; border-radius: 16px; background: var(--hid-blush); display: flex; align-items: center; justify-content: center; color: var(--hid-orange-fg); margin-bottom: 6px; }
 .hid .hid-empty h2 { font-size: 21px; font-weight: 700; line-height: 1.3; }
-.hid .hid-empty p { color: var(--hid-muted); font-size: 15px; max-width: 30ch; }
 
 /* sheets */
 .hid .hid-dim { position: absolute; inset: 0; background: rgba(21, 32, 34, 0.45); animation: hid-fade 0.18s ease-out; }
 .hid .hid-sheet { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-radius: 20px 20px 0 0; padding: 10px 16px 20px; animation: hid-up 0.22s ease-out; }
 .hid .hid-handle { width: 40px; height: 4px; border-radius: 2px; background: var(--hid-input); margin: 0 auto 14px; }
 .hid .hid-sheet-title { font-size: 20px; font-weight: 700; margin: 0 0 6px; line-height: 1.25; overflow-wrap: anywhere; }
-.hid .hid-sheet-text { font-size: 15px; margin: 0 0 4px; }
 @keyframes hid-fade { from { opacity: 0; } }
 @keyframes hid-up { from { transform: translateY(100%); } }
 @media (prefers-reduced-motion: reduce) { .hid .hid-dim, .hid .hid-sheet { animation: none; } }
+
+.hid .hid-progress { display:flex; justify-content:center; margin:32px 0 0; }
+.hid .hid-quantity { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:14px; font-weight:600; }
