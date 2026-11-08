@@ -18,7 +18,7 @@ One stateless call. Holio sends the worker's photos and the candidates it alread
 
 | Field | Rule |
 |---|---|
-| `photos` | 1 or 2 images, each at most 6 MB decoded. Photo 1 is the front, photo 2 the label or size print |
+| `photos` | 1 or 2 images, each at most 6 MB decoded. Photo 1 is the front, photo 2 the back or a close-up of the size print |
 | `candidates` | 1 to 500 rows, unique `sku`. `sku` at most 64 characters, `name` 200, `brand` 120, `size` 60. `image` is an http(s) URL, a path under the server's static root such as `/demo/...`, or a `data:` URI |
 | `scannedCode` | Optional, at most 64 characters. The unknown barcode the scanner read, echoed for logging only |
 | `context` | `receiving`, `returns`, `counting` or `lookup` |

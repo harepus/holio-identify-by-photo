@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Front and back capture | Holio design</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#14181f;--muted:#5c6470;--line:#dde1e6;--brand:#1f5eff;--good:#127a3e;--goodbg:#e3f5ea;--warn:#8a5a00;--warnbg:#fff4d6;--phone:#0e1116}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1216;--card:#181c22;--ink:#eef1f5;--muted:#9aa3ae;--line:#2a3039;--brand:#6b95ff;--good:#5fd38d;--goodbg:#14301f;--warn:#f0c060;--warnbg:#33290f}}
+:root[data-theme="dark"]{--bg:#0f1216;--card:#181c22;--ink:#eef1f5;--muted:#9aa3ae;--line:#2a3039;--brand:#6b95ff;--good:#5fd38d;--goodbg:#14301f;--warn:#f0c060;--warnbg:#33290f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:28px;margin:0 0 8px}
+h2{font-size:20px;margin:40px 0 12px}
+p,li{max-width:72ch}
+.lead{color:var(--muted);font-size:16px}
+.tag{display:inline-block;background:var(--goodbg);color:var(--good);border-radius:6px;padding:2px 8px;font-size:13px;font-weight:600}
+table{border-collapse:collapse;width:100%;max-width:760px;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);font-size:14px}
+th{color:var(--muted);font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.screens{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:16px}
+.screen{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.screen h3{margin:0 0 4px;font-size:16px}
+.screen .state{color:var(--muted);font-size:13px;margin:0 0 12px}
+.phone{background:#fff;color:#14181f;border:8px solid var(--phone);border-radius:28px;padding:14px 14px 18px;min-height:520px;display:flex;flex-direction:column;gap:12px}
+.ph-title{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700}
+.ph-title svg{width:24px;height:24px}
+.guide{font-size:15px;line-height:1.4;margin:0}
+.vf{flex:1;min-height:200px;border-radius:12px;background:#1b1f26;display:flex;align-items:center;justify-content:center;color:#cfd5dd}
+.vf svg{width:40px;height:40px}
+.preview{flex:1;min-height:200px;border-radius:12px;background:linear-gradient(135deg,#e8c37a,#c9772f);position:relative}
+.preview.back{background:linear-gradient(135deg,#f3efe6,#d8d2c4)}
+.lab{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:2px 8px;border-radius:6px}
+.thumbs{display:flex;align-items:center;gap:10px}
+.th{width:64px;height:64px;border-radius:10px;position:relative;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#14181f}
+.th.front{background:linear-gradient(135deg,#e8c37a,#c9772f)}
+.th.backp{background:linear-gradient(135deg,#f3efe6,#d8d2c4)}
+.th.empty{border:2px dashed #b9c0c9;color:#5c6470;flex-direction:column;gap:2px}
+.th.faded{opacity:.5}
+.th .cap{position:absolute;left:4px;bottom:3px;background:rgba(0,0,0,.65);color:#fff;border-radius:4px;padding:0 4px;font-size:10px}
+.th .x{position:absolute;right:-6px;top:-6px;width:20px;height:20px;border-radius:50%;background:#14181f;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.th svg{width:20px;height:20px}
+.small{font-size:13px;color:#5c6470}
+.btns{display:flex;gap:10px}
+.btn{flex:1;min-height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;text-align:center;padding:0 10px}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.p{background:#1f5eff;color:#fff}
+.btn.s{background:#eef1f5;color:#14181f}
+.btn.off{background:#c9d3e6;color:#fff}
+.nb{margin-top:10px;font-size:13px;color:var(--muted)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:12px 0 0;font-size:13px}
+dt{color:var(--muted)}
+dd{margin:0}
+.note{background:var(--warnbg);color:var(--ink);border-radius:8px;padding:12px 14px;max-width:760px}
+code{font:13px ui-monospace,Menlo,monospace}
+svg.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+<symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+<main>
+<p><span class="tag">Holio side challenge, pain 3</span></p>
+<h1>Front and back in one identify call</h1>
+<p>Copy follows PR 4 (minimal copy): titles and essential controls only. The side labels Front and Back, and the "Back photo" button, carry the instruction.</p>
+<p class="lead">Serves Holio pain 3: "Items without a barcode, or with one the system does not know. Recognise the product from a photo or packaging text." The capture screen asks for the front and the back before the first identify call, so the size and variant print reaches the model in the same call.</p>
+
+<h2>Why</h2>
+<p>The arena ran the frozen recogniser <code>p3-final</code> on the blind set fresh3: 69 cases, 49 of them in the 249-row register.</p>
+<table>
+<thead><tr><th>Workflow</th><th>Confident correct /49</th><th>Confident wrong /69</th><th>Photos asked</th><th>p50 wait</th></tr></thead>
+<tbody>
+<tr><td>One photo</td><td class="n">27</td><td class="n">1</td><td>1</td><td class="n">9.7 s</td></tr>
+<tr><td>One photo, then a follow-up photo when asked</td><td class="n">42</td><td class="n">1</td><td>1, plus 1 in 31 of 69</td><td class="n">11.5 s</td></tr>
+<tr><td>All photos up front</td><td class="n">38 and 42 (two runs)</td><td class="n">1</td><td>2.3 on average</td><td class="n">6.4 and 6.8 s</td></tr>
+</tbody>
+</table>
+<p>Photos up front match the follow-up accuracy within run-to-run spread, save the second round trip and nearly halve the median wait. Today the product sends one photo unless the worker thinks to add a second, which is the 27/49 row. Sources: <code>holio-arena/pains/p3-no-barcode/experiments/capture-fresh3/RESULT.md</code> and <code>holio-arena-holdout/p3-no-barcode/scores/fresh3/p3-final-single.json</code>.</p>
+<p>The product caps a call at 2 photos and keeps that cap. The arena gave 3 photos in 22 of 69 cases, so 2 photos is not measured directly.</p>
+
+<h2>Screens</h2>
+<div class="screens">
+
+<div class="screen">
+<h3>No photo yet</h3>
+<p class="state"><code>capture</code>, photos 0</p>
+<div class="phone">
+<div class="ph-title"><svg class="i"><use href="#i-back"/></svg>Identify by photo</div>
+<div class="vf"><svg class="i"><use href="#i-camera"/></svg></div>
+<div class="thumbs">
+<div class="th empty"><svg class="i"><use href="#i-camera"/></svg>Front</div>
+<div class="th empty faded">Back</div>
+</div>
+<div class="btns"><div class="btn off">Identify</div></div>
+</div>
+<div class="nb">nb: Identifiser med bilde. Forside. Bakside. Identifiser.</div>
+<dl><dt>Worker</dt><dd>Taps the viewfinder and photographs the front.</dd></dl>
+</div>
+
+<div class="screen">
+<h3>Front taken</h3>
+<p class="state"><code>capture</code>, photos 1</p>
+<div class="phone">
+<div class="ph-title"><svg class="i"><use href="#i-back"/></svg>Identify by photo</div>
+<div class="preview"><span class="lab">Front</span></div>
+<div class="thumbs">
+<div class="th front"><span class="cap">Front</span><span class="x">x</span></div>
+<div class="th empty"><svg class="i"><use href="#i-camera"/></svg>Back</div>
+</div>
+<div class="btns">
+<div class="btn s">Identify</div>
+<div class="btn p"><svg class="i"><use href="#i-camera"/></svg>Back photo</div>
+</div>
+</div>
+<div class="nb">nb: Forside. Bakside. Identifiser. Baksidebilde.</div>
+<dl><dt>Worker</dt><dd>Turns the pack and taps "Back photo". "Identify" stays as the secondary button for packs whose back holds nothing, or when the front already shows the size.</dd><dt>Change</dt><dd>Before, "Identify" was primary here and "Add photo" secondary. The two swap, so the default path sends both sides.</dd></dl>
+</div>
+
+<div class="screen">
+<h3>Both sides taken</h3>
+<p class="state"><code>capture</code>, photos 2</p>
+<div class="phone">
+<div class="ph-title"><svg class="i"><use href="#i-back"/></svg>Identify by photo</div>
+<div class="preview back"><span class="lab">Back</span></div>
+<div class="thumbs">
+<div class="th front"><span class="cap">Front</span></div>
+<div class="th backp"><span class="cap">Back</span><span class="x">x</span></div>
+</div>
+<div class="btns"><div class="btn p">Identify</div></div>
+</div>
+<div class="nb">nb: Forside. Bakside. Identifiser.</div>
+<dl><dt>Worker</dt><dd>Taps "Identify". One call carries both photos, photo 1 the front and photo 2 the back.</dd><dt>Server</dt><dd>The judge prompt names photo 2 as the back of the pack, which often holds the size, variant and ingredients.</dd></dl>
+</div>
+
+</div>
+
+<h2>Unchanged</h2>
+<ul>
+<li>The contract: <code>photos</code> takes 1 or 2 images, the answer is match, choose or none with at most 3 candidates, and every HTTP error keeps its code.</li>
+<li>No hidden second call, no automatic retry and no follow-up capture. The worker decides when to send.</li>
+<li>A photo suggestion never writes a receipt or links a barcode. Only the explicit Confirm or Review receipt action commits.</li>
+<li>"Add a photo of the size" on the choose screen still replaces photo 2, and its label there reads "Size" instead of "Back".</li>
+<li>Dark and blurred photo errors, the network error, cancel and manual search.</li>
+</ul>
+
+<h2>Not built: the pre-selected first suggestion</h2>
+<div class="note">
+<p>The second proposal was to pre-select the first suggestion on the choose screen. On fresh3 the recogniser was unsure with suggestions in 18 cases. The first suggestion was right in 6 of them. In the other 12 the item was not in the register at all, or the label disagreed. The confidence score does not separate the two groups: the three most confident unsure answers (0.9) were all wrong. Pre-selecting would put a wrong product one tap from a receipt in 2 of every 3 unsure answers, so the choose screen keeps asking the worker to pick.</p>
+</div>
+</main>
+</body>
+</html>

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowLeft, ArrowRight, Camera, Check, ImagePlus, Link, Plus, RefreshCcw, RotateCcw, Search, TriangleAlert, WifiOff, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Camera, Check, Link, RefreshCcw, RotateCcw, Search, TriangleAlert, WifiOff, X } from "lucide-react";
 import type { RankedCandidate, State } from "./machine";
 import { MAX_PHOTOS } from "./machine";
 import type { Strings } from "./strings";
@@ -144,15 +144,16 @@ function CandidateRow({ ranked, t, onPick }: { ranked: RankedCandidate; t: Strin
   );
 }
 
-function Capture({ photos, t, actions }: { photos: string[]; t: Strings; actions: Actions }) {
+function Capture({ photos, secondForSize, t, actions }: { photos: string[]; secondForSize: boolean; t: Strings; actions: Actions }) {
   const n = photos.length;
   const last = photos[n - 1];
+  const takeSecond = secondForSize ? t.addSizePhoto : t.photographBack;
   return (
     <>
       {last ? (
         <div className="hid-photo hid-photo-worker hid-preview">
           <img src={last} alt="" />
-          <span className="hid-lab">{t.photoN(n)}</span>
+          <span className="hid-lab">{t.side(n, secondForSize)}</span>
         </div>
       ) : (
         <>
@@ -172,29 +173,35 @@ function Capture({ photos, t, actions }: { photos: string[]; t: Strings; actions
           <>
             <button type="button" className="hid-thumb hid-thumb-empty" onClick={actions.openCamera} aria-label={t.takePhoto}>
               <Camera size={22} />
+              {t.side(1, secondForSize)}
             </button>
-            <span className="hid-thumb hid-thumb-empty hid-faded">
-              <Plus size={22} />
-            </span>
+            <span className="hid-thumb hid-thumb-empty hid-faded">{t.side(2, secondForSize)}</span>
           </>
         )}
         {n === 1 && (
-          <button type="button" className="hid-thumb hid-thumb-empty" onClick={actions.openCamera} aria-label={t.addPhoto}>
-            <Plus size={22} />
+          <button type="button" className="hid-thumb hid-thumb-empty" onClick={actions.openCamera} aria-label={takeSecond}>
+            <Camera size={22} />
+            {t.side(2, secondForSize)}
           </button>
         )}
       </Thumbs>
       <div className="hid-btnrow">
-        {n === 1 && (
-          <Btn kind="s" icon={<ImagePlus size={22} />} onClick={actions.openCamera}>
-            {t.addPhoto}
-          </Btn>
-        )}
-        {n === 0 ? (
+        {n === 0 && (
           <Btn kind="p" disabled>
             {t.identify}
           </Btn>
-        ) : (
+        )}
+        {n === 1 && (
+          <>
+            <Btn kind="s" onClick={actions.identify}>
+              {t.identify}
+            </Btn>
+            <Btn kind="p" icon={<Camera size={22} />} onClick={actions.openCamera}>
+              {takeSecond}
+            </Btn>
+          </>
+        )}
+        {n === MAX_PHOTOS && (
           <Btn kind="p" onClick={actions.identify}>
             {t.identify}
           </Btn>
@@ -232,7 +239,7 @@ export function Screen({ state, t, actions, context, contextLabel, progress }: S
     case "capture":
       return (
         <Page title={t.captureTitle} onBack={actions.close} backLabel={t.back}>
-          <Capture photos={state.photos} t={t} actions={actions} />
+          <Capture photos={state.photos} secondForSize={state.secondForSize} t={t} actions={actions} />
         </Page>
       );
 
@@ -360,7 +367,7 @@ export function Screen({ state, t, actions, context, contextLabel, progress }: S
         <Page announceTitle title={state.reason === "dark" ? t.tooDark : t.tooBlurred} onBack={actions.close} backLabel={t.back} right={<TriangleAlert size={22} aria-hidden="true" />}>
           <div className="hid-cam hid-rejected">
             <img src={state.rejected} alt="" />
-            <span className="hid-lab">{t.photoN(state.photos.length + 1)}</span>
+            <span className="hid-lab">{t.side(state.photos.length + 1, state.secondForSize)}</span>
           </div>
           <div className="hid-btnrow">
             <Btn kind="p" icon={<Camera size={22} />} onClick={actions.retake}>
